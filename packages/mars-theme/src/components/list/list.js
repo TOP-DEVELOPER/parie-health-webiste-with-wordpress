@@ -5,6 +5,7 @@ import TopRead from "./topread";
 import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 import EmailIcon from '../../../img/email.svg';
+import AllItems from "./list-item-cat";
 
 const List = ({ state }) => {
   // Get the data of the current list.
@@ -13,36 +14,36 @@ const List = ({ state }) => {
   return (
     <div>
     <Container>
-      <StickyPost>
-      {data.items.map(({ type, id }) => {
-        const item = state.source[type][id];
-        // Render one Item component for each one.
-        return <StickyItem key={item.id} item={item} />;
-      })}
-      </StickyPost>
+          <StickyPost>
+          {data.items.map(({ type, id }) => {
+            const item = state.source[type][id];
+            // Render one Item component for each one.
+            return <StickyItem key={item.id} item={item} />;
+          })}
+          </StickyPost>
 
-      <NewArticles>
-        <h2>New Articles</h2>
-        {/* Iterate over the items of the list. */}
-        {data.items.map(({ type, id }) => {
-        const item = state.source[type][id];
-        // Render one Item component for each one.
-        return <Item key={item.id} item={item} />;
-        })}
-      </NewArticles>
+          <NewArticles>
+            <h2>New Articles</h2>
+            {/* Iterate over the items of the list. */}
+            {data.items.map(({ type, id }) => {
+            const item = state.source[type][id];
+            // Render one Item component for each one.
+            return <Item key={item.id} item={item} />;
+            })}
+          </NewArticles>
 
-      <TopArticles>
-        <h2>Top Reads</h2>
-        {/* Iterate over the items of the list. */}
-        {data.items.map(({ type, id }) => {
-        const item = state.source[type][id];
-        // Render one Item component for each one.
-        return <TopRead key={item.id} item={item} />;
-        })}
-      </TopArticles>
-      </Container>
+          <TopArticles>
+            <h2>Top Reads</h2>
+            {/* Iterate over the items of the list. */}
+            {data.items.map(({ type, id }) => {
+            const item = state.source[type][id];
+            // Render one Item component for each one.
+            return <TopRead key={item.id} item={item} />;
+            })}
+          </TopArticles>
+    </Container>
 
-      <Container1>
+    <Container1>
       {/* EMail Subscription */}
       <MailSubscription>
         <div className="mailMessage">
@@ -60,12 +61,20 @@ const List = ({ state }) => {
             </div>
         </div>
 
-      </MailSubscription>
-      {/* All Articles */}
-      {/* <Pagination /> */}
+        </MailSubscription>
+      </Container1>
 
+      <Container>
+          <CategoryArticles>
+              {data.items.map(({ type, id }) => {
+                const item = state.source[type][id];
+                // Render one Item component for each one.
+                return <AllItems key={item.id} item={item} />;
+              })}
+          </CategoryArticles>
+          {/* <Pagination /> */}
+      </Container>
 
-    </Container1>
     </div>
   );
 };
@@ -288,4 +297,32 @@ const MailSubscription = styled.div`
             text-align: center;
         }
     }
+`;
+
+const CategoryArticles = styled.div`
+    display: grid;
+    grid-row-gap: 44px;
+    padding: 53px 10px;
+    justify-content: center;
+
+    @media (min-width: 769px) {
+        grid-template-columns: repeat(3, minmax(0, 380px));
+        grid-column-gap: 60px;
+    }
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 300px));
+        grid-column-gap: 40px;
+    }
+    /* @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 40px;
+    } */
+    @media (max-width: 375px) {
+        grid-template-columns: repeat(1, minmax(0, 327px));
+        grid-column-gap: 40px;
+    }
+    /* @media (min-width: 320px) and (max-width: 480px) {
+        grid-template-columns: repeat(1, auto);
+        grid-column-gap: 40px;
+    } */
 `;

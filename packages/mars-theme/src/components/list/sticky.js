@@ -1,0 +1,150 @@
+import { connect, styled } from "frontity";
+import Link from "../link";
+import FeaturedMedia from "../featured-media";
+import ReadingTime from '../../../img/reading-time.svg';
+
+
+
+const StickyItem = ({ state, item }) => {
+  const author = state.source.author[item.author];
+  const date = new Date(item.date);
+
+  const readingTime = require('reading-time');
+  const stats = readingTime(item.content);
+
+  return (
+
+    <article className={item.sticky.toString()}>
+
+        {/*
+         * If the want to show featured media in the
+         * list of featured posts, we render the media.
+         */}
+        {state.theme.featured.showOnList && (
+          <Link link={item.link}><FeaturedMedia id={item.featured_media} /></Link>
+        )}
+        <PostCat>
+            {item.categories.map( category => {
+                const cat = state.source.category[category]
+                return (
+                    <Link key={cat.id} link={cat.link}>{cat.name}</Link>
+                )
+            })}
+        </PostCat>
+
+        <Link link={item.link}>
+            <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+        </Link>
+
+      <StickyPostMeta>
+            <div className="StickyAuthorMeta">
+                {/* If the post has an author, we render a clickable author text. */}
+                {author && (
+                  <StyledLink link={author.link}>
+                    <AuthorName>
+                      <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
+                    </AuthorName>
+                  </StyledLink>
+                )}
+            </div>
+
+            <div className="PostTime">
+                <img src={ReadingTime}
+                alt="Prairie"
+                style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
+            </div>
+      </StickyPostMeta>
+
+
+
+
+    </article>
+  );
+};
+
+
+
+// Connect the Item to gain access to `state` as a prop
+export default connect(StickyItem);
+
+const Title = styled.h1`
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 36px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+`;
+
+const AuthorName = styled.span`
+    color: #456772;
+    font-weight: 500;
+    font-size: 0.8rem;
+
+  b {
+      position: relative;
+      top: -10px;
+      left: 8px;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  padding: 15px 0;
+`;
+
+const PublishDate = styled.span`
+  color: rgba(12, 17, 43, 0.9);
+  font-size: 0.9em;
+`;
+
+const Excerpt = styled.div`
+  line-height: 1.6em;
+  color: rgba(12, 17, 43, 0.8);
+`;
+
+const PostCat = styled.div`
+    padding-top: 12px;
+
+    a {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        color: #6D9147;
+        line-height: 15.62px;
+    }
+    a::after {
+        content: '.';
+        line-height: 10px;
+        padding: 0px 5px;
+        vertical-align: top;
+        font-size: 20px;
+    }
+    a:last-child::after {
+        content: '';
+    }
+`;
+
+const StickyPostMeta = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .authorAvatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+    }
+
+    .PostTime img {
+        vertical-align: sub;
+    }
+    .PostTime span {
+        font-size: 12px;
+        font-weight: 500;
+        color: #456772;
+        padding-left: 5px;
+    }
+`;

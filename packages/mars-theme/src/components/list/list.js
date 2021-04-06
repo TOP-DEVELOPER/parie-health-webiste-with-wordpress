@@ -69,7 +69,6 @@ const List = ({ state }) => {
       </Container1>
 
       <Container>
-          </CategoryArticles>
             <InfiniteScroll
               dataLength={data.items.length} //This is important field to render the next data
               next={data.items.fetchData}

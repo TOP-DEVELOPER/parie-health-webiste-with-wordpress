@@ -7,9 +7,12 @@ import FeaturedIcon from '../../../img/star.svg';
 import EmailIcon from '../../../img/email.svg';
 import AllItems from "./list-item-cat";
 
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
+
 
   return (
     <div>
@@ -66,13 +69,28 @@ const List = ({ state }) => {
       </Container1>
 
       <Container>
-          <CategoryArticles>
-              {data.items.map(({ type, id }) => {
-                const item = state.source[type][id];
-                // Render one Item component for each one.
-                return <AllItems key={item.id} item={item} />;
-              })}
           </CategoryArticles>
+            <InfiniteScroll
+              dataLength={data.items.length} //This is important field to render the next data
+              next={data.items.fetchData}
+              hasMore={true}
+              loader={<h4>Loading...</h4>}
+              endMessage={
+                <p style={{ textAlign: 'center' }}>
+                  <b>Yay! You have seen it all</b>
+                </p>
+              }
+            >
+                <CategoryArticles>
+                  {console.log(data.items.length)}
+                  {data.items.map(({ key, type, id }) => {
+                    const item = state.source[type][id];
+                    // Render one Item component for each one.
+                    return <AllItems key={item.id} item={item} />;
+                  })}
+                </CategoryArticles>
+            </InfiniteScroll>
+
           {/* <Pagination /> */}
       </Container>
 

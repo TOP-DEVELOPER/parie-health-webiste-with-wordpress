@@ -3,6 +3,8 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import EmailIcon from '../../img/email.svg';
+import ReadingTime from '../../img/reading-time.svg';
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -13,6 +15,9 @@ const Post = ({ state, actions, libraries }) => {
   const author = state.source.author[post.author];
   // Get a human readable date.
   const date = new Date(post.date);
+
+  const readingTime = require('reading-time');
+  const stats = readingTime(post.content);
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
@@ -29,25 +34,45 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
+    <div>
     <Container>
       <div>
+
+          <PostCat>
+              {post.categories.map( category => {
+                  const cat = state.source.category[category]
+                  return (
+                      <Link key={cat.id} link={cat.link}>{cat.name}</Link>
+                  )
+              })}
+          </PostCat>
+
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+
+        {/* If the post has an excerpt (short summary text), we render it */}
+
+        {post.excerpt && (
+          <Excerpt dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+        )}
 
         {/* Only display author and date on posts */}
         {data.isPost && (
-          <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
-            <DateWrapper>
-              {" "}
-              on <b>{date.toDateString()}</b>
-            </DateWrapper>
-          </div>
+
+            <OtherMeta>
+                <div className="PostAuthor">
+                    {author && (
+                      <StyledLink link={author.link}>
+                        <AuthorName>
+                          <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
+                        </AuthorName>
+                      </StyledLink>
+                    )}
+                </div>
+                <div className="PostTime">
+                    <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
+                </div>
+            </OtherMeta>
+
         )}
       </div>
 
@@ -62,22 +87,49 @@ const Post = ({ state, actions, libraries }) => {
         <Html2React html={post.content.rendered} />
       </Content>
     </Container>
+
+    <Container1>
+      {/* EMail Subscription */}
+      <MailSubscription>
+        <div className="mailMessage">
+            <h4>Get the latest mental health tips from Prairie</h4>
+        </div>
+        <div className="mailForm">
+            <div id="mc_embed_signup">
+                <form action="https://prairiehealth.us8.list-manage.com/subscribe/post?u=82ce164019d40ac0fb4e3248d&amp;id=8ceb6ec6eb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                    <div id="mc_embed_signup_scroll">
+                        <img className="emailIcon" src={EmailIcon} alt="Email Icon" style={{ width: '22px', height: '15px'}}/><input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="Let us know your email" required />
+                        {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
+                        <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_82ce164019d40ac0fb4e3248d_8ceb6ec6eb" tabIndex="-1" defaultValue="" /></div>
+                        <div className="clear"><input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" className="button" /></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        </MailSubscription>
+      </Container1>
+  </div>
   ) : null;
 };
 
 export default connect(Post);
 
 const Container = styled.div`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
+  max-width: 790px;
+  width: 100%;
+  margin: auto;
+  padding: 24px 0 48px;
 `;
 
 const Title = styled.h1`
-  margin: 0;
   margin-top: 24px;
-  margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+  margin-bottom: 24px;
+  color: #183F4F;
+  line-height: 41.66px;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
 `;
 
 const StyledLink = styled(Link)`
@@ -90,10 +142,135 @@ const Author = styled.p`
   display: inline;
 `;
 
-const DateWrapper = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
+
+const PostCat = styled.div`
+    padding-top: 12px;
+
+    a {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #6D9147;
+        line-height: 23.44px;
+    }
+    a::after {
+        content: '.';
+        line-height: 10px;
+        padding: 0px 5px;
+        vertical-align: top;
+        font-size: 20px;
+    }
+    a:last-child::after {
+        content: '';
+    }
+`;
+
+
+const Container1 = styled.section`
+  max-width: 790px;
+  width: 100%;
+  margin: auto;
+  padding: 32px 0 64px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: 950px) {
+      flex-direction: column;
+      padding: 0 64px 64px;
+  }
+  @media (max-width: 768px) {
+      padding: 0 24px 64px;
+  }
+`;
+
+const MailSubscription = styled.div`
+    background-color: #F2F2F2;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 24px;
+
+    @media (max-width: 1130px) {
+        flex-direction: column;
+        padding: 0 0 25px;
+        width: 100vw;
+        position: relative;
+        margin-left: -50vw;
+        left: 49%;
+        border-radius: 0;
+    }
+    @media (max-width: 650px) {
+        left: 50%;
+        padding:0 24px 25px;
+    }
+
+    .mailMessage h4 {
+        font-size: 1.3rem;
+        line-height: 26.04px;
+        font-weight: 400;
+        color: #183F4F;
+        letter-spacing: -0.03em;
+    }
+    #mc_embed_signup_scroll {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    #mce-EMAIL {
+        font-size: 1.3rem;
+        border: 0;
+        border-radius: 8px;
+        letter-spacing: -0.03em;
+        padding: 19px 75px 19px 75px;
+        color: #7C989B;
+        width: 440px;
+        background-color: #fff;
+    }
+    .emailIcon {
+        position: absolute;
+        left: 22px;
+    }
+    #mc-embedded-subscribe {
+        background: #183F4F;
+        color: #fff;
+        font-size: 1.3rem;
+        border: 0;
+        border-radius: 8px;
+        letter-spacing: -0.03em;
+        padding: 19px 24px;
+        margin-left: 24px;
+    }
+
+    @media (max-width: 650px) {
+        #mc_embed_signup_scroll {
+            flex-direction: column;
+        }
+        .emailIcon {
+            top: 25px;
+        }
+        #mce-EMAIL {
+            margin-bottom: 16px;
+            width: 100%;
+        }
+        .clear {
+            width: 100%;
+        }
+        #mc-embedded-subscribe {
+            margin-left: 0;
+            width: 100%;
+        }
+        .mailMessage h4 {
+            text-align: center;
+        }
+    }
 `;
 
 /**
@@ -101,15 +278,23 @@ const DateWrapper = styled.p`
  * selectors to style that HTML.
  */
 const Content = styled.div`
-  color: rgba(12, 17, 43, 0.8);
+  color: #183F4F;
   word-break: break-word;
+  line-height: 32px;
+  font-size: 1.571rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
 
   * {
     max-width: 100%;
   }
 
   p {
-    line-height: 1.6em;
+    line-height: 32px;
+    font-size: 1.571rem;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+
   }
 
   img {
@@ -141,7 +326,7 @@ const Content = styled.div`
   }
 
   a {
-    color: rgb(31, 56, 197);
+    color: #183F4F;
     text-decoration: underline;
   }
 
@@ -218,5 +403,58 @@ const Content = styled.div`
       float: left;
       margin-right: 24px;
     }
+  }
+`;
+
+const Excerpt = styled.div`
+  line-height: 31.25px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: #183F4F;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #E3E3E3;
+`;
+
+
+
+const OtherMeta = styled.div`
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+
+    .PostTime {
+        /* width: 30%; */
+    }
+    .PostTime img {
+        vertical-align: sub;
+    }
+    .PostTime span {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #456772;
+        padding-left: 5px;
+        line-height: 20.83px;
+    }
+`;
+
+const AuthorName = styled.span`
+    color: #456772;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 20.83px;
+
+  b {
+      position: relative;
+      top: -10px;
+      left: 8px;
+  }
+  .authorAvatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
   }
 `;

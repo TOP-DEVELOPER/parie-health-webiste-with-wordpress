@@ -197,9 +197,6 @@ const PostMeta = styled.div`
     .PostTime {
         /* width: 30%; */
     }
-    .PostTime span {
-        font-size: 0.657rem;
-    }
     .PostTime img {
         vertical-align: sub;
     }

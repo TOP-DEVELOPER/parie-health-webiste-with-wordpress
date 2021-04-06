@@ -59,7 +59,7 @@ const settings = {
         "source": {
           "url": "https://www.prairiehealth.co/blog",
           "params": {
-            "per_page": 6,
+            "per_page": 10,
             "type": ["post"],
           },
         }

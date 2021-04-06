@@ -3,21 +3,24 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
-import EmailIcon from '../../img/email.svg';
-import ReadingTime from '../../img/reading-time.svg';
+import EmailIcon from "../../img/email.svg";
+import ReadingTime from "../../img/reading-time.svg";
+import Pagination from "./list/pagination";
+
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
+
   // Get the data of the author.
   const author = state.source.author[post.author];
   // Get a human readable date.
   const date = new Date(post.date);
 
   const readingTime = require('reading-time');
-  const stats = readingTime(post.content);
+  const stats = readingTime(post.content.rendered);
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
@@ -60,6 +63,7 @@ const Post = ({ state, actions, libraries }) => {
 
             <OtherMeta>
                 <div className="PostAuthor">
+                    <p>Author</p>
                     {author && (
                       <StyledLink link={author.link}>
                         <AuthorName>
@@ -86,6 +90,12 @@ const Post = ({ state, actions, libraries }) => {
       <Content>
         <Html2React html={post.content.rendered} />
       </Content>
+
+      <DateWrapper>
+      {" "}
+      <b>{date.toDateString()}</b>
+      </DateWrapper>
+
     </Container>
 
     <Container1>
@@ -109,17 +119,45 @@ const Post = ({ state, actions, libraries }) => {
 
         </MailSubscription>
       </Container1>
+      <Container>
+          {post.next && (
+          <Link link={post.next.slug} title={post.next.slug}>
+            ← Next post
+          </Link>
+          )}
+          {post.previous && (
+            <Link link={post.previous.slug} title={post.previous.slug}>
+              Previous post →
+            </Link>
+          )}
+      </Container>
+
+
+
+
   </div>
-  ) : null;
+) : null ;
 };
 
 export default connect(Post);
+
+const DateWrapper = styled.p`
+  color: #456772;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 20.83px;
+  display: inline;
+`;
 
 const Container = styled.div`
   max-width: 790px;
   width: 100%;
   margin: auto;
   padding: 24px 0 48px;
+
+  @media (max-width: 768px) {
+      padding: 24px 24px 48px;
+  }
 `;
 
 const Title = styled.h1`
@@ -170,7 +208,7 @@ const Container1 = styled.section`
   max-width: 790px;
   width: 100%;
   margin: auto;
-  padding: 32px 0 64px;
+  padding: 0 0 64px;
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -187,7 +225,7 @@ const Container1 = styled.section`
 
 const MailSubscription = styled.div`
     background-color: #F2F2F2;
-    border-radius: 8px;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -284,6 +322,8 @@ const Content = styled.div`
   font-size: 1.571rem;
   font-weight: 400;
   letter-spacing: -0.03em;
+  margin-bottom: 48px;
+  border-bottom: 1px solid #E3E3E3;
 
   * {
     max-width: 100%;
@@ -412,8 +452,12 @@ const Excerpt = styled.div`
   font-weight: 400;
   letter-spacing: -0.03em;
   color: #183F4F;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   border-bottom: 1px solid #E3E3E3;
+
+  @media (max-width: 375px) {
+      margin-bottom: 16px;
+  }
 `;
 
 
@@ -424,7 +468,12 @@ const OtherMeta = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 36px;
+    margin-bottom: 48px;
+
+    @media (max-width: 375px) {
+        flex-direction: column;
+        align-items: normal;
+    }
 
     .PostTime {
         /* width: 30%; */
@@ -438,6 +487,20 @@ const OtherMeta = styled.div`
         color: #456772;
         padding-left: 5px;
         line-height: 20.83px;
+    }
+
+    .PostAuthor p {
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 18.23px;
+        margin-bottom: 8px;
+        color: #183F4F;
+    }
+
+    @media (max-width: 375px) {
+        .PostAuthor {
+            margin-bottom: 16px;
+        }
     }
 `;
 

@@ -19,7 +19,7 @@ const Item = ({ state, item }) => {
   const date = new Date(item.date);
 
   const readingTime = require('reading-time');
-  const stats = readingTime(item.content);
+  const stats = readingTime(item.content.rendered);
 
 
   return (

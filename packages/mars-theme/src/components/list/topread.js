@@ -10,7 +10,7 @@ const TopRead = ({ state, item }) => {
   const date = new Date(item.date);
 
   const readingTime = require('reading-time');
-  const stats = readingTime(item.content);
+  const stats = readingTime(item.content.rendered);
 
   let i = 0;
 
@@ -90,7 +90,7 @@ const Title = styled.h1`
   color: #183F4F;
 
   @media (max-width: 950px) {
-      
+
   }
 `;
 

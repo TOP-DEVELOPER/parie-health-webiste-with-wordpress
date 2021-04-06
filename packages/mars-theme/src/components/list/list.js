@@ -69,7 +69,7 @@ const List = ({ state }) => {
       </Container1>
 
       <Container>
-            <InfiniteScroll
+            {/*<InfiniteScroll
               dataLength={data.items.length} //This is important field to render the next data
               next={data.items.fetchData}
               hasMore={true}
@@ -79,7 +79,7 @@ const List = ({ state }) => {
                   <b>Yay! You have seen it all</b>
                 </p>
               }
-            >
+            >*/}
                 <CategoryArticles>
                   {console.log(data.items.length)}
                   {data.items.map(({ key, type, id }) => {
@@ -88,9 +88,11 @@ const List = ({ state }) => {
                     return <AllItems key={item.id} item={item} />;
                   })}
                 </CategoryArticles>
-            </InfiniteScroll>
+            {/* </InfiniteScroll> */}
 
-          {/* <Pagination /> */}
+      </Container>
+      <Container>
+        <Pagination />
       </Container>
 
     </div>

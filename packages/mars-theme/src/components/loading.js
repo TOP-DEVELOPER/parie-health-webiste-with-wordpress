@@ -1,4 +1,5 @@
 import { styled, keyframes, css } from "frontity";
+import Balls from "../../img/balls.svg";
 
 const scale = keyframes`
   0% {transform: scaley(1.0)}
@@ -8,13 +9,7 @@ const scale = keyframes`
 
 const Loading = () => (
   <Container>
-    <div>
-      <div css={bar(1)} />
-      <div css={bar(2)} />
-      <div css={bar(3)} />
-      <div css={bar(4)} />
-      <div css={bar(5)} />
-    </div>
+    <img src={Balls} alt="Balls" style={{ width: '48px', height: '48px'}}/>
   </Container>
 );
 
@@ -33,9 +28,9 @@ const bar = (index) => css`
 `;
 
 const Container = styled.div`
-  width: 800px;
-  margin: 0;
-  padding: 24px;
+  max-width: 1440px;
+  width: 100%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;

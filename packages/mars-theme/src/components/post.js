@@ -5,12 +5,19 @@ import List from "./list";
 import FeaturedMedia from "./featured-media";
 import EmailIcon from "../../img/email.svg";
 import ReadingTime from "../../img/reading-time.svg";
+
+import Previous from "../../img/previous.svg";
+import Next from "../../img/next.svg";
+
+
+
 import Pagination from "./list/pagination";
 
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+
   // Get the data of the post.
   const post = state.source[data.type][data.id];
 
@@ -24,6 +31,12 @@ const Post = ({ state, actions, libraries }) => {
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
+
+  // related data
+  const related = state.source.get('https://www.prairiehealth.co/blog/wp-json/yarpp/v1/related/4576');
+  //const relatedpost = state.source[related.type][related.id];
+
+  console.log(related);
 
   /**
    * Once the post has loaded in the DOM, prefetch both the
@@ -120,18 +133,35 @@ const Post = ({ state, actions, libraries }) => {
         </MailSubscription>
       </Container1>
       <Container>
-          {post.next && (
-          <Link link={post.next.slug} title={post.next.slug}>
-            ← Next post
-          </Link>
-          )}
-          {post.previous && (
-            <Link link={post.previous.slug} title={post.previous.slug}>
-              Previous post →
-            </Link>
-          )}
-      </Container>
+          <RelatedPosts>
+              <div className="relatedPosts">
+                  <h2>Related Posts</h2>
+              </div>
+              <div className="postPagination">
+                  {post.next && (
+                  <Link link={post.next.slug} title={post.next.slug}>
+                      <svg className="next" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="16" cy="16" r="16" fill="#456772"/>
+                      <circle cx="16" cy="16" r="15.5" stroke="white" stroke-opacity="0.1"/>
+                      <path d="M22 16.4H10" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M14 12.4L10 16.4L14 20.4" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  </Link>
+                  )}
+                  {post.previous && (
+                    <Link link={post.previous.slug} title={post.previous.slug}>
+                        <svg className="prev" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#6D9147"/>
+                        <path d="M10 16.4H22" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 12.4L22 16.4L18 20.4" fill="#6D9147"/>
+                        <path d="M18 12.4L22 16.4L18 20.4" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
 
+                    </Link>
+                  )}
+                </div>
+            </RelatedPosts>
+      </Container>
 
 
 
@@ -520,4 +550,38 @@ const AuthorName = styled.span`
       height: 32px;
       border-radius: 50%;
   }
+`;
+
+const RelatedPosts = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .relatedPosts h2 {
+        color: #456772;
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 31.25px;
+    }
+
+    .postPagination a {
+        margin-right: 16px;
+    }
+    .postPagination a svg {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+    }
+    .postPagination a svg.next:hover {
+        fill: #183F4F;
+    }
+    .postPagination a svg.prev:hover circle{
+        fill: #4E7B1E;
+    }
+
+    .postPagination a:last-child {
+        margin-right: 0;
+    }
+
 `;

@@ -14,7 +14,7 @@ import FeaturedIcon from '../../../img/star.svg';
  */
 
 
-const Item = ({ state, item }) => {
+const Item = ({ state, item, link }) => {
   const author = state.source.author[item.author];
   const date = new Date(item.date);
 

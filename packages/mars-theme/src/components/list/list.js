@@ -1,17 +1,36 @@
 import { connect, styled, decode } from "frontity";
+
+import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
+
+//import useArchiveInfiniteScroll from "@frontity/hooks/use-archive-infinite-scroll";
+
 import Item from "./list-item";
 import StickyItem from "./sticky";
 import TopRead from "./topread";
-import Pagination from "./pagination";
+//import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 import EmailIcon from '../../../img/email.svg';
-import AllItems from "./list-item-cat";
+import AllItems from "./list-cat";
+import Loading from "../loading";
 
-import InfiniteScroll from 'react-infinite-scroll-component';
 
 const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
+
+{/*
+  const {
+    pages,
+    isFetching,
+    isError,
+    isLimit,
+    fetchNext
+} = useArchiveInfiniteScroll({ limit: 46 });
+*/}
+
+const { posts, isLimit, isFetching, fetchNext } = usePostTypeInfiniteScroll({
+    limit: 0, active: !!data.isPost,
+  });
 
 
   return (
@@ -68,32 +87,47 @@ const List = ({ state }) => {
         </MailSubscription>
       </Container1>
 
-      <Container>
-            {/*<InfiniteScroll
-              dataLength={data.items.length} //This is important field to render the next data
-              next={data.items.fetchData}
-              hasMore={true}
-              loader={<h4>Loading...</h4>}
-              endMessage={
-                <p style={{ textAlign: 'center' }}>
-                  <b>Yay! You have seen it all</b>
-                </p>
-              }
-            >*/}
-                <CategoryArticles>
-                  {console.log(data.items.length)}
-                  {data.items.map(({ key, type, id }) => {
-                    const item = state.source[type][id];
-                    // Render one Item component for each one.
-                    return <AllItems key={item.id} item={item} />;
-                  })}
-                </CategoryArticles>
-            {/* </InfiniteScroll> */}
 
-      </Container>
+
+
+                {/*
+                    {data.items.map(({ key, type, id }) => {
+                        const item = state.source[type][id];
+                        // Render one Item component for each one.
+                        return <AllItems key={item.id} item={item} />;
+                    })}
+                */}
+
+                {/* This code if we use  useArchiveInfiniteScroll */}
+                {/*
+                {pages.map(({ Wrapper, key, link, isLast }) => (
+                    <Wrapper key={key}>
+                      <AllItems link={link} />
+                    </Wrapper>
+                  ))}
+                  {isFetching && <Loading />}
+                  {isLimit && <button onClick={fetchNext}>Next Page</button>}
+                  {isError && <button onClick={fetchNext}>Try Again</button>}
+                */}  
+
+                {/* This code if we use  usePostTypeInfiniteScroll */}
+                {posts.map(({ Wrapper, key, link, isLast}) => (
+                    <Wrapper key={key}>
+                        <AllItems link={link} />
+                    </Wrapper>
+                ))}
+                {isFetching && <Loading />}
+                {isLimit && <button onClick={fetchNext}>Load Next Post</button>}
+
+
+
+
+
+      {/*
       <Container>
         <Pagination />
       </Container>
+      */}
 
     </div>
   );

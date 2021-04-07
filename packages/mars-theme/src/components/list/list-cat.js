@@ -1,10 +1,10 @@
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item-cat";
-
 import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 
-const ListCat = ({ state }) => {
+
+const ListCat = ({ state, link, item, id }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
@@ -32,11 +32,14 @@ const ListCat = ({ state }) => {
 
 
       <CategoryArticles>
+
           {data.items.map(({ type, id }) => {
             const item = state.source[type][id];
             // Render one Item component for each one.
             return <Item key={item.id} item={item} />;
           })}
+
+
       </CategoryArticles>
 
 

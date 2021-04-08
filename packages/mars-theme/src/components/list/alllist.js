@@ -122,6 +122,7 @@ const CategoryArticles = styled.div`
     @media (max-width: 375px) {
         grid-template-columns: repeat(1, minmax(0, 327px));
         grid-column-gap: 40px;
+        padding: 32px 0 71px;
     }
     /* @media (min-width: 320px) and (max-width: 480px) {
         grid-template-columns: repeat(1, auto);

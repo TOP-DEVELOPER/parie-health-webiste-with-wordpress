@@ -5,6 +5,7 @@ import List from "./list";
 import FeaturedMedia from "./featured-media";
 import EmailIcon from "../../img/email.svg";
 import ReadingTime from "../../img/reading-time.svg";
+import FeaturedIcon from '../../img/star.svg';
 
 import Previous from "../../img/previous.svg";
 import Next from "../../img/next.svg";

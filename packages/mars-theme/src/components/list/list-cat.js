@@ -4,7 +4,7 @@ import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 
 
-const ListCat = ({ state, link, item, id }) => {
+const ListCat = ({ state, link, item }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 

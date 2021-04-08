@@ -73,6 +73,7 @@ const globalStyles = css`
     font-size: 14px;
     background: #FDFCFD;
     counter-reset: my-sec-counter;
+    overflow-x: hidden;
   }
   a,
   a:visited {
@@ -81,6 +82,13 @@ const globalStyles = css`
   }
   a:hover {
       color: #2A440E;
+  }
+  hr {
+      border: 1px solid #E3E3E3;
+      width: 100vw;
+      position: relative;
+      margin-left: -50vw;
+      left: 50%;
   }
 `;
 

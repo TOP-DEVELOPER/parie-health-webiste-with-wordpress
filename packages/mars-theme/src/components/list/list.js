@@ -1,8 +1,8 @@
 import { connect, styled, decode } from "frontity";
 
-import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
+//import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
 
-//import useArchiveInfiniteScroll from "@frontity/hooks/use-archive-infinite-scroll";
+import useArchiveInfiniteScroll from "@frontity/hooks/use-archive-infinite-scroll";
 
 import Item from "./list-item";
 import StickyItem from "./sticky";
@@ -18,20 +18,20 @@ const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
-{/*
+
   const {
     pages,
     isFetching,
     isError,
     isLimit,
     fetchNext
-} = useArchiveInfiniteScroll({ limit: 46 });
-*/}
+} = useArchiveInfiniteScroll({ limit: 0 });
 
+{/*
 const { posts, isLimit, isFetching, fetchNext } = usePostTypeInfiniteScroll({
     limit: 0, active: !!data.isPost,
   });
-
+*/}
 
   return (
     <div>
@@ -99,7 +99,7 @@ const { posts, isLimit, isFetching, fetchNext } = usePostTypeInfiniteScroll({
                 */}
 
                 {/* This code if we use  useArchiveInfiniteScroll */}
-                {/*
+
                 {pages.map(({ Wrapper, key, link, isLast }) => (
                     <Wrapper key={key}>
                       <AllItems link={link} />
@@ -108,9 +108,10 @@ const { posts, isLimit, isFetching, fetchNext } = usePostTypeInfiniteScroll({
                   {isFetching && <Loading />}
                   {isLimit && <button onClick={fetchNext}>Next Page</button>}
                   {isError && <button onClick={fetchNext}>Try Again</button>}
-                */}  
+
 
                 {/* This code if we use  usePostTypeInfiniteScroll */}
+                {/*
                 {posts.map(({ Wrapper, key, link, isLast}) => (
                     <Wrapper key={key}>
                         <AllItems link={link} />
@@ -118,7 +119,7 @@ const { posts, isLimit, isFetching, fetchNext } = usePostTypeInfiniteScroll({
                 ))}
                 {isFetching && <Loading />}
                 {isLimit && <button onClick={fetchNext}>Load Next Post</button>}
-
+                */}
 
 
 

@@ -66,28 +66,6 @@ const Item = ({ state, item, link }) => {
 
 
         </PostMeta>
-
-      {/* <div> */ }
-        {/* If the post has an author, we render a clickable author text. */}
-
-
-
-        {/*
-        <PublishDate>
-          {" "}
-          on <b>{date.toDateString()}</b>
-        </PublishDate>
-        */}
-      {/* </div> */}
-
-
-
-      {/* If the post has an excerpt (short summary text), we render it */}
-      {/*
-      {item.excerpt && (
-        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
-      )}
-      */}
     </article>
   );
 };

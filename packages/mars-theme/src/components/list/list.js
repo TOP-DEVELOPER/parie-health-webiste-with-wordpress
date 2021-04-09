@@ -196,7 +196,10 @@ const NewArticles = styled.div`
         justify-content: flex-start;
         position: relative;
     }
-    article.true::after {
+    article.true div:first-child div {
+        position: relative;
+    }
+    article.true div:first-child div::after {
         content: '';
         width: 24px;
         height: 24px;
@@ -204,7 +207,6 @@ const NewArticles = styled.div`
         position: absolute;
         bottom: 0px;
         right: 0;
-        left: 56px;
         border-radius: 0 0 8px;
     }
 

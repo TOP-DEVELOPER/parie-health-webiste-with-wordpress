@@ -8,6 +8,7 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+import FontFaces from "./styles/font-faces";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -29,6 +30,7 @@ const Theme = ({ state }) => {
       {/* Add some global styles for the whole site, like body or a's.
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
       <Global styles={globalStyles} />
+      <FontFaces />
 
       {/* Add the header of the site. */}
       <HeadContainer>
@@ -56,10 +58,6 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
-
-
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-
 
     * {
         -webkit-box-sizing: border-box;

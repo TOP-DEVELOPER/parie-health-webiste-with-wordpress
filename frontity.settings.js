@@ -34,8 +34,8 @@ const settings = {
               "/category/medication/"
             ],
             [
-              "Therapy",
-              "/category/therapy/"
+              "COVID",
+              "/category/covid/"
             ],
             [
               "Lifestyle",
@@ -49,7 +49,8 @@ const settings = {
           "featured": {
             "showOnList": true,
             "showOnPost": true
-          }
+          },
+          "fontSets": "us-ascii"
         }
       }
     },

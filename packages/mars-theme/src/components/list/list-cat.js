@@ -8,6 +8,11 @@ const ListCat = ({ state, link, item }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
+  // data.total → total pages that match the current path/url
+  // data.searchQuery → query done to get search results
+  const { total, searchQuery } = data;
+  const isEmpty = data.total === 0;
+
   return (
     <Container>
       {/* If the list is a taxonomy, we render a title. */}
@@ -31,6 +36,24 @@ const ListCat = ({ state, link, item }) => {
       )}
 
 
+      {data.isSearch && (
+          <IntroText size="thin">
+            {isEmpty ? (
+              <Text>
+                We could not find any results for your search. You can give it
+                another try through the search form above.
+              </Text>
+            ) : (
+              <Text>
+                <b>Search:</b> <em>{data.searchQuery}</em><br />
+                We found {total} {total === 1 ? "result" : "results"} for your
+                search.
+              </Text>
+            )}
+          </IntroText>
+      )}
+
+
       <CategoryArticles>
 
           {data.items.map(({ type, id }) => {
@@ -42,18 +65,30 @@ const ListCat = ({ state, link, item }) => {
 
       </CategoryArticles>
 
-
-      {/* Mail Subscription */}
-
-      {/* All Articles */}
-      {/* <Pagination /> */}
-
-
     </Container>
   );
 };
 
 export default connect(ListCat);
+
+const IntroText = styled.div`
+  width: 100%;
+  margin-top: 2rem;
+  font-weight: initial;
+  @media (min-width: 700px) {
+    font-size: 2rem;
+    margin-top: 2.5rem;
+  }
+`;
+
+const Text = styled.p`
+  margin: 0 0 1em 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+
 
 const Container = styled.section`
   max-width: 1440px;

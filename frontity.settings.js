@@ -46,6 +46,8 @@ const settings = {
               "/category/genetic-testing/"
             ]
           ],
+          "showSearchInHeader": true,
+          "showAllContentOnArchive": false,
           "featured": {
             "showOnList": true,
             "showOnPost": true

@@ -24,6 +24,12 @@ const Post = ({ state, actions, libraries }) => {
 
   // Get the data of the author.
   const author = state.source.author[post.author];
+
+  // Get the data of the medical reviewer
+
+  //const medicallReviwer = state.source[post.medicalreview];
+
+
   // Get a human readable date.
   const date = new Date(post.date);
 
@@ -114,13 +120,23 @@ const Post = ({ state, actions, libraries }) => {
 
             <OtherMeta>
                 <div className="PostAuthor">
-                    <p>Author</p>
-                    {author && (
-                      <StyledLink link={author.link}>
+                    <div className="authorMeta">
+                        <p>Author</p>
+                        {author && (
+                          <StyledLink link={author.link}>
+                            <AuthorName>
+                              <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
+                            </AuthorName>
+                          </StyledLink>
+                        )}
+                    </div>
+                    {post.medicalreview && post.image_of_medically_reviewer && (
+                    <div className="mediallyReview">
+                        <p>Medically Reviewed By</p>
                         <AuthorName>
-                          <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
+                          <img src={post.image_of_medically_reviewer} alt={post.medicalreview} className="authorAvatar"/> <b>{post.medicalreview}</b>
                         </AuthorName>
-                      </StyledLink>
+                    </div>
                     )}
                 </div>
                 <div className="PostTime">
@@ -740,6 +756,13 @@ const OtherMeta = styled.div`
             margin-bottom: 16px;
         }
     }
+
+    .authorMeta,
+    .mediallyReview {
+        float: left;
+        min-width: 200px;
+    }
+
 `;
 
 const AuthorName = styled.span`

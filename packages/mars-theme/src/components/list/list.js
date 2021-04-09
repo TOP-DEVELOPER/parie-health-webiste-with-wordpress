@@ -196,10 +196,10 @@ const NewArticles = styled.div`
         justify-content: flex-start;
         position: relative;
     }
-    article.true div:first-child div {
+    article.true span:first-of-type div{
         position: relative;
     }
-    article.true div:first-child div::after {
+    article.true span:first-of-type div::after {
         content: '';
         width: 24px;
         height: 24px;

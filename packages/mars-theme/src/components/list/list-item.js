@@ -125,10 +125,22 @@ const Excerpt = styled.div`
   color: rgba(12, 17, 43, 0.8);
 `;
 
-const FeaturedImage = styled.div`
+const FeaturedImage = styled.span`
     img {
         height: 80px;
         width: 80px;
+    }
+    @media (max-width: 950px) {
+        img {
+            height: 60px;
+            width: 120px;
+        }
+    }
+    @media (max-width: 375px) {
+        img {
+            height: 60px;
+            width: 100px;
+        }
     }
 `;
 

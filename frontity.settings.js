@@ -3,7 +3,7 @@ const settings = {
   "state": {
     "frontity": {
       "url": "https://test.frontity.org",
-      "title": "Prairie",
+      "title": "Prairie Health | Blog",
       "description": "Prairie Health Blog"
     }
   },

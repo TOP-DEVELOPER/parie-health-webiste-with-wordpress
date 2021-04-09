@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, Head } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
@@ -89,7 +89,9 @@ const Post = ({ state, actions, libraries }) => {
     <div>
     <Container>
       <div>
-
+          <Head>
+              <meta name="description" content={post.excerpt.rendered} />
+          </Head>
           <PostCat>
               {post.categories.map( category => {
                   const cat = state.source.category[category]

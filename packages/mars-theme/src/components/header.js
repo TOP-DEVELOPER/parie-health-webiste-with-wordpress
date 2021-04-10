@@ -1,6 +1,7 @@
 import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
+import NavTabletMobile from "./nav-mobile";
 import MobileMenu from "./menu";
 import SearchForm from "./search/search-form";
 import LogoDark from '../../img/logoDark.svg';
@@ -32,7 +33,13 @@ const Header = ({ state }) => {
         </HeaderTop>
         <MobileMenu />
       </Container>
-      <Nav />
+      <NavDesktop>
+        <Nav />
+      </NavDesktop>
+      <NavMobile>
+        <NavTabletMobile />
+      </NavMobile>
+
     </>
   );
 };
@@ -52,14 +59,6 @@ const HeaderTop = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-`;
-
-const PrairieLogo = styled.div`
-
-`;
-
-const SearchBar = styled.div`
-
 `;
 
 const JoinPrairie = styled.div`
@@ -83,6 +82,13 @@ const JoinBtn = styled.div`
 
     margin-left: 24px;
 
+    @media (min-width: 621px) {
+        display: block;
+    }
+    @media (max-width: 620px) {
+        display: none;
+    }
+
     a {
         background-color: #6D9147;
         color: #fff;
@@ -98,18 +104,9 @@ const JoinBtn = styled.div`
     a:hover {
         background-color: #4F6B32;
     }
-
-    @media (min-width: 621px) {
-        display: block;
-    }
-    @media (max-width: 620px) {
-        display: none;
-    }
 `;
 
 const JoinBtnMobile = styled.div`
-
-
     @media (min-width: 621px) {
         display: none;
     }
@@ -118,4 +115,29 @@ const JoinBtnMobile = styled.div`
         display: block;
         line-height: 0.5;
     }
+`;
+
+const NavDesktop = styled.div`
+    @media (min-width: 951px) {
+        display: block;
+    }
+    @media (max-width: 950px) {
+        display: none;
+    }
+`;
+const NavMobile = styled.div`
+    @media (min-width: 951px) {
+        display: none;
+    }
+    @media (max-width: 950px) {
+        display: block;
+    }
+`;
+
+const PrairieLogo = styled.div`
+
+`;
+
+const SearchBar = styled.div`
+
 `;

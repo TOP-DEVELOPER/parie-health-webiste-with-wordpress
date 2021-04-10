@@ -330,6 +330,9 @@ const MailSubscription = styled.div`
         padding: 19px 24px;
         margin-left: 24px;
     }
+    #mc-embedded-subscribe:hover {
+        background-color: #061D26;
+    }
 
     @media (max-width: 650px) {
         #mc_embed_signup_scroll {

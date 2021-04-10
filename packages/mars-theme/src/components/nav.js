@@ -1,6 +1,5 @@
-import { connect, styled } from "frontity";
+import { connect, styled, Global } from "frontity";
 import Link from "./link";
-
 /**
  * Navigation Component
  *
@@ -45,7 +44,7 @@ const NavContainer = styled.nav`
   }
 `;
 
-const NavItem = styled.div`
+const NavItem = styled.li`
   padding: 0;
   margin: 0 16px;
   color: #fff;

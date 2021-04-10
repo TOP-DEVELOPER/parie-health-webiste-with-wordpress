@@ -83,7 +83,7 @@ const globalStyles = css`
   h1 {
       text-transform: lowercase;
       &::first-letter {
-        text-transform: capitalize; 
+        text-transform: capitalize;
       }
   }
   hr {

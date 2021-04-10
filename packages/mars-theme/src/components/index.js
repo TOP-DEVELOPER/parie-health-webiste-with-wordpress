@@ -80,6 +80,12 @@ const globalStyles = css`
   a:hover {
       color: #2A440E;
   }
+  h1 {
+      text-transform: lowercase;
+      &::first-letter {
+        text-transform: capitalize; 
+      }
+  }
   hr {
       border: 1px solid #E3E3E3;
       width: 100vw;

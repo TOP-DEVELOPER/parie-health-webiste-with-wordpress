@@ -28,11 +28,13 @@ const SearchForm = ({ state, actions, libraries }) => {
       // Scroll the page to the top
       window.scrollTo(0, 0);
 
+      // On submit, we hide the modal of the search in mobile mode
+      state.theme.isMobileMenuOpen = false;
+
     }
   };
 
   return (
-    <div>
         <Form role="search" aria-label="404 not found" onSubmit={handleSubmit}>
           <Label>
             <ScreenReaderText>Search for:</ScreenReaderText>
@@ -45,8 +47,6 @@ const SearchForm = ({ state, actions, libraries }) => {
           </Label>
           <SearchButton type="submit"><img src={SearchIcon} alt="Search Icon" /></SearchButton>
         </Form>
-
-    </div>
   );
 };
 
@@ -58,10 +58,6 @@ const Form = styled.form`
   flex-wrap: nowrap;
   margin: 0;
   justify-content: center;
-
-  @media (max-width: 510px) {
-      display: none;
-  }
 `;
 
 const Label = styled.label`
@@ -81,13 +77,3 @@ const SearchButton = styled(Button)`
   opacity: 1;
   transition: opacity 0.15s linear;
 `;
-
-// const SearchMobile = styled.div`
-//     height: 32px;
-//     @media (min-width: 511px) {
-//         display: none;
-//     }
-//     @media (max-width: 510px) {
-//         display: block;
-//     }
-// `;

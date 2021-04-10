@@ -1,5 +1,5 @@
 import { styled, connect, Global } from "frontity";
-import { CloseIcon, HamburgerIcon } from "./menu-icon";
+import { CloseIcon, HamburgerIcon, SearchIcon } from "./menu-icon";
 import MenuModal from "./menu-modal";
 
 function MobileMenu({ state, actions }) {
@@ -12,10 +12,10 @@ function MobileMenu({ state, actions }) {
             {/* Add some style to the body when menu is open,
             to prevent body scroll */}
             <Global styles={{ body: { overflowY: "hidden" } }} />
-            <CloseIcon color="white" size="20px" />
+            <CloseIcon color="#7C989B" size="20px" />
           </>
         ) : (
-          <HamburgerIcon color="white" size="24px" />
+          <SearchIcon color="white" size="32px" />
         )}
       </MenuToggle>
       {/* If the menu is open, render the menu modal */}
@@ -26,17 +26,16 @@ function MobileMenu({ state, actions }) {
 
 const MenuToggle = styled.button`
   position: absolute;
-  right: 24px;
-  top: 24px;
+  right: 58px;
+  top: 27px;
   background: transparent;
   border: 0;
-  color: white;
+  color: #183F4F;
   z-index: 5;
-  height: 40px;
-  width: 40px;
+  height: 32px;
   display: none;
 
-  @media (max-width: 560px) {
+  @media (max-width: 510px) {
     display: flex;
     align-items: center;
     justify-content: center;

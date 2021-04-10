@@ -4,6 +4,7 @@ import Nav from "./nav";
 import MobileMenu from "./menu";
 import SearchForm from "./search/search-form";
 import LogoDark from '../../img/logoDark.svg';
+import JoinMobile from '../../img/join-mobile.svg';
 
 const Header = ({ state }) => {
   return (
@@ -23,9 +24,13 @@ const Header = ({ state }) => {
                 <JoinBtn>
                     <a href="https://www.prairiehealth.co/register" target="_blank">Join Prairie</a>
                 </JoinBtn>
+                <JoinBtnMobile>
+                    <a href="https://www.prairiehealth.co/register" target="_blank"><img src={JoinMobile} alt="Join Prairie" style={{ width: '32px', height: '32px'}}/></a>
+                </JoinBtnMobile>
             </JoinPrairie>
 
         </HeaderTop>
+        <MobileMenu />
       </Container>
       <Nav />
     </>
@@ -58,11 +63,25 @@ const SearchBar = styled.div`
 `;
 
 const JoinPrairie = styled.div`
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+`;
+
+const Title = styled.h2`
+  margin: 0;
+  margin-bottom: 16px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+
+const JoinBtn = styled.div`
+
+    margin-left: 24px;
 
     a {
         background-color: #6D9147;
@@ -80,18 +99,23 @@ const JoinPrairie = styled.div`
         background-color: #4F6B32;
     }
 
+    @media (min-width: 621px) {
+        display: block;
+    }
+    @media (max-width: 620px) {
+        display: none;
+    }
 `;
 
-const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 16px;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
+const JoinBtnMobile = styled.div`
 
 
-const JoinBtn = styled.div`
-    margin-left: 24px;
+    @media (min-width: 621px) {
+        display: none;
+    }
+    @media (max-width: 620px) {
+        margin-left: 8px;
+        display: block;
+        line-height: 0.5;
+    }
 `;

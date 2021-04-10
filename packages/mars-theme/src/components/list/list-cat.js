@@ -94,7 +94,7 @@ const Container = styled.section`
   max-width: 1440px;
   width: 100%;
   margin: auto;
-  padding: 32px 60px 64px;
+  padding: 0 60px 64px;
   list-style: none;
 
     @media (max-width: 768px) {

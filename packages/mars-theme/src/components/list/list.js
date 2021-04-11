@@ -1,8 +1,10 @@
 import { connect, styled, decode } from "frontity";
 
-import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
+//import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
 
-//import useArchiveInfiniteScroll from "@frontity/hooks/use-archive-infinite-scroll";
+import { useArchiveInfiniteScroll } from "@frontity/hooks";
+
+import React from "react";
 
 import Item from "./list-item";
 import StickyItem from "./sticky";
@@ -18,18 +20,17 @@ const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
-{/*
+
 const {
     pages,
     isFetching,
     isError,
     isLimit,
     fetchNext
-} = useArchiveInfiniteScroll({ limit: 0 });
-
-*/}
+} = useArchiveInfiniteScroll({ limit: 8 });
 
 
+{/*
 const {
     posts,
     isLimit,
@@ -39,10 +40,11 @@ const {
     active: !!data.isPost,
     limit: 0
   });
-
+*/}
 
   return (
     <div>
+
     <Container>
           <StickyPost>
           {data.items.map(({ type, id }) => {
@@ -54,7 +56,6 @@ const {
 
           <NewArticles>
             <h2>New Articles</h2>
-            {/* Iterate over the items of the list. */}
             {data.items.map(({ type, id }) => {
             const item = state.source[type][id];
             // Render one Item component for each one.
@@ -64,7 +65,6 @@ const {
 
           <TopArticles>
             <h2>Top Reads</h2>
-            {/* Iterate over the items of the list. */}
             {data.items.map(({ type, id }) => {
             const item = state.source[type][id];
             // Render one Item component for each one.
@@ -72,6 +72,7 @@ const {
             })}
           </TopArticles>
     </Container>
+
 
     <Container1>
       {/* EMail Subscription */}
@@ -106,19 +107,23 @@ const {
                     })}
                 */}
 
-                {/* This code if we use  useArchiveInfiniteScroll
+                {/* This code if we use  useArchiveInfiniteScroll */}
 
                 {pages.map(({ Wrapper, key, link, isLast }) => (
                     <Wrapper key={key}>
                       <AllItems link={link} />
                     </Wrapper>
                   ))}
-                  {isFetching && <Loading />}
-                  {isLimit && <button onClick={fetchNext}>Next Page</button>}
-                  {isError && <button onClick={fetchNext}>Try Again</button>}
-                */}
+                  <ButtonContainer>
+                    {isFetching && <Loading />}
+                    {isLimit && <Button onClick={fetchNext}>Load Next Page</Button>}
+                    {isError && (
+                      <Button onClick={fetchNext}>Something failed - Retry</Button>
+                    )}
+                  </ButtonContainer>
 
-                {/* This code if we use  usePostTypeInfiniteScroll */}
+
+                {/* This code if we use  usePostTypeInfiniteScroll
 
                 {posts.map(({ Wrapper, key, link, isLast}) => (
                     <Wrapper key={key}>
@@ -127,6 +132,8 @@ const {
                 ))}
                 {isFetching && <Loading />}
                 {isLimit && <button onClick={fetchNext}>Load Next Post</button>}
+
+                */}
 
 
     </div>
@@ -384,4 +391,20 @@ const CategoryArticles = styled.div`
         grid-template-columns: repeat(1, auto);
         grid-column-gap: 40px;
     } */
+`;
+
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+`;
+
+const Button = styled.button`
+  position: relative;
+  background: #1f38c5;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
 `;

@@ -18,6 +18,8 @@ const Nav = ({ state }) => (
     <Global styles={reactCarouselStyles} />
       <CarouselProvider
           visibleSlides={3}
+          naturalSlideWidth={32}
+          naturalSlideHeight={32}
           totalSlides={9}
           step={3}
           infinite= {true}
@@ -28,7 +30,7 @@ const Nav = ({ state }) => (
           const isCurrentPage = state.router.link === link;
 
           return (
-            <Slide>
+            <Slide key={name}>
               {/* If link url is the current page, add `aria-current` for a11y */}
               <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
                 {name}
@@ -51,8 +53,8 @@ const NavContainer = styled.nav`
         position: relative;
         max-width: 950px;
         margin: auto;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .carousel ul {
       display: flex;
@@ -65,6 +67,7 @@ const NavContainer = styled.nav`
         font-size: 0.9em;
         flex-shrink: 0;
     }
+
     .carousel ul li a {
         display: inline-block;
         line-height: 2em;
@@ -103,6 +106,14 @@ const NavContainer = styled.nav`
     }
     .NextBtn {
         right: 0;
+    }
+    @media (max-width: 480px) {
+        .carousel ul li{
+            margin: 0 5px;
+        }
+        .carousel ul li a {
+            line-height: 1.1em;
+        }
     }
 `;
 

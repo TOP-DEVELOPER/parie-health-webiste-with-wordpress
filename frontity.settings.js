@@ -60,11 +60,12 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://www.prairiehealth.co/blog",
-          "params": {
-            "per_page": 50,
-            "type": ["post"],
-          },
+          "url": "https://www.prairiehealth.co/blog"
+          //"api": "https://www.prairiehealth.co/blog/wp-json",
+          //"params": {
+        //    "per_page": 6,
+        //    "type": ["post"],
+        //  },
         }
       }
     },

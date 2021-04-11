@@ -42,7 +42,6 @@ const ListCat = ({ state, link, item }) => {
 
       </CategoryArticles>
 
-
       {/* Mail Subscription */}
 
       {/* All Articles */}

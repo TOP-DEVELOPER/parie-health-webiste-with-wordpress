@@ -13,6 +13,7 @@ const ListCat = ({ state, link, item }) => {
   const { total, searchQuery } = data;
   const isEmpty = data.total === 0;
 
+
   return (
     <Container>
       {/* If the list is a taxonomy, we render a title. */}
@@ -55,14 +56,11 @@ const ListCat = ({ state, link, item }) => {
 
 
       <CategoryArticles>
-
           {data.items.map(({ type, id }) => {
             const item = state.source[type][id];
             // Render one Item component for each one.
             return <Item key={item.id} item={item} />;
           })}
-
-
       </CategoryArticles>
 
     </Container>
@@ -87,8 +85,6 @@ const Text = styled.p`
     margin-bottom: 0;
   }
 `;
-
-
 
 const Container = styled.section`
   max-width: 1440px;

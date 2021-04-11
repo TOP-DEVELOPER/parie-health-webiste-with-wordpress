@@ -173,7 +173,7 @@ const Post = ({ state, actions, libraries }) => {
         </div>
         <div className="mailForm">
             <div id="mc_embed_signup">
-                <form action="https://prairiehealth.us8.list-manage.com/subscribe/post?u=82ce164019d40ac0fb4e3248d&amp;id=8ceb6ec6eb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                <form action="https://prairiehealth.us8.list-manage.com/subscribe/post?u=82ce164019d40ac0fb4e3248d&amp;id=8ceb6ec6eb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" novalidate>
                     <div id="mc_embed_signup_scroll">
                         <img className="emailIcon" src={EmailIcon} alt="Email Icon" style={{ width: '22px', height: '15px'}}/><input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="Let us know your email" required />
                         {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
@@ -539,6 +539,10 @@ const MailSubscription = styled.div`
         letter-spacing: -0.03em;
         padding: 19px 24px;
         margin-left: 24px;
+        cursor: pointer;
+    }
+    #mc-embedded-subscribe:hover {
+        background-color: #061D26;
     }
 
     @media (max-width: 650px) {

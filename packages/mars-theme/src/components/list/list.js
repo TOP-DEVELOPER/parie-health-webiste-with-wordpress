@@ -20,14 +20,13 @@ const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
-
 const {
     pages,
     isFetching,
     isError,
     isLimit,
     fetchNext
-} = useArchiveInfiniteScroll({ limit: 8 });
+} = useArchiveInfiniteScroll({ limit: 0 });
 
 
 {/*
@@ -57,18 +56,18 @@ const {
           <NewArticles>
             <h2>New Articles</h2>
             {data.items.map(({ type, id }) => {
-            const item = state.source[type][id];
-            // Render one Item component for each one.
-            return <Item key={item.id} item={item} />;
+                const item = state.source[type][id];
+                // Render one Item component for each one.
+                return <Item key={item.id} item={item} />;
             })}
           </NewArticles>
 
           <TopArticles>
             <h2>Top Reads</h2>
             {data.items.map(({ type, id }) => {
-            const item = state.source[type][id];
-            // Render one Item component for each one.
-            return <TopRead key={item.id} item={item} />;
+                const item = state.source[type][id];
+                // Render one Item component for each one.
+                return <TopRead key={item.id} item={item} />;
             })}
           </TopArticles>
     </Container>
@@ -105,6 +104,7 @@ const {
                         // Render one Item component for each one.
                         return <AllItems key={item.id} item={item} />;
                     })}
+                    <Pagination />
                 */}
 
                 {/* This code if we use  useArchiveInfiniteScroll */}

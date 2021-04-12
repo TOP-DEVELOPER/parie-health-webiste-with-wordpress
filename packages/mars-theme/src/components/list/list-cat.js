@@ -3,10 +3,14 @@ import Item from "./list-item-cat";
 import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 
+import Link from "../link";
+
 
 const ListCat = ({ state, link, item }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
+
+  console.log(data.previous);
 
   // data.total → total pages that match the current path/url
   // data.searchQuery → query done to get search results
@@ -62,6 +66,17 @@ const ListCat = ({ state, link, item }) => {
             return <Item key={item.id} item={item} />;
           })}
       </CategoryArticles>
+
+    <ButtonContainer>
+        {data.previous && (
+            <Link className="button" link={data.previous}>Previous</Link>
+        )}
+        {data.next && (
+            <Link className="button" link={data.next}>Next</Link>
+        )}
+    </ButtonContainer>
+
+
 
     </Container>
   );
@@ -158,4 +173,29 @@ const CategoryArticles = styled.div`
         grid-template-columns: repeat(1, auto);
         grid-column-gap: 40px;
     } */
+`;
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .button {
+      position: relative;
+      background: #6d9147;
+      color: white;
+      padding: 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    &:last-child .button {
+        margin-right: 20px;
+    }
 `;

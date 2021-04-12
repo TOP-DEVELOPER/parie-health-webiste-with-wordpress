@@ -1,6 +1,6 @@
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item-cat";
-import Pagination from "./pagination";
+//import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 
 
@@ -60,6 +60,7 @@ const Container = styled.section`
   margin: auto;
   padding: 0 60px 0;
   list-style: none;
+  overflow-anchor: none;
 
     @media (max-width: 768px) {
         padding: 32px 64px 64px;
@@ -103,8 +104,13 @@ const AuthorDescription = styled.div`
 const CategoryArticles = styled.div`
     display: grid;
     grid-row-gap: 44px;
-    padding: 32px 0 107px;
+    padding: 0 0 48px;
     justify-content: center;
+
+
+    /* &:last-child {
+        padding: 32px 0 107px;
+    } */
 
     @media (min-width: 769px) {
         grid-template-columns: repeat(3, minmax(0, 380px));

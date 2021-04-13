@@ -96,13 +96,3 @@ const SearchButton = styled(Button)`
   transition: opacity 0.15s linear;
   outline: 0;
 `;
-
-// const SearchMobile = styled.div`
-//     height: 32px;
-//     @media (min-width: 511px) {
-//         display: none;
-//     }
-//     @media (max-width: 510px) {
-//         display: block;
-//     }
-// `;

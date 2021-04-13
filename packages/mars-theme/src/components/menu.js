@@ -34,6 +34,7 @@ const MenuToggle = styled.button`
   z-index: 5;
   height: 32px;
   display: none;
+  outline:0;
 
   @media (max-width: 510px) {
     display: flex;

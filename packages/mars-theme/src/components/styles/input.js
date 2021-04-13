@@ -10,9 +10,8 @@ const Input = styled.input`
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: -0.015em;
-  max-width: 100%;
   padding: 0.5rem 0rem;
-  width: 100%;
+  width: 205px;
   text-align: center;
   outline: 0;
   &::-webkit-search-decoration,

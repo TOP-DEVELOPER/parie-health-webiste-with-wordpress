@@ -114,12 +114,18 @@ const PostMeta = styled.div`
     align-items: center;
 
     @media (max-width: 1280px) {
+        grid-template-columns: 1fr;
+        grid-row-gap: 5px;
+    }
+    @media (max-width: 1025px) {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    @media (max-width: 950px) {
-        grid-template-columns: 1fr auto;
+    @media (max-width: 550px) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 5px;
     }
 
     .PostTime span {

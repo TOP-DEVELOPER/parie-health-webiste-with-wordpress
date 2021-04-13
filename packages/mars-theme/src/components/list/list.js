@@ -85,7 +85,7 @@ const Container = styled.section`
   flex-direction: row;
   justify-content: space-between;
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1025px) {
       flex-direction: column;
       padding: 32px 64px 64px;
   }
@@ -107,7 +107,7 @@ const StickyPost = styled.div`
     padding: 0 20px;
     width: 100%;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1025px) {
         max-width: 100%;
         margin-bottom: 48px;
         padding: 0;
@@ -126,7 +126,7 @@ const NewArticles = styled.div`
     padding: 0 20px;
     width: 100%;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1025px) {
         max-width: 100%;
         margin-bottom: 48px;
         padding: 0;
@@ -170,7 +170,7 @@ const TopArticles = styled.div`
     padding: 0 20px;
     width: 100%;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1025px) {
         max-width: 100%;
         /* margin-bottom: 48px; */
         padding: 0;

@@ -72,20 +72,19 @@ const globalStyles = css`
     counter-reset: my-sec-counter;
     overflow-x: hidden;
   }
-  a,
-  a:visited {
-    color: #183F4F;
+  a {
+    color: #6D9147;
     text-decoration: none;
   }
   a:hover {
       color: #2A440E;
   }
-  h1 {
+  /* h1 {
       text-transform: lowercase;
       &::first-letter {
         text-transform: capitalize;
       }
-  }
+  } */
   hr {
       border: 1px solid #E3E3E3;
       width: 100vw;
@@ -117,9 +116,4 @@ const HeadContainer = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  /* background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  ); */
 `;

@@ -70,10 +70,25 @@ const Label = styled.label`
 
 const SearchInput = styled(Input)`
   margin: 0;
+  font-family: 'DM Sans';
+
+  ::placeholder {
+      color: #7C989B;
+      opacity: 1; 
+  }
+
+  :-ms-input-placeholder {
+      color: #7C989B;
+  }
+
+  ::-ms-input-placeholder {
+      color: #7C989B;
+  }
 `;
 
 const SearchButton = styled(Button)`
   flex-shrink: 0;
   opacity: 1;
   transition: opacity 0.15s linear;
+  outline: 0;
 `;

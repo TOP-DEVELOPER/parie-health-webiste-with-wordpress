@@ -15,7 +15,7 @@ import FeaturedIcon from '../../../img/star.svg';
  */
 
 
-const Item = ({ state, item, link }) => {
+const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
   const date = new Date(item.date);
 
@@ -77,14 +77,42 @@ export default connect(Item);
 
 
 const Title = styled.h1`
-  font-size: 1rem; /* 16px */
+  font-size: 1.429rem; /* 20px */
   font-weight: 400;
   letter-spacing: -0.03em;
   margin: 0;
-  padding-top: 14px;
+  padding-top: 12px;
   padding-bottom: 12px;
   box-sizing: border-box;
+  line-height: 26px;
+  min-height: 76px;
+  max-height: 76px;
   /* min-width: 304px; */
+
+  color: #183F4F;
+
+  @media (max-width: 1285px) {
+    font-size: 1.129rem;
+  }
+  @media (max-width: 1068px) {
+    font-size: 1.029rem;
+  }
+  @media (max-width: 950px) {
+    font-size: 1.429rem;
+  }
+  @media (max-width: 880px) {
+    font-size: 1.129rem;
+    line-height: 20px;
+  }
+  @media (max-width: 740px) {
+    font-size: 1.029rem;
+  }
+  @media (max-width: 699px) {
+    font-size: 1rem;
+  }
+  &:hover {
+      color: #2A440E;
+  }
 `;
 
 const AuthorName = styled.span`
@@ -108,16 +136,6 @@ const StyledLink = styled(Link)`
   padding: 15px 0;
 `;
 
-const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-`;
-
-const Excerpt = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
-`;
-
 const FeaturedImage = styled.div`
     position: relative;
 
@@ -134,12 +152,12 @@ const FeaturedImage = styled.div`
     .PostCat a {
         color: #6D9147;
         text-transform: uppercase;
-        font-size: 0.657rem;
+        font-size: 12px;
         font-weight: 700;
         border-radius: 8px;
         background: #fff;
-        padding: 7px;
-        margin: 0 5px 5px;
+        padding: 8px;
+        margin: 0 0px 8px 8px;
         display: inline-block;
         text-align: center;
     }
@@ -148,10 +166,10 @@ const FeaturedImage = styled.div`
     }
     .FeaturedPost {
         position: absolute;
-        top: 40px;
+        top: 45px;
         background: #6D9147;
         color: #fff;
-        padding: 7px;
+        padding: 8px;
         border-radius: 8px;
         left: 8px;
         font-size: 12px;
@@ -160,7 +178,9 @@ const FeaturedImage = styled.div`
         text-transform: uppercase;
     }
     .FeaturedPost img {
-        margin-right: 8.5px;
+        margin-right: 1.5px;
+        position: relative;
+        top: 1px;
     }
 `;
 

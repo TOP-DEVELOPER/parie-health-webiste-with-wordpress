@@ -406,10 +406,12 @@ const RelatedPostContainer = styled.div`
     }
 
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.429rem;
         font-weight: 400;
         letter-spacing: -0.03em;
         line-height: 26px;
+        min-height: 52px;
+        max-height: 76px;
     }
 
 `;
@@ -502,7 +504,7 @@ const MailSubscription = styled.div`
     }
 
     .mailMessage h4 {
-        font-size: 1.3rem;
+        font-size: 1.429rem;
         line-height: 26.04px;
         font-weight: 400;
         color: #183F4F;
@@ -517,7 +519,7 @@ const MailSubscription = styled.div`
     }
 
     #mce-EMAIL {
-        font-size: 1.3rem;
+        font-size: 1.429rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
@@ -525,7 +527,22 @@ const MailSubscription = styled.div`
         color: #7C989B;
         width: 440px;
         background-color: #fff;
+        font-family: 'DM Sans';
+        font-weight: 400;
+
+        &::placeholder {
+            color: #7C989B;
+            opacity: 1;
+        }
+        &::-ms-input-placeholder {
+            color: #7C989B;
+        }
+
+        &::-ms-input-placeholder {
+            color: #7C989B;
+        }
     }
+
     .emailIcon {
         position: absolute;
         left: 22px;
@@ -533,7 +550,8 @@ const MailSubscription = styled.div`
     #mc-embedded-subscribe {
         background: #183F4F;
         color: #fff;
-        font-size: 1.3rem;
+        font-size: 1.429rem;
+        font-weight: 400;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
@@ -574,25 +592,73 @@ const MailSubscription = styled.div`
  * selectors to style that HTML.
  */
 const Content = styled.div`
-  color: #183F4F;
+  font-family: 'DM Sans', sans-serif;
+  color: #101010;
   word-break: break-word;
-  line-height: 32px;
-  font-size: 1.571rem;
+  line-height: 2.2865rem;
+  font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: -0.03em;
   margin-bottom: 48px;
   border-bottom: 1px solid #E3E3E3;
+
+  @media (max-width: 375px) {
+      line-height: 1.5rem;
+      font-size: 1rem;
+  }
 
   * {
     max-width: 100%;
   }
 
   p {
-    line-height: 32px;
-    font-size: 1.571rem;
+    line-height: 2.286rem;
+    font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: -0.03em;
+    color: #101010;
 
+    @media (max-width: 375px) {
+        line-height: 1.5rem;
+        font-size: 1rem;
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+
+  h2,h3,h4,h5,h6 {
+      letter-spacing: -0.03em;
+      color: #101010;
+      line-height: 41.66px;
+      font-weight: 500;
+  }
+
+  ol li,
+  ul li {
+      line-height: 2.286rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: #101010;
+
+      @media (max-width: 375px) {
+          line-height: 1.5rem;
+          font-size: 1rem;
+      }
   }
 
   img {
@@ -624,8 +690,11 @@ const Content = styled.div`
   }
 
   a {
-    color: #183F4F;
+    color: #6D9147;
     text-decoration: underline;
+  }
+  a:hover {
+    color: #2A440E;
   }
 
   /* Input fields styles */
@@ -779,6 +848,7 @@ const AuthorName = styled.span`
       position: relative;
       top: -10px;
       left: 8px;
+      font-weight: 400;
   }
   .authorAvatar {
       width: 32px;
@@ -838,12 +908,12 @@ const FeaturedImage = styled.div`
     .PostCat a {
         color: #6D9147;
         text-transform: uppercase;
-        font-size: 0.657rem;
+        font-size: 12px;
         font-weight: 700;
         border-radius: 8px;
         background: #fff;
-        padding: 7px;
-        margin: 0 5px 5px;
+        padding: 8px;
+        margin: 0 0 8px 8px;
         display: inline-block;
         text-align: center;
     }
@@ -852,10 +922,10 @@ const FeaturedImage = styled.div`
     }
     .FeaturedPost {
         position: absolute;
-        top: 40px;
+        top: 45px;
         background: #6D9147;
         color: #fff;
-        padding: 7px;
+        padding: 8px;
         border-radius: 8px;
         left: 8px;
         font-size: 12px;
@@ -864,7 +934,9 @@ const FeaturedImage = styled.div`
         text-transform: uppercase;
     }
     .FeaturedPost img {
-        margin-right: 8.5px;
+        margin-right: 1.5px;
+        position: relative;
+        top: 1px;
     }
 `;
 

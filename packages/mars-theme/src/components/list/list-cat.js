@@ -29,7 +29,7 @@ const ListCat = ({ state, link, item }) => {
 
       {/* If the list is for a specific author, we render a title. */}
       {data.isAuthor && (
-        <div>
+        <div className="AuthorHeading">
         <Header>
           {decode(state.source.author[data.id].name)}
         </Header>
@@ -109,18 +109,18 @@ const Container = styled.section`
   list-style: none;
 
     @media (max-width: 768px) {
-        padding: 32px 64px 64px;
-    }
-    @media (max-width: 375px) {
         padding: 32px 24px 64px;
+    }
+    .AuthorHeading h3{
+        text-transform: capitalize;
     }
 `;
 
 const Header = styled.h3`
-    font-size: 2rem;
+    font-size: 2.286rem;
     font-weight: 700;
     text-transform: uppercase;
-    line-height: 41.66px;
+    line-height: 42px;
     color: #183F4F;
 `;
 
@@ -135,7 +135,7 @@ const AuthorDescription = styled.div`
     }
 
     p{
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 400;
         color: #456772;
         line-height: 21px;
@@ -153,22 +153,37 @@ const CategoryArticles = styled.div`
     padding: 53px 0;
     justify-content: center;
 
-    @media (min-width: 769px) {
+    @media (min-width: 951px) {
+        grid-template-columns: repeat(3, minmax(0, 380px));
+        grid-column-gap: 60px;
+    }
+    @media (max-width: 950px) {
+        grid-template-columns: repeat(2, minmax(0, 380px));
+        grid-column-gap: 40px;
+    }
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(1, minmax(0, auto));
+        grid-column-gap: 24px;
+        padding: 32px 24px 71px;
+    }
+
+
+    /* @media (min-width: 769px) {
         grid-template-columns: repeat(3, minmax(0, 380px));
         grid-column-gap: 60px;
     }
     @media (max-width: 768px) {
         grid-template-columns: repeat(2, minmax(0, 300px));
         grid-column-gap: 40px;
-    }
+    } */
     /* @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
         grid-template-columns: repeat(2, auto);
         grid-column-gap: 40px;
     } */
-    @media (max-width: 375px) {
+    /* @media (max-width: 375px) {
         grid-template-columns: repeat(1, minmax(0, 327px));
         grid-column-gap: 40px;
-    }
+    } */
     /* @media (min-width: 320px) and (max-width: 480px) {
         grid-template-columns: repeat(1, auto);
         grid-column-gap: 40px;

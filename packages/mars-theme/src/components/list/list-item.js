@@ -99,6 +99,11 @@ const Title = styled.h1`
   padding-bottom: 12px;
   box-sizing: border-box;
   min-width: 304px;
+  color: #183F4F;
+
+  &:hover {
+      color: #2A440E;
+  }
 
   @media (max-width: 950px) {
       min-width: 100%;
@@ -130,13 +135,13 @@ const FeaturedImage = styled.span`
         height: 80px;
         width: 80px;
     }
-    @media (max-width: 950px) {
+    @media (max-width: 1280px) {
         img {
             height: 60px;
             width: 120px;
         }
     }
-    @media (max-width: 375px) {
+    @media (max-width: 600px) {
         img {
             height: 60px;
             width: 100px;
@@ -147,20 +152,19 @@ const FeaturedImage = styled.span`
 const PostMeta = styled.div`
     padding-left: 16px;
 
-    @media (max-width: 950px) {
+    @media (max-width: 1280px) {
         width: 100%;
     }
 
     .otherMeta {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .PostCat {
-        width: 70%;
-    }
-    .PostTime {
-        width: 30%;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+
+        @media (max-width: 1280px) {
+            display: flex;
+            justify-content: space-between;
+        }
     }
     @media (max-width: 950px) {
         .PostCat, .PostTime {
@@ -191,11 +195,11 @@ const PostMeta = styled.div`
     }
     .PostTime img {
         vertical-align: sub;
+        margin-right: 6px;
     }
     .PostTime span {
         font-size: 12px;
-        font-weight: 500;
+        font-weight: 400;
         color: #456772;
-        padding-left: 5px;
     }
 `;

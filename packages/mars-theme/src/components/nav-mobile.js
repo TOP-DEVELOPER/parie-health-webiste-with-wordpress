@@ -75,6 +75,7 @@ const NavContainer = styled.nav`
         border-bottom-color: transparent;
         font-weight: 500;
         text-transform: uppercase;
+        color: #183F4F;
     }
 
     .carousel ul li a[aria-current="page"] {

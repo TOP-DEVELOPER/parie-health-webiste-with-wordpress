@@ -4,7 +4,7 @@ import Item from "./list-item-cat";
 import FeaturedIcon from '../../../img/star.svg';
 
 
-const ListCat = ({ state, link, item }) => {
+const ListCat = ({ state, link }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
@@ -39,7 +39,6 @@ const ListCat = ({ state, link, item }) => {
             return <Item key={item.id} item={item} />;
           })}
 
-
       </CategoryArticles>
 
       {/* Mail Subscription */}
@@ -63,10 +62,7 @@ const Container = styled.section`
   overflow-anchor: none;
 
     @media (max-width: 768px) {
-        padding: 32px 64px 64px;
-    }
-    @media (max-width: 375px) {
-        padding: 32px 24px 64px;
+        padding: 32px 0 64px;
     }
 `;
 
@@ -104,30 +100,33 @@ const AuthorDescription = styled.div`
 const CategoryArticles = styled.div`
     display: grid;
     grid-row-gap: 44px;
-    padding: 0 0 48px;
+    padding: 0 24px 48px;
     justify-content: center;
 
 
     /* &:last-child {
         padding: 32px 0 107px;
     } */
-
-    @media (min-width: 769px) {
+    @media (min-width: 951px) {
         grid-template-columns: repeat(3, minmax(0, 380px));
         grid-column-gap: 60px;
     }
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, minmax(0, 300px));
+    @media (max-width: 950px) {
+        grid-template-columns: repeat(2, minmax(0, 380px));
         grid-column-gap: 40px;
     }
+    /* @media (max-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 300px));
+        grid-column-gap: 40px;
+    } */
     /* @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
         grid-template-columns: repeat(2, auto);
         grid-column-gap: 40px;
     } */
-    @media (max-width: 375px) {
-        grid-template-columns: repeat(1, minmax(0, 327px));
-        grid-column-gap: 40px;
-        padding: 32px 0 71px;
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(1, minmax(0, auto));
+        grid-column-gap: 24px;
+        padding: 32px 24px 71px;
     }
     /* @media (min-width: 320px) and (max-width: 480px) {
         grid-template-columns: repeat(1, auto);

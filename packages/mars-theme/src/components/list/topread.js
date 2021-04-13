@@ -29,7 +29,7 @@ const TopRead = ({ state, item }) => {
                     {author && (
                       <StyledLink link={author.link}>
                         <AuthorName>
-                          <b>{author.name}</b>
+                          {author.name}
                         </AuthorName>
                       </StyledLink>
                     )}
@@ -89,6 +89,10 @@ const Title = styled.h1`
   line-height: 26.04px;
   color: #183F4F;
 
+  &:hover {
+      color: #2A440E;
+  }
+
   @media (max-width: 950px) {
 
   }
@@ -96,7 +100,7 @@ const Title = styled.h1`
 
 const AuthorName = styled.span`
   color: #456772;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 0.8rem;
 `;
 
@@ -104,21 +108,16 @@ const StyledLink = styled(Link)`
   padding: 15px 0;
 `;
 
-const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-`;
-
-const Excerpt = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
-`;
-
 const PostMeta = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
 
+    @media (max-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     @media (max-width: 950px) {
         grid-template-columns: 1fr auto;
     }
@@ -128,12 +127,12 @@ const PostMeta = styled.div`
     }
     .PostTime img {
         vertical-align: sub;
+        margin-right: 6px;
     }
     .PostTime span {
         font-size: 12px;
-        font-weight: 500;
+        font-weight: 400;
         color: #456772;
-        padding-left: 5px;
     }
     .PostCat a {
         color: #6D9147;

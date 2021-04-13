@@ -76,6 +76,11 @@ const Title = styled.h1`
   padding-top: 16px;
   padding-bottom: 16px;
   box-sizing: border-box;
+  color: #183F4F;
+
+  &:hover {
+      color: #2A440E;
+  }
 `;
 
 const AuthorName = styled.span`
@@ -113,6 +118,9 @@ const PostCat = styled.div`
         font-weight: 700;
         color: #6D9147;
         line-height: 15.62px;
+        &:hover {
+            color: #2A440E;
+        }
     }
     a::after {
         content: '.';

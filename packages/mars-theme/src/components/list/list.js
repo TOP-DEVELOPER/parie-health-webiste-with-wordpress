@@ -1,45 +1,17 @@
 import { connect, styled, decode } from "frontity";
 
-//import usePostTypeInfiniteScroll from "@frontity/hooks/use-post-type-infinite-scroll";
-
-import { useArchiveInfiniteScroll } from "@frontity/hooks";
-
 import React from "react";
 
 import Item from "./list-item";
 import StickyItem from "./sticky";
 import TopRead from "./topread";
-//import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 import EmailIcon from '../../../img/email.svg';
-import AllItems from "./alllist";
-import Loading from "../loading";
-
+import InfiniteList from "./infinite-scroll-list";
 
 const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
-
-const {
-    pages,
-    isFetching,
-    isError,
-    isLimit,
-    fetchNext
-} = useArchiveInfiniteScroll({ limit: 0 });
-
-
-{/*
-const {
-    posts,
-    isLimit,
-    isFetching,
-    fetchNext
-} = usePostTypeInfiniteScroll({
-    active: !!data.isPost,
-    limit: 0
-  });
-*/}
 
   return (
     <div>
@@ -95,46 +67,7 @@ const {
         </MailSubscription>
       </Container1>
 
-
-
-
-                {/*
-                    {data.items.map(({ key, type, id }) => {
-                        const item = state.source[type][id];
-                        // Render one Item component for each one.
-                        return <AllItems key={item.id} item={item} />;
-                    })}
-                    <Pagination />
-                */}
-
-                {/* This code if we use  useArchiveInfiniteScroll */}
-
-                {pages.map(({ Wrapper, key, link, isLast }) => (
-                    <Wrapper key={key}>
-                      <AllItems link={link} />
-                    </Wrapper>
-                  ))}
-                  <ButtonContainer>
-                    {isFetching && <Loading />}
-                    {isLimit && <Button onClick={fetchNext}>Load Next Page</Button>}
-                    {isError && (
-                      <Button onClick={fetchNext}>Something failed - Retry</Button>
-                    )}
-                  </ButtonContainer>
-
-
-                {/* This code if we use  usePostTypeInfiniteScroll
-
-                {posts.map(({ Wrapper, key, link, isLast}) => (
-                    <Wrapper key={key}>
-                        <AllItems link={link} />
-                    </Wrapper>
-                ))}
-                {isFetching && <Loading />}
-                {isLimit && <button onClick={fetchNext}>Load Next Post</button>}
-
-                */}
-
+      <InfiniteList />
 
     </div>
   );
@@ -152,7 +85,7 @@ const Container = styled.section`
   flex-direction: row;
   justify-content: space-between;
 
-  @media (max-width: 950px) {
+  @media (max-width: 1280px) {
       flex-direction: column;
       padding: 32px 64px 64px;
   }
@@ -172,8 +105,9 @@ const StickyPost = styled.div`
 
     max-width: 440px;
     padding: 0 20px;
+    width: 100%;
 
-    @media (max-width: 950px) {
+    @media (max-width: 1280px) {
         max-width: 100%;
         margin-bottom: 48px;
         padding: 0;
@@ -190,8 +124,9 @@ const StickyPost = styled.div`
 const NewArticles = styled.div`
     max-width: 440px;
     padding: 0 20px;
+    width: 100%;
 
-    @media (max-width: 950px) {
+    @media (max-width: 1280px) {
         max-width: 100%;
         margin-bottom: 48px;
         padding: 0;
@@ -223,6 +158,8 @@ const NewArticles = styled.div`
 
     h2 {
         font-size: 1.5rem;
+        font-weight: 400;
+        color: #183F4F;
         margin: 0;
         padding: 0 0 10px;
     }
@@ -231,8 +168,9 @@ const NewArticles = styled.div`
 const TopArticles = styled.div`
     max-width: 440px;
     padding: 0 20px;
+    width: 100%;
 
-    @media (max-width: 950px) {
+    @media (max-width: 1280px) {
         max-width: 100%;
         /* margin-bottom: 48px; */
         padding: 0;
@@ -249,6 +187,8 @@ const TopArticles = styled.div`
 
     h2 {
         font-size: 1.5rem;
+        font-weight: 400;
+        color: #183F4F;
         margin: 0;
         padding: 0 0 10px;
     }
@@ -299,7 +239,7 @@ const MailSubscription = styled.div`
     }
 
     .mailMessage h4 {
-        font-size: 1.3rem;
+        font-size: 1.429rem;
         line-height: 26.04px;
         font-weight: 400;
         color: #183F4F;
@@ -314,7 +254,7 @@ const MailSubscription = styled.div`
     }
 
     #mce-EMAIL {
-        font-size: 1.3rem;
+        font-size: 1.429rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
@@ -322,7 +262,22 @@ const MailSubscription = styled.div`
         color: #7C989B;
         width: 440px;
         background-color: #fff;
+        font-family: 'DM Sans';
+        font-weight: 400;
+
+        &::placeholder {
+            color: #7C989B;
+            opacity: 1;
+        }
+        &::-ms-input-placeholder {
+            color: #7C989B;
+        }
+
+        &::-ms-input-placeholder {
+            color: #7C989B;
+        }
     }
+
     .emailIcon {
         position: absolute;
         left: 22px;
@@ -330,7 +285,9 @@ const MailSubscription = styled.div`
     #mc-embedded-subscribe {
         background: #183F4F;
         color: #fff;
-        font-size: 1.3rem;
+        font-family: 'DM Sans';
+        font-weight: 400;
+        font-size: 1.429rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
@@ -364,48 +321,4 @@ const MailSubscription = styled.div`
             text-align: center;
         }
     }
-`;
-
-const CategoryArticles = styled.div`
-    display: grid;
-    grid-row-gap: 44px;
-    padding: 53px 10px;
-    justify-content: center;
-
-    @media (min-width: 769px) {
-        grid-template-columns: repeat(3, minmax(0, 380px));
-        grid-column-gap: 60px;
-    }
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, minmax(0, 300px));
-        grid-column-gap: 40px;
-    }
-    /* @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-        grid-template-columns: repeat(2, auto);
-        grid-column-gap: 40px;
-    } */
-    @media (max-width: 375px) {
-        grid-template-columns: repeat(1, minmax(0, 327px));
-        grid-column-gap: 40px;
-    }
-    /* @media (min-width: 320px) and (max-width: 480px) {
-        grid-template-columns: repeat(1, auto);
-        grid-column-gap: 40px;
-    } */
-`;
-
-
-const ButtonContainer = styled.div`
-  width: 100%;
-  text-align: center;
-  margin-bottom: 40px;
-`;
-
-const Button = styled.button`
-  position: relative;
-  background: #1f38c5;
-  color: white;
-  padding: 12px;
-  font-weight: bold;
-  border: none;
 `;

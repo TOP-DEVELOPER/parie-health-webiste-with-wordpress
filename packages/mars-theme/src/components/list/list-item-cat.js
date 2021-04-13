@@ -40,10 +40,11 @@ const Item = ({ state, item }) => {
                         <Link key={cat.id} link={cat.link}>{cat.name}</Link>
                     )
                 })}
+                {item.sticky.toString() == "true" ?  (
+                    <div className="FeaturedPost"><img src={FeaturedIcon} style={{ width: '12.5px', height: '12px'}}/> Featured</div>
+                ) : null }
             </div>
-            {item.sticky.toString() == "true" ?  (
-                <div className="FeaturedPost"><img src={FeaturedIcon} style={{ width: '12.5px', height: '12px'}}/> Featured</div>
-            ) : null }
+
         </FeaturedImage>
         <PostMeta>
           <Link link={item.link}>
@@ -166,7 +167,7 @@ const FeaturedImage = styled.div`
     }
     .FeaturedPost {
         position: absolute;
-        top: 45px;
+        /* top: 45px; */
         background: #6D9147;
         color: #fff;
         padding: 8px;

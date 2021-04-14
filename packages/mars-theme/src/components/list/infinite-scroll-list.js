@@ -8,7 +8,8 @@ import AllItems from "./alllist";
 import Loading from "../loading";
 
 
-const InfiniteList = ({ }) => {
+const InfiniteList = ({  }) => {
+
 
     const {
         pages,
@@ -16,7 +17,10 @@ const InfiniteList = ({ }) => {
         isError,
         isLimit,
         fetchNext
-    } = useArchiveInfiniteScroll({ limit: 3 });
+    } = useArchiveInfiniteScroll({ limit: 0 });
+
+
+
 
   return (
     <div>
@@ -56,6 +60,8 @@ const InfiniteList = ({ }) => {
                 {isLimit && <button onClick={fetchNext}>Load Next Post</button>}
 
                 */}
+
+
 
 
     </div>

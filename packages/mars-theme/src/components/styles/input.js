@@ -12,7 +12,7 @@ const Input = styled.input`
   letter-spacing: -0.015em;
   padding: 0.5rem 0rem;
   width: 205px;
-  text-align: center;
+  text-align: left;
   outline: 0;
   &::-webkit-search-decoration,
   &::-webkit-search-cancel-button,

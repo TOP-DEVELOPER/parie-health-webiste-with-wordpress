@@ -166,7 +166,7 @@ const FeaturedImage = styled.div`
         color: #2A440E;
     }
     .FeaturedPost {
-        position: absolute;
+        position: relative;
         /* top: 45px; */
         background: #6D9147;
         color: #fff;
@@ -177,6 +177,7 @@ const FeaturedImage = styled.div`
         font-weight: 700;
         line-height: 15.62px;
         text-transform: uppercase;
+        display: inline-block;
     }
     .FeaturedPost img {
         margin-right: 1.5px;

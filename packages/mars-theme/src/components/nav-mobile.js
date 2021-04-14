@@ -17,12 +17,13 @@ const Nav = ({ state }) => (
   <NavContainer>
     <Global styles={reactCarouselStyles} />
       <CarouselProvider
-          visibleSlides={3}
           naturalSlideWidth={32}
           naturalSlideHeight={32}
+          orientation={"horizontal"}
           totalSlides={9}
-          step={3}
-          infinite= {true}
+          infinite ={false}
+          visibleSlides ={3}
+          isIntrinsicHeight ={true}
       >
       <Slider>
         {state.theme.menu.map(([name, link]) => {
@@ -57,15 +58,25 @@ const NavContainer = styled.nav`
         padding-right: 10px;
     }
     .carousel ul {
-      display: flex;
-      justify-content: center;
-      height: 25px;
+        width: 150%!important;
+        height: 25px;
+    }
+    @media (max-width: 550px) {
+        .carousel ul {
+            width: 200%!important;
+        }
+    }
+    @media (max-width: 375px) {
+        .carousel ul {
+            width: 250%!important;
+        }
     }
     .carousel ul li{
         padding: 0;
-        margin: 0 10px;
+        margin: auto;
         font-size: 0.9em;
         flex-shrink: 0;
+        width: auto!important;
     }
 
     .carousel ul li a {
@@ -85,14 +96,6 @@ const NavContainer = styled.nav`
         color: #6D9147;
     }
 
-    .carousel ul li:first-of-type {
-        margin-left: 0;
-    }
-
-    .carousel ul li:last-of-type {
-        margin-right: 0;
-    }
-
     .BackBtn,
     .NextBtn {
         position: absolute;
@@ -101,6 +104,7 @@ const NavContainer = styled.nav`
         border: 0;
         background: transparent;
         padding: 0;
+        outline: 0;
     }
     .BackBtn {
         left: 0;
@@ -108,13 +112,8 @@ const NavContainer = styled.nav`
     .NextBtn {
         right: 0;
     }
-    @media (max-width: 480px) {
-        .carousel ul li{
-            margin: 0 5px;
-        }
-        .carousel ul li a {
-            line-height: 1.1em;
-        }
+    button:disabled {
+        display: none;
     }
 `;
 

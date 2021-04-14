@@ -103,6 +103,10 @@ const HeadContainer = styled.div`
   margin: auto;
   padding-left: 60px;
   padding-right: 60px;
+  @media (max-width: 800px) {
+      padding-left: 40px;
+      padding-right: 40px;
+  }
   @media (max-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;

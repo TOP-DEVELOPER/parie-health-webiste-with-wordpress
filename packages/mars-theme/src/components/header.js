@@ -4,7 +4,7 @@ import Nav from "./nav";
 import NavTabletMobile from "./nav-mobile";
 import MobileMenu from "./menu";
 import SearchForm from "./search/search-form";
-import LogoDark from '../../img/logoDark.svg';
+import LogoDark from '../../img/logoDarkBlog.svg';
 import JoinMobile from '../../img/join-mobile.svg';
 
 const Header = ({ state }) => {
@@ -14,7 +14,7 @@ const Header = ({ state }) => {
         <HeaderTop>
             <PrairieLogo>
                 <StyledLink link="/">
-                  <img src={LogoDark} alt="Prairie Health" style={{ width: '154.13px', height: '32px'}}/>
+                  <img src={LogoDark} alt="Prairie Health" />
                 </StyledLink>
             </PrairieLogo>
 
@@ -23,7 +23,7 @@ const Header = ({ state }) => {
                     <SearchForm />
                 </SearchBar>
                 <JoinBtn>
-                    <a href="https://www.prairiehealth.co/register" target="_blank">Join Prairie</a>
+                    <a href="https://www.prairiehealth.co/register" target="_blank">Visit Prairie Website</a>
                 </JoinBtn>
                 <JoinBtnMobile>
                     <a href="https://www.prairiehealth.co/register" target="_blank"><img src={JoinMobile} alt="Join Prairie" style={{ width: '32px', height: '32px'}}/></a>
@@ -68,11 +68,6 @@ const JoinPrairie = styled.div`
     align-items: center;
 `;
 
-const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 16px;
-`;
-
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
@@ -82,10 +77,10 @@ const JoinBtn = styled.div`
 
     margin-left: 24px;
 
-    @media (min-width: 621px) {
+    @media (min-width: 721px) {
         display: block;
     }
-    @media (max-width: 620px) {
+    @media (max-width: 720px) {
         display: none;
     }
 
@@ -100,17 +95,24 @@ const JoinBtn = styled.div`
         padding: 7px 16px;
         display: inline-block;
         height: 32px;
-    }
-    a:hover {
-        background-color: #4F6B32;
+        text-align: center;
+
+        @media (max-width: 830px) {
+            font-size: small;
+            height: auto;
+            padding: 7px;
+        }
+        &:hover {
+            background-color: #4F6B32;
+        }
     }
 `;
 
 const JoinBtnMobile = styled.div`
-    @media (min-width: 621px) {
+    @media (min-width: 721px) {
         display: none;
     }
-    @media (max-width: 620px) {
+    @media (max-width: 720px) {
         margin-left: 8px;
         display: block;
         line-height: 0.5;

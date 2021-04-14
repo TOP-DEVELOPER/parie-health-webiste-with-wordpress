@@ -10,7 +10,8 @@ const ListCat = ({ state, link, item }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
 
-  console.log(data.previous);
+  //console.log(data);
+  //console.log(data.searchQuery);
 
   // data.total → total pages that match the current path/url
   // data.searchQuery → query done to get search results
@@ -44,15 +45,14 @@ const ListCat = ({ state, link, item }) => {
       {data.isSearch && (
           <IntroText size="thin">
             {isEmpty ? (
-              <Text>
-                We could not find any results for your search. You can give it
-                another try through the search form above.
-              </Text>
+                <div className="no-results">
+                    <Text>
+                        We could not find any results for your search. You can try again or instead search by the categories listed above.
+                    </Text>
+                </div>
             ) : (
               <Text>
-                <b>Search:</b> <em>{data.searchQuery}</em><br />
-                We found {total} {total === 1 ? "result" : "results"} for your
-                search.
+                We found {total} blog {total === 1 ? "post" : "posts"} including <b>{data.searchQuery}</b>
               </Text>
             )}
           </IntroText>
@@ -92,13 +92,32 @@ const IntroText = styled.div`
     font-size: 2rem;
     margin-top: 2.5rem;
   }
+  .no-results {
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
 `;
 
 const Text = styled.p`
   margin: 0 0 1em 0;
+  color: #183f4f;
   &:last-child {
     margin-bottom: 0;
   }
+  b::before {
+      content: "{{ ";
+  }
+  b::after {
+      content: " }}";
+  }
+
 `;
 
 const Container = styled.section`

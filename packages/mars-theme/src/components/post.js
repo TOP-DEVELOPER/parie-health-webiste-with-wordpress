@@ -169,16 +169,16 @@ const Post = ({ state, actions, libraries }) => {
       {/* EMail Subscription */}
       <MailSubscription>
         <div className="mailMessage">
-            <h4>Get the latest mental health tips from Prairie</h4>
+            <h4>Like what you see? Subscribe for the latest from Prairie.</h4>
         </div>
         <div className="mailForm">
             <div id="mc_embed_signup">
                 <form action="https://prairiehealth.us8.list-manage.com/subscribe/post?u=82ce164019d40ac0fb4e3248d&amp;id=8ceb6ec6eb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" novalidate>
                     <div id="mc_embed_signup_scroll">
-                        <img className="emailIcon" src={EmailIcon} alt="Email Icon" style={{ width: '22px', height: '15px'}}/><input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="Let us know your email" required />
+                        <img className="emailIcon" src={EmailIcon} alt="Email Icon" style={{ width: '22px', height: '15px'}}/><input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="Enter your email" required />
                         {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
                         <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_82ce164019d40ac0fb4e3248d_8ceb6ec6eb" tabIndex="-1" defaultValue="" /></div>
-                        <div className="clear"><input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" className="button" /></div>
+                        <div className="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" /></div>
                     </div>
                 </form>
             </div>
@@ -523,12 +523,13 @@ const MailSubscription = styled.div`
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
-        padding: 19px 75px 19px 75px;
+        padding: 0 75px;
         color: #7C989B;
         width: 440px;
         background-color: #fff;
         font-family: 'DM Sans';
         font-weight: 400;
+        height: 48px;
 
         &::placeholder {
             color: #7C989B;
@@ -555,9 +556,10 @@ const MailSubscription = styled.div`
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
-        padding: 19px 24px;
+        padding: 0 24px;
         margin-left: 24px;
         cursor: pointer;
+        height: 48px;
     }
     #mc-embedded-subscribe:hover {
         background-color: #061D26;

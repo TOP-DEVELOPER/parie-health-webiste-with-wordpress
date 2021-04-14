@@ -27,7 +27,7 @@ function MobileMenu({ state, actions }) {
 const MenuToggle = styled.button`
   position: absolute;
   right: 58px;
-  top: 27px;
+  top: 29px;
   background: transparent;
   border: 0;
   color: #183F4F;
@@ -36,7 +36,7 @@ const MenuToggle = styled.button`
   display: none;
   outline:0;
 
-  @media (max-width: 510px) {
+  @media (max-width: 720px) {
     display: flex;
     align-items: center;
     justify-content: center;

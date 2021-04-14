@@ -59,7 +59,7 @@ const Form = styled.form`
   margin: 0;
   justify-content: center;
 
-  @media (max-width: 510px) {
+  @media (max-width: 720px) {
       display: none;
   }
 `;

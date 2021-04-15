@@ -238,11 +238,8 @@ const Post = ({ state, actions, libraries }) => {
                       </ButtonNext>
                       </CarouselButton>
 
-
                       <Slider>
-
                       {post.jetpack_related_posts.map(({ id })  => {
-                          const relatedx = state.source[id];
 
                           return (
                               <Slide key={id}>
@@ -308,6 +305,7 @@ const Post = ({ state, actions, libraries }) => {
 
 
 
+
 </RelatedContainer>
   </div>
 ) : null ;
@@ -322,7 +320,15 @@ const RelatedContainer = styled.div`
 const CarouselButton = styled.div`
     position: absolute;
     top: 40px;
-    right: 260px;
+    right: 310px;
+
+    @media (max-width: 950px) {
+        position: relative;
+        top: 0;
+        right: 0;
+        text-align: center;
+        padding: 24px 0px;
+    }
 
     .BackBtn,
     .NextBtn {
@@ -355,6 +361,10 @@ const Container = styled.div`
   margin: auto;
   padding: 24px 0 48px;
 
+  @media (max-width: 950px) {
+     width: 90vw;
+  }
+
   @media (max-width: 768px) {
       padding: 24px 24px 48px;
   }
@@ -363,34 +373,7 @@ const Container = styled.div`
 const RelatedPostContainer = styled.div`
 
     padding: 16px 60px 79px;
-/*
-    display: grid;
-    grid-row-gap: 44px;
 
-    justify-content: center;
-
-    @media (min-width: 1125px) {
-        grid-template-columns: repeat(1, 90vw);
-        grid-column-gap: 60px;
-    }
-    @media (max-width: 1124px) {
-        grid-template-columns: repeat(1, 90vw);
-        grid-column-gap: 40px;
-
-        .carousel {
-            position: relative;
-            max-width: 950px;
-            margin: auto;
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
-
-    @media (max-width: 375px) {
-        grid-template-columns: repeat(1, minmax(0, 327px));
-        grid-column-gap: 40px;
-    }
-*/
     h1 {
         font-size: 1.429rem;
         font-weight: 400;
@@ -400,7 +383,16 @@ const RelatedPostContainer = styled.div`
         max-height: 76px;
     }
 
-
+    @media (max-width: 950px) {
+        .carousel ul {
+            width: 300%!important;
+        }
+    }
+    @media (max-width: 550px) {
+        .carousel ul {
+            width: 600%!important;
+        }
+    }
 
     .carousel {
         max-width: 100vw;
@@ -409,17 +401,7 @@ const RelatedPostContainer = styled.div`
         margin: 0 30px;
     }
 
-    .Tablet {display: none;}
-    .Mobile {display: none;}
 
-    @media (max-width: 880px) {
-        .Desktop {
-            display: none;
-        }
-        .Tablet {
-            display: block;
-        }
-    }
 `;
 
 
@@ -868,11 +850,17 @@ const AuthorName = styled.span`
 `;
 
 const RelatedPosts = styled.div`
+
+    @media (max-width: 950px) {
+        display: flex;
+        flex-direction: column;
+    }
+
     .relatedPosts {
         max-width: 790px;
         width: 100%;
         margin: auto;
-        padding: 24px 0 48px;
+        padding: 24px 0px 48px;
     }
     .relatedPosts h2 {
         color: #456772;
@@ -880,6 +868,19 @@ const RelatedPosts = styled.div`
         font-size: 1.5rem;
         line-height: 31.25px;
     }
+
+    @media (max-width: 950px) {
+        .relatedPosts {
+            text-align: center;
+            padding: 24px 0px 0;
+        }
+        .relatedPosts h2 {
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+
 
     .postPagination a {
         margin-right: 16px;

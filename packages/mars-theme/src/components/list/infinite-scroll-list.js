@@ -37,7 +37,7 @@ const InfiniteList = ({  }) => {
 
                 {pages.map(({ Wrapper, key, link, isLast }) => (
                     <Wrapper key={key}>
-                      <AllItems />
+                      <AllItems link={link}/>
                     </Wrapper>
                   ))}
                   <ButtonContainer>

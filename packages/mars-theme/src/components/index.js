@@ -2,7 +2,7 @@ import { Global, css, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
 import Header from "./header";
 import Footer from "./footer";
-import ListHome from "./list";
+import ListHome from "./list/list";
 import ListCat from "./list/list-cat";
 import Post from "./post";
 import Loading from "./loading";

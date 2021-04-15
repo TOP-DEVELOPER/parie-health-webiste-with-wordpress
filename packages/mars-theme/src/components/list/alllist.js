@@ -6,7 +6,7 @@ import FeaturedIcon from '../../../img/star.svg';
 
 const ListCat = ({ state, link }) => {
   // Get the data of the current list.
-  const data = state.source.get(state.router.link);
+  const data = state.source.get(link);
 
   return (
     <Container>

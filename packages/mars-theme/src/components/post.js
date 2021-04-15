@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { connect, styled, Head } from "frontity";
+import { connect, styled, Head, Global } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
@@ -10,6 +10,11 @@ import FeaturedIcon from '../../img/star.svg';
 import Previous from "../../img/previous.svg";
 import Next from "../../img/next.svg";
 
+import Item from "./list/list-item-cat";
+
+
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import reactCarouselStyles from "pure-react-carousel/dist/react-carousel.es.css";
 
 
 //import Pagination from "./list/pagination";
@@ -50,6 +55,8 @@ const Post = ({ state, actions, libraries }) => {
   let urlOne = '';
   let urlTwoRaw = '';
   let urlTwo = '';
+
+  let count = 0;
 
     try {
       urlZeroRaw = post.jetpack_related_posts[0].url;
@@ -98,6 +105,7 @@ const Post = ({ state, actions, libraries }) => {
           <Head>
               <meta name="description" content={post.excerpt.rendered} />
           </Head>
+          <Global styles={reactCarouselStyles} />
           <PostCat>
               {post.categories.map( category => {
                   const cat = state.source.category[category]
@@ -187,7 +195,8 @@ const Post = ({ state, actions, libraries }) => {
         </MailSubscription>
       </Container1>
       <hr />
-      <Container>
+<RelatedContainer>
+
           <RelatedPosts>
               <div className="relatedPosts">
                   {
@@ -196,175 +205,141 @@ const Post = ({ state, actions, libraries }) => {
                     : <h2>No Related Posts Found !</h2>
                   }
               </div>
-              <div className="postPagination">
-                  {post.next && (
-                  <Link link={post.next.slug} title={post.next.slug}>
-                      <svg className="next" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="16" cy="16" r="16" fill="#456772"/>
-                      <circle cx="16" cy="16" r="15.5" stroke="white" strokeOpacity="0.1"/>
-                      <path d="M22 16.4H10" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M14 12.4L10 16.4L14 20.4" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                  </Link>
-                  )}
-                  {post.previous && (
-                    <Link link={post.previous.slug} title={post.previous.slug}>
-                        <svg className="prev" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="16" fill="#6D9147"/>
-                        <path d="M10 16.4H22" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M18 12.4L22 16.4L18 20.4" fill="#6D9147"/>
-                        <path d="M18 12.4L22 16.4L18 20.4" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+              {
+                  urlValue == 1 ?
 
-                    </Link>
-                  )}
-                </div>
+                  <RelatedPostContainer>
+                      <CarouselProvider
+                          naturalSlideWidth={380}
+                          naturalSlideHeight={341}
+                          orientation={"horizontal"}
+                          totalSlides={6}
+                          infinite ={true}
+                          step={1}
+                          visibleSlides ={3}
+                          isIntrinsicHeight ={true}
+                      >
+                      <CarouselButton>
+                      <ButtonBack className="BackBtn">
+                          <svg className="next" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="16" cy="16" r="16" fill="#456772"/>
+                          <circle cx="16" cy="16" r="15.5" stroke="white" strokeOpacity="0.1"/>
+                          <path d="M22 16.4H10" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M14 12.4L10 16.4L14 20.4" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                      </ButtonBack>
+                      <ButtonNext className="NextBtn">
+                          <svg className="prev" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="16" cy="16" r="16" fill="#6D9147"/>
+                          <path d="M10 16.4H22" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M18 12.4L22 16.4L18 20.4" fill="#6D9147"/>
+                          <path d="M18 12.4L22 16.4L18 20.4" stroke="white" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                      </ButtonNext>
+                      </CarouselButton>
+
+
+                      <Slider>
+
+                      {post.jetpack_related_posts.map(({ id })  => {
+                          const relatedx = state.source[id];
+
+                          return (
+                              <Slide key={id}>
+                                  <article key={count++}>
+                                      <FeaturedImage>
+                                            {state.theme.featured.showOnList && (
+                                              <Link link={urlZero}>
+                                                  <img src={post.jetpack_related_posts[count].img.src} alt={post.jetpack_related_posts[count].title} />
+                                              </Link>
+                                            )}
+                                            <div className="PostCat">
+                                                {post.categories.map( category => {
+                                                    const cat = state.source.category[category]
+                                                    return (
+                                                        <Link key={cat.id} link={cat.link}>{cat.name}</Link>
+                                                    )
+                                                })}
+                                                {post.sticky.toString() == "true" ?  (
+                                                    <div className="FeaturedPost"><img src={FeaturedIcon} style={{ width: '12.5px', height: '12px'}}/> Featured</div>
+                                                ) : null }
+                                            </div>
+
+
+                                      </FeaturedImage>
+                                      <PostMeta>
+                                          <Link link={urlZero}>
+                                            <Title dangerouslySetInnerHTML={{ __html: post.jetpack_related_posts[count].title }} />
+                                          </Link>
+                                            <div className="otherMeta">
+                                                <div className="PostAuthor">
+                                                    {author && (
+                                                      <StyledLink link={author.link}>
+                                                        <AuthorName>
+                                                          <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
+                                                        </AuthorName>
+                                                      </StyledLink>
+                                                    )}
+                                                </div>
+                                                <div className="PostTime">
+                                                    <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
+                                                </div>
+                                            </div>
+                                      </PostMeta>
+                                  </article>
+                              </Slide>
+                          );
+                      })}
+                      </Slider>
+
+
+                      </CarouselProvider>
+
+                  </RelatedPostContainer>
+
+
+
+
+                  : null
+              }
+
             </RelatedPosts>
-      </Container>
 
 
-    {
-        urlValue == 1 ?
-        <RelatedPostContainer>
-          <article>
-               <FeaturedImage>
-                  {state.theme.featured.showOnList && (
-                    <Link link={urlZero}>
-                        <img src={post.jetpack_related_posts[0].img.src} alt={post.jetpack_related_posts[0].title} />
-                    </Link>
-                  )}
-                  <div className="PostCat">
-                      {post.categories.map( category => {
-                          const cat = state.source.category[category]
-                          return (
-                              <Link key={cat.id} link={cat.link}>{cat.name}</Link>
-                          )
-                      })}
-                  </div>
-                  {post.sticky.toString() == "true" ?  (
-                      <div className="FeaturedPost"><img src={FeaturedIcon} style={{ width: '12.5px', height: '12px'}}/> Featured</div>
-                  ) : null }
-
-              </FeaturedImage>
-              <PostMeta>
-                <Link link={urlZero}>
-                  <Title dangerouslySetInnerHTML={{ __html: post.jetpack_related_posts[0].title }} />
-                </Link>
-
-                  <div className="otherMeta">
-                      <div className="PostAuthor">
-                          {author && (
-                            <StyledLink link={author.link}>
-                              <AuthorName>
-                                <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
-                              </AuthorName>
-                            </StyledLink>
-                          )}
-                      </div>
-                      <div className="PostTime">
-                          <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
-                      </div>
-                  </div>
 
 
-              </PostMeta>
-          </article>
-          <article>
-               <FeaturedImage>
-                  {state.theme.featured.showOnList && (
-                    <Link link={urlOne}>
-                        <img src={post.jetpack_related_posts[1].img.src} alt={post.jetpack_related_posts[1].title} />
-                    </Link>
-                  )}
-                  <div className="PostCat">
-                      {post.categories.map( category => {
-                          const cat = state.source.category[category]
-                          return (
-                              <Link key={cat.id} link={cat.link}>{cat.name}</Link>
-                          )
-                      })}
-                  </div>
-                  {post.sticky.toString() == "true" ?  (
-                      <div className="FeaturedPost"><img src={FeaturedIcon} style={{ width: '12.5px', height: '12px'}}/> Featured</div>
-                  ) : null }
-
-              </FeaturedImage>
-              <PostMeta>
-                <Link link={urlOne}>
-                  <Title dangerouslySetInnerHTML={{ __html: post.jetpack_related_posts[1].title }} />
-                </Link>
-
-                  <div className="otherMeta">
-                      <div className="PostAuthor">
-                          {author && (
-                            <StyledLink link={author.link}>
-                              <AuthorName>
-                                <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
-                              </AuthorName>
-                            </StyledLink>
-                          )}
-                      </div>
-                      <div className="PostTime">
-                          <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
-                      </div>
-                  </div>
-
-
-              </PostMeta>
-          </article>
-          <article>
-               <FeaturedImage>
-                  {state.theme.featured.showOnList && (
-                    <Link link={urlTwo}>
-                        <img src={post.jetpack_related_posts[2].img.src} alt={post.jetpack_related_posts[2].title} />
-                    </Link>
-                  )}
-                  <div className="PostCat">
-                      {post.categories.map( category => {
-                          const cat = state.source.category[category]
-                          return (
-                              <Link key={cat.id} link={cat.link}>{cat.name}</Link>
-                          )
-                      })}
-                  </div>
-                  {post.sticky.toString() == "true" ?  (
-                      <div className="FeaturedPost"><img src={FeaturedIcon} style={{ width: '12.5px', height: '12px'}}/> Featured</div>
-                  ) : null }
-
-              </FeaturedImage>
-              <PostMeta>
-                <Link link={urlTwo}>
-                  <Title dangerouslySetInnerHTML={{ __html: post.jetpack_related_posts[2].title }} />
-                </Link>
-
-                  <div className="otherMeta">
-                      <div className="PostAuthor">
-                          {author && (
-                            <StyledLink link={author.link}>
-                              <AuthorName>
-                                <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
-                              </AuthorName>
-                            </StyledLink>
-                          )}
-                      </div>
-                      <div className="PostTime">
-                          <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
-                      </div>
-                  </div>
-
-
-              </PostMeta>
-          </article>
-        </RelatedPostContainer>
-        : null
-    }
-
-
+</RelatedContainer>
   </div>
 ) : null ;
 };
 
 export default connect(Post);
+
+const RelatedContainer = styled.div`
+    position: relative;
+`;
+
+const CarouselButton = styled.div`
+    position: absolute;
+    top: 40px;
+    right: 260px;
+
+    .BackBtn,
+    .NextBtn {
+        background: transparent;
+        border: 0;
+        outline: 0;
+    }
+    .BackBtn {
+        left: 0;
+    }
+    .NextBtn {
+        right: 0;
+    }
+    button:disabled {
+        display: none;
+    }
+`;
 
 const DateWrapper = styled.p`
   color: #456772;
@@ -386,25 +361,36 @@ const Container = styled.div`
 `;
 
 const RelatedPostContainer = styled.div`
+
+    padding: 16px 60px 79px;
+/*
     display: grid;
     grid-row-gap: 44px;
-    padding: 16px 0 79px;
+
     justify-content: center;
 
-    @media (min-width: 769px) {
-        grid-template-columns: repeat(3, minmax(0, 380px));
+    @media (min-width: 1125px) {
+        grid-template-columns: repeat(1, 90vw);
         grid-column-gap: 60px;
     }
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, minmax(0, 300px));
+    @media (max-width: 1124px) {
+        grid-template-columns: repeat(1, 90vw);
         grid-column-gap: 40px;
+
+        .carousel {
+            position: relative;
+            max-width: 950px;
+            margin: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
     }
 
     @media (max-width: 375px) {
         grid-template-columns: repeat(1, minmax(0, 327px));
         grid-column-gap: 40px;
     }
-
+*/
     h1 {
         font-size: 1.429rem;
         font-weight: 400;
@@ -414,7 +400,29 @@ const RelatedPostContainer = styled.div`
         max-height: 76px;
     }
 
+
+
+    .carousel {
+        max-width: 100vw;
+    }
+    .carousel ul li {
+        margin: 0 30px;
+    }
+
+    .Tablet {display: none;}
+    .Mobile {display: none;}
+
+    @media (max-width: 880px) {
+        .Desktop {
+            display: none;
+        }
+        .Tablet {
+            display: block;
+        }
+    }
 `;
+
+
 
 const Title = styled.h1`
   margin-top: 24px;
@@ -446,6 +454,9 @@ const PostCat = styled.div`
         font-weight: 700;
         color: #6D9147;
         line-height: 23.44px;
+        &:hover {
+            color: #2A440E;
+        }
     }
     a::after {
         content: '.';
@@ -589,10 +600,6 @@ const MailSubscription = styled.div`
     }
 `;
 
-/**
- * This component is the parent of the `content.rendered` HTML. We can use nested
- * selectors to style that HTML.
- */
 const Content = styled.div`
   font-family: 'DM Sans', sans-serif;
   color: #101010;
@@ -861,11 +868,12 @@ const AuthorName = styled.span`
 `;
 
 const RelatedPosts = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
+    .relatedPosts {
+        max-width: 790px;
+        width: 100%;
+        margin: auto;
+        padding: 24px 0 48px;
+    }
     .relatedPosts h2 {
         color: #456772;
         font-weight: 500;
@@ -923,8 +931,8 @@ const FeaturedImage = styled.div`
         color: #2A440E;
     }
     .FeaturedPost {
-        position: absolute;
-        top: 45px;
+        position: relative;
+        // top: 45px;
         background: #6D9147;
         color: #fff;
         padding: 8px;
@@ -934,6 +942,7 @@ const FeaturedImage = styled.div`
         font-weight: 700;
         line-height: 15.62px;
         text-transform: uppercase;
+        display: inline-block;
     }
     .FeaturedPost img {
         margin-right: 1.5px;

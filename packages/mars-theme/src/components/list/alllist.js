@@ -107,11 +107,11 @@ const CategoryArticles = styled.div`
     /* &:last-child {
         padding: 32px 0 107px;
     } */
-    @media (min-width: 951px) {
+    @media (min-width: 1026px) {
         grid-template-columns: repeat(3, minmax(0, 380px));
         grid-column-gap: 60px;
     }
-    @media (max-width: 950px) {
+    @media (max-width: 1025px) {
         grid-template-columns: repeat(2, minmax(0, 380px));
         grid-column-gap: 40px;
     }

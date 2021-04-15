@@ -92,24 +92,44 @@ const Title = styled.h1`
 
   color: #183F4F;
 
+  @media (max-width: 1330px) {
+    font-size: 1.329rem;
+  }
+
   @media (max-width: 1285px) {
+    font-size: 1.229rem;
+  }
+  @media (max-width: 1186px) {
     font-size: 1.129rem;
+  }
+  @media (max-width: 1114px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 1093px) {
+    font-size: 1rem;
+    line-height: 20px;
   }
   @media (max-width: 1068px) {
     font-size: 1.029rem;
   }
-  @media (max-width: 950px) {
+  @media (max-width: 1025px) {
     font-size: 1.429rem;
+    line-height: 26px;
+  }
+  @media (max-width: 907px) {
+    font-size: 1.329rem;
   }
   @media (max-width: 880px) {
-    font-size: 1.129rem;
+    font-size: 1.229rem;
     line-height: 20px;
   }
   @media (max-width: 740px) {
-    font-size: 1.029rem;
+    font-size: 1.129rem;
   }
   @media (max-width: 699px) {
-    font-size: 1rem;
+    font-size: 1.429rem;
+    line-height: 26px;
+    max-height: 100%;
   }
   &:hover {
       color: #2A440E;
@@ -118,13 +138,13 @@ const Title = styled.h1`
 
 const AuthorName = styled.span`
     color: #456772;
-    font-weight: 500;
     font-size: 0.8rem;
 
   b {
       position: relative;
       top: -10px;
       left: 8px;
+      font-weight: 400;
   }
   .authorAvatar {
       width: 32px;

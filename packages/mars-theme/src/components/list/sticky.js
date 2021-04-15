@@ -85,13 +85,13 @@ const Title = styled.h1`
 
 const AuthorName = styled.span`
     color: #456772;
-    font-weight: 500;
     font-size: 0.8rem;
 
   b {
       position: relative;
       top: -10px;
       left: 8px;
+      font-weight: 400;
   }
 `;
 

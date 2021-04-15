@@ -23,7 +23,7 @@ const Header = ({ state }) => {
                     <SearchForm />
                 </SearchBar>
                 <JoinBtn>
-                    <a href="https://www.prairiehealth.co/register" target="_blank">Visit Prairie Website</a>
+                    <a href="https://www.prairiehealth.co/register" target="_blank">Visit Prairie Health</a>
                 </JoinBtn>
                 <JoinBtnMobile>
                     <a href="https://www.prairiehealth.co/register" target="_blank"><img src={JoinMobile} alt="Join Prairie" style={{ width: '32px', height: '32px'}}/></a>
@@ -109,6 +109,7 @@ const JoinBtn = styled.div`
 `;
 
 const JoinBtnMobile = styled.div`
+
     @media (min-width: 721px) {
         display: none;
     }
@@ -138,6 +139,20 @@ const NavMobile = styled.div`
 
 const PrairieLogo = styled.div`
 
+    img {
+        vertical-align: middle;
+    }
+    @media (max-width: 900px) {
+        img {
+            height: 37px;
+        }
+    }
+    @media (max-width: 375px) {
+        img {
+            width: 150px;
+            height: 37px;
+        }
+    }
 `;
 
 const SearchBar = styled.div`

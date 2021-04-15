@@ -229,7 +229,7 @@ const MailSubscription = styled.div`
     width: 100%;
     padding: 8px 0;
 
-    @media (max-width: 1130px) {
+    @media (max-width: 1199px) {
         flex-direction: column;
         padding: 0 0 25px;
         width: 100vw;
@@ -250,6 +250,20 @@ const MailSubscription = styled.div`
         color: #183F4F;
         letter-spacing: -0.03em;
         margin: 0;
+
+        @media (max-width: 1320px) {
+            font-size: 1.229rem;
+        }
+        @media (max-width: 1240px) {
+            font-size: 1.129rem;
+        }
+        @media (max-width: 1200px) {
+            font-size: 1.029rem;
+        }
+        @media (max-width: 1199px) {
+            font-size: 1.429rem;
+            margin: 26px 0;
+        }
     }
     #mc_embed_signup_scroll {
         display: flex;

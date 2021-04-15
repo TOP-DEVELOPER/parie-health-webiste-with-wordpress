@@ -3,7 +3,8 @@ import Switch from "@frontity/components/switch";
 import Header from "./header";
 import Footer from "./footer";
 import ListHome from "./list/list";
-import ListCat from "./list/list-cat";
+//import ListCat from "./list/list-cat";
+import ListCat from "./list/list-tax-infinite";
 import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
@@ -57,7 +58,7 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
-
+    
     * {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;

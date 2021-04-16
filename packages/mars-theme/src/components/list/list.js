@@ -227,15 +227,15 @@ const MailSubscription = styled.div`
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    padding: 8px 0;
+    padding: 12px 0;
 
     @media (max-width: 1199px) {
         flex-direction: column;
-        padding: 0 0 25px;
+        padding: 0 0 24px;
         width: 100vw;
         position: relative;
         margin-left: -50vw;
-        left: 49%;
+        left: 50%;
         border-radius: 0;
     }
     @media (max-width: 650px) {
@@ -244,7 +244,7 @@ const MailSubscription = styled.div`
     }
 
     .mailMessage h4 {
-        font-size: 1.429rem;
+        font-size: 1.286rem;
         line-height: 26.04px;
         font-weight: 400;
         color: #183F4F;
@@ -261,8 +261,8 @@ const MailSubscription = styled.div`
             font-size: 1.029rem;
         }
         @media (max-width: 1199px) {
-            font-size: 1.429rem;
-            margin: 26px 0;
+            font-size: 1.286rem;
+            margin: 24px 0;
         }
     }
     #mc_embed_signup_scroll {
@@ -274,11 +274,11 @@ const MailSubscription = styled.div`
     }
 
     #mce-EMAIL {
-        font-size: 1.429rem;
+        font-size: 1.286rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
-        padding: 0 75px;
+        padding: 0 73px;
         color: #7C989B;
         width: 440px;
         background-color: #fff;
@@ -308,7 +308,7 @@ const MailSubscription = styled.div`
         color: #fff;
         font-family: 'DM Sans';
         font-weight: 400;
-        font-size: 1.429rem;
+        font-size: 1.286rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
@@ -326,7 +326,7 @@ const MailSubscription = styled.div`
             flex-direction: column;
         }
         .emailIcon {
-            top: 25px;
+            top: 17px;
         }
         #mce-EMAIL {
             margin-bottom: 16px;
@@ -341,6 +341,7 @@ const MailSubscription = styled.div`
         }
         .mailMessage h4 {
             text-align: center;
+            margin: 24px 0 16px;
         }
     }
 `;

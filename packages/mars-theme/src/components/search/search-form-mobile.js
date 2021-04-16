@@ -12,6 +12,7 @@ const SearchForm = ({ state, actions, libraries }) => {
   // Keep a reference to the input so we can grab it's value on form submission
   const inputRef = useRef();
 
+
   const handleSubmit = (event) => {
     // Prevent page navigation
     event.preventDefault();
@@ -74,7 +75,7 @@ const SearchInput = styled(Input)`
 
   ::placeholder {
       color: #7C989B;
-      opacity: 1; 
+      opacity: 1;
   }
 
   :-ms-input-placeholder {

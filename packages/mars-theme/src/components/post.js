@@ -496,15 +496,16 @@ const MailSubscription = styled.div`
     }
     @media (max-width: 650px) {
         left: 50%;
-        padding:0 24px 25px;
+        padding:0 24px 24px;
     }
 
     .mailMessage h4 {
-        font-size: 1.429rem;
+        font-size: 1.286rem;
         line-height: 26.04px;
         font-weight: 400;
         color: #183F4F;
         letter-spacing: -0.03em;
+        margin: 24px 0;
     }
     #mc_embed_signup_scroll {
         display: flex;
@@ -515,11 +516,11 @@ const MailSubscription = styled.div`
     }
 
     #mce-EMAIL {
-        font-size: 1.429rem;
+        font-size: 1.286rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
-        padding: 0 75px;
+        padding: 0 73px;
         color: #7C989B;
         width: 440px;
         background-color: #fff;
@@ -547,7 +548,7 @@ const MailSubscription = styled.div`
     #mc-embedded-subscribe {
         background: #183F4F;
         color: #fff;
-        font-size: 1.429rem;
+        font-size: 1.286rem;
         font-weight: 400;
         border: 0;
         border-radius: 8px;
@@ -566,7 +567,7 @@ const MailSubscription = styled.div`
             flex-direction: column;
         }
         .emailIcon {
-            top: 25px;
+            top: 17px;
         }
         #mce-EMAIL {
             margin-bottom: 16px;
@@ -581,6 +582,7 @@ const MailSubscription = styled.div`
         }
         .mailMessage h4 {
             text-align: center;
+            margin: 24px 0 16px;
         }
     }
 `;

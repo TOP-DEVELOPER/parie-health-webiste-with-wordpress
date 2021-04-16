@@ -72,7 +72,7 @@ const Post = ({ state, actions, libraries }) => {
     } catch(error) {
         console.log(error.name + ":" + error.message);
     }
-
+{/*
     try {
       urlOneRaw = post.jetpack_related_posts[1].url;
       urlOne = urlOneRaw.replace('blog/', '');
@@ -114,6 +114,8 @@ const Post = ({ state, actions, libraries }) => {
     } catch(error) {
       console.log(error.name + ":" + error.message);
     }
+*/}
+
 
   /**
    * Once the post has loaded in the DOM, prefetch both the
@@ -279,15 +281,26 @@ const Post = ({ state, actions, libraries }) => {
                                               </Link>
                                             )}
                                             <div className="PostCat">
+                                                <Link key={count}
+link={`/category/${ post.jetpack_related_posts[count].context.replace('In &quot;', '').replace('&quot;', '').replace(' ', '-').replace(' ', '-').toLowerCase() } `}
+                                                >
+                                                    {post.jetpack_related_posts[count].context.replace('In &quot;', '').replace('&quot;', '')}
+                                                </Link>
+
+
+
+                                                {/*
                                                 {post.categories.map( category => {
                                                     const cat = state.source.category[category]
                                                     return (
                                                         <Link key={cat.id} link={cat.link}>{cat.name}</Link>
                                                     )
                                                 })}
+
                                                 {post.sticky.toString() == "true" ?  (
                                                     <div className="FeaturedPost"><img src={FeaturedIcon} style={{ width: '12.5px', height: '12px'}}/> Featured</div>
                                                 ) : null }
+                                                */}
                                             </div>
 
 

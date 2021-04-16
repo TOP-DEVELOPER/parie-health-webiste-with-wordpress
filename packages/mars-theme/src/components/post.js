@@ -363,9 +363,9 @@ const Container = styled.div`
   margin: auto;
   padding: 24px 0 48px;
 
-  @media (max-width: 950px) {
-     width: 90vw;
-  }
+  // @media (max-width: 950px) {
+  //    width: 90vw;
+  // }
 
   @media (max-width: 768px) {
       padding: 24px 24px 48px;

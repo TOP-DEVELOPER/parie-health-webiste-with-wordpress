@@ -39,6 +39,6 @@ const CategoryArticles = styled.div`
     @media (max-width: 700px) {
         grid-template-columns: repeat(1, minmax(0, auto));
         grid-column-gap: 24px;
-        padding: 32px 24px 71px;
+        /* padding: 32px 24px 71px; */
     }
 `;

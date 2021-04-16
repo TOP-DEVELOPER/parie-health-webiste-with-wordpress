@@ -113,10 +113,10 @@ const HeadContainer = styled.div`
       padding-left: 24px;
       padding-right: 24px;
   }
-  @media (max-width: 375px) {
+  /* @media (max-width: 375px) {
       padding-left: 28px;
       padding-right: 28px;
-  }
+  } */
 `;
 
 const Main = styled.div`

@@ -28,6 +28,7 @@ const SearchForm = ({ state, actions, libraries }) => {
 
       // Scroll the page to the top
       window.scrollTo(0, 0);
+      event.target.reset();
 
       // On submit, we hide the modal of the search in mobile mode
       state.theme.isMobileMenuOpen = false;

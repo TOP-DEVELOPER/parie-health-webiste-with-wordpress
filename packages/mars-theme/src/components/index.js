@@ -11,6 +11,9 @@ import Title from "./title";
 import PageError from "./page-error";
 import FontFaces from "./styles/font-faces";
 
+import { useRef } from "react";
+
+
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
@@ -18,6 +21,8 @@ import FontFaces from "./styles/font-faces";
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+
+
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}

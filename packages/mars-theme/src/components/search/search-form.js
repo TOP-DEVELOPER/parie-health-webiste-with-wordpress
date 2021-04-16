@@ -27,7 +27,7 @@ const SearchForm = ({ state, actions, libraries }) => {
 
       // Scroll the page to the top
       window.scrollTo(0, 0);
-
+      event.target.reset();
     }
   };
 

@@ -315,19 +315,21 @@ export default connect(Post);
 
 const RelatedContainer = styled.div`
     position: relative;
+    max-width: 1320px;
+    margin: auto;
 `;
 
 const CarouselButton = styled.div`
     position: absolute;
     top: 40px;
-    right: 310px;
+    right: 265px;
 
     @media (max-width: 950px) {
         position: relative;
         top: 0;
         right: 0;
         text-align: center;
-        padding: 24px 0px;
+        padding: 0 0 48px;
     }
 
     .BackBtn,
@@ -372,7 +374,8 @@ const Container = styled.div`
 
 const RelatedPostContainer = styled.div`
 
-    padding: 16px 60px 79px;
+    padding: 16px 0 79px;
+    max-width: 100vw;
 
     h1 {
         font-size: 1.429rem;
@@ -395,7 +398,7 @@ const RelatedPostContainer = styled.div`
     }
 
     .carousel {
-        max-width: 100vw;
+        //max-width: 100vw;
     }
     .carousel ul li {
         margin: 0 30px;
@@ -846,6 +849,17 @@ const AuthorName = styled.span`
       height: 32px;
       border-radius: 50%;
       display: inline-block;
+
+      @media (max-width: 699px) {
+        width: 16px;
+        height: 16px;
+        vertical-align: super;
+      }
+      @media (max-width: 550px) {
+          width: 32px;
+          height: 32px;
+          vertical-align: inherit;
+      }
   }
 `;
 
@@ -906,7 +920,7 @@ const FeaturedImage = styled.div`
     position: relative;
 
     img {
-        height: 200px;
+        // height: 200px;
         width: 100%;
         border-radius: 8px;
     }
@@ -960,10 +974,16 @@ const PostMeta = styled.div`
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        @media (max-width: 699px) {
+            flex-direction: column;
+            align-items: baseline;
+        }
+        @media (max-width: 550px) {
+            flex-direction: row;
+            align-items: center;
+        }
     }
-    .PostTime {
-        /* width: 30%; */
-    }
+
     .PostTime img {
         vertical-align: sub;
     }

@@ -55,6 +55,12 @@ const Post = ({ state, actions, libraries }) => {
   let urlOne = '';
   let urlTwoRaw = '';
   let urlTwo = '';
+  let urlThreeRaw = '';
+  let urlThree = '';
+  let urlFourRaw = '';
+  let urlFour = '';
+  let urlFiveRaw = '';
+  let urlFive = '';
 
   let count = 0;
 
@@ -84,8 +90,30 @@ const Post = ({ state, actions, libraries }) => {
     } catch(error) {
       console.log(error.name + ":" + error.message);
     }
+    try {
+      urlThreeRaw = post.jetpack_related_posts[3].url;
+      urlThree = urlThreeRaw.replace('blog/', '');
 
+      urlValue = 1;
+    } catch(error) {
+      console.log(error.name + ":" + error.message);
+    }
+    try {
+      urlFourRaw = post.jetpack_related_posts[4].url;
+      urlFour = urlFourRaw.replace('blog/', '');
 
+      urlValue = 1;
+    } catch(error) {
+      console.log(error.name + ":" + error.message);
+    }
+    try {
+      urlFiveRaw = post.jetpack_related_posts[5].url;
+      urlFive = urlFiveRaw.replace('blog/', '');
+
+      urlValue = 1;
+    } catch(error) {
+      console.log(error.name + ":" + error.message);
+    }
 
   /**
    * Once the post has loaded in the DOM, prefetch both the
@@ -246,7 +274,7 @@ const Post = ({ state, actions, libraries }) => {
                                   <article key={count++}>
                                       <FeaturedImage>
                                             {state.theme.featured.showOnList && (
-                                              <Link link={urlZero}>
+                                              <Link link={post.jetpack_related_posts[count].url.replace('blog/', '')}>
                                                   <img src={post.jetpack_related_posts[count].img.src} alt={post.jetpack_related_posts[count].title} />
                                               </Link>
                                             )}
@@ -265,7 +293,7 @@ const Post = ({ state, actions, libraries }) => {
 
                                       </FeaturedImage>
                                       <PostMeta>
-                                          <Link link={urlZero}>
+                                          <Link link={post.jetpack_related_posts[count].url.replace('blog/', '')}>
                                             <Title dangerouslySetInnerHTML={{ __html: post.jetpack_related_posts[count].title }} />
                                           </Link>
                                             <div className="otherMeta">

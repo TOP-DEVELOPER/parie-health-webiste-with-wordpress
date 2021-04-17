@@ -113,21 +113,11 @@ const Title = styled.h1`
 const AuthorName = styled.span`
     color: #456772;
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 `;
 
 const StyledLink = styled(Link)`
   padding: 15px 0;
-`;
-
-const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-`;
-
-const Excerpt = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
 `;
 
 const FeaturedImage = styled.span`
@@ -184,7 +174,7 @@ const PostMeta = styled.div`
     .PostCat a {
         color: #6D9147;
         text-transform: uppercase;
-        font-size: 0.657rem;
+        font-size: 0.75rem;
         font-weight: 700;
     }
     .PostCat a:hover {
@@ -201,14 +191,14 @@ const PostMeta = styled.div`
         content: '';
     }
     .PostTime span {
-        font-size: 0.657rem;
+        font-size: 0.75rem;
     }
     .PostTime img {
         vertical-align: sub;
         margin-right: 6px;
     }
     .PostTime span {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 400;
         color: #456772;
     }

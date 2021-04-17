@@ -73,7 +73,7 @@ const globalStyles = css`
     margin: 0;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1rem;
     background: #FDFCFD;
     counter-reset: my-sec-counter;
     overflow-x: hidden;

@@ -78,7 +78,7 @@ export default connect(Item);
 
 
 const Title = styled.h1`
-  font-size: 1.429rem; /* 20px */
+  font-size: 1.25rem; /* 20px */
   font-weight: 400;
   letter-spacing: -0.03em;
   margin: 0;
@@ -92,53 +92,45 @@ const Title = styled.h1`
 
   color: #183F4F;
 
-  @media (max-width: 1330px) {
-    font-size: 1.329rem;
-  }
-
-  @media (max-width: 1285px) {
-    font-size: 1.229rem;
-  }
-  @media (max-width: 1186px) {
-    font-size: 1.129rem;
-  }
-  @media (max-width: 1114px) {
+  @media (max-width: 1201px) {
     font-size: 1.1rem;
   }
-  @media (max-width: 1093px) {
+  @media (max-width: 1193px) {
     font-size: 1rem;
     line-height: 20px;
   }
-  @media (max-width: 1068px) {
-    font-size: 1.029rem;
-  }
-  @media (max-width: 1025px) {
-    font-size: 1.429rem;
-    line-height: 26px;
-  }
-  @media (max-width: 907px) {
-    font-size: 1.329rem;
-  }
-  @media (max-width: 880px) {
-    font-size: 1.229rem;
+
+  /* @media (max-width: 1025px) {
+    font-size: 1rem;
     line-height: 20px;
   }
+  @media (max-width: 987px) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: 956px) {
+    font-size: 1rem;
+    line-height: 20px;
+  }
+  @media (max-width: 822px) {
+    font-size: 1.15rem;
+    line-height: 26px;
+  } */
   @media (max-width: 740px) {
-    font-size: 1.129rem;
+    font-size: 1.125rem;
   }
   @media (max-width: 699px) {
-    font-size: 1.429rem;
+    font-size: 1.25rem;
     line-height: 26px;
     max-height: 100%;
   }
   &:hover {
-      color: #2A440E;
+      color: #6D9147;
   }
 `;
 
 const AuthorName = styled.span`
     color: #456772;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 
   b {
       position: relative;
@@ -173,7 +165,7 @@ const FeaturedImage = styled.div`
     .PostCat a {
         color: #6D9147;
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 700;
         border-radius: 8px;
         background: #fff;
@@ -193,7 +185,7 @@ const FeaturedImage = styled.div`
         padding: 8px;
         border-radius: 8px;
         left: 8px;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 700;
         line-height: 15.62px;
         text-transform: uppercase;
@@ -222,7 +214,7 @@ const PostMeta = styled.div`
         vertical-align: sub;
     }
     .PostTime span {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 500;
         color: #456772;
         padding-left: 5px;

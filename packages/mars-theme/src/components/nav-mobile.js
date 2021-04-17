@@ -74,7 +74,6 @@ const NavContainer = styled.nav`
     .carousel ul li{
         padding: 0;
         margin: auto;
-        font-size: 0.9em;
         flex-shrink: 0;
         width: auto!important;
     }
@@ -82,8 +81,7 @@ const NavContainer = styled.nav`
     .carousel ul li a {
         display: inline-block;
         line-height: 2em;
-        border-bottom: 2px solid;
-        border-bottom-color: transparent;
+        font-size: 0.75rem;
         font-weight: 500;
         text-transform: uppercase;
         color: #183F4F;
@@ -120,18 +118,15 @@ const NavContainer = styled.nav`
 const NavItem = styled.li`
   padding: 0;
   margin: 0 16px;
-  color: #fff;
-  font-size: 0.9em;
   box-sizing: border-box;
   flex-shrink: 0;
 
   & > a {
     display: inline-block;
     line-height: 2em;
-    border-bottom: 2px solid;
-    border-bottom-color: transparent;
     font-weight: 500;
     text-transform: uppercase;
+    font-size: 0.75rem;
     /* Use for semantic approach to style the current link */
     &[aria-current="page"] {
       color: #6D9147;

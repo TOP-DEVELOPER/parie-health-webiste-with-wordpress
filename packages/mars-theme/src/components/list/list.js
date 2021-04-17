@@ -49,7 +49,7 @@ const List = ({ state }) => {
       {/* EMail Subscription */}
       <MailSubscription>
         <div className="mailMessage">
-            <h4>Like what you see? Subscribe for the latest from Prairie.</h4>
+            <h4>Subscribe for the latest from Prairie.</h4>
         </div>
         <div className="mailForm">
             <div id="mc_embed_signup">
@@ -154,7 +154,7 @@ const NewArticles = styled.div`
         position: absolute;
         bottom: 0px;
         right: 0;
-        border-radius: 0 0 8px;
+        border-radius: 2px 0px 8px 0px;
     }
 
     article:nth-of-type(1n+6) {
@@ -244,24 +244,19 @@ const MailSubscription = styled.div`
     }
 
     .mailMessage h4 {
-        font-size: 1.286rem;
+        font-size: 1.125rem;
         line-height: 26.04px;
         font-weight: 400;
         color: #183F4F;
         letter-spacing: -0.03em;
         margin: 0;
 
-        @media (max-width: 1320px) {
-            font-size: 1.229rem;
-        }
-        @media (max-width: 1240px) {
-            font-size: 1.129rem;
-        }
+
         @media (max-width: 1200px) {
             font-size: 1.029rem;
         }
         @media (max-width: 1199px) {
-            font-size: 1.286rem;
+            font-size: 1.125rem;
             margin: 24px 0;
         }
     }
@@ -274,7 +269,7 @@ const MailSubscription = styled.div`
     }
 
     #mce-EMAIL {
-        font-size: 1.286rem;
+        font-size: 1.125rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
@@ -308,7 +303,7 @@ const MailSubscription = styled.div`
         color: #fff;
         font-family: 'DM Sans';
         font-weight: 400;
-        font-size: 1.286rem;
+        font-size: 1.125rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;

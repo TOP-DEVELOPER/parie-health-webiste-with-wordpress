@@ -59,7 +59,7 @@ const InfiniteList = ({ state, link }) => {
                   </div>
               ) : (
                 <Text>
-                  We found {total} blog {total === 1 ? "post" : "posts"} including <b>{data.searchQuery}</b>
+                  We found {total} blog {total === 1 ? "post" : "posts"} including <b><em>{data.searchQuery}</em></b>
                 </Text>
               )}
             </IntroText>
@@ -129,10 +129,12 @@ const Text = styled.p`
     margin-bottom: 0;
   }
   b::before {
-      content: "{{ ";
+      content: open-quote;
+      padding: 0;
   }
   b::after {
-      content: " }}";
+      content: close-quote;
+      padding: 0 0 0 5px;
   }
 
 `;
@@ -154,7 +156,7 @@ const Container = styled.section`
 
 
 const Header = styled.h3`
-    font-size: 2.286rem;
+    font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 42px;
@@ -172,7 +174,7 @@ const AuthorDescription = styled.div`
     }
 
     p{
-        font-size: 1rem;
+        font-size: 0.875rem;
         font-weight: 400;
         color: #456772;
         line-height: 21px;

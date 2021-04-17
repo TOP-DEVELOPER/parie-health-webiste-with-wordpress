@@ -79,7 +79,7 @@ const TopReads = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 1.3rem; /* 20px */
+  font-size: 1.25rem; /* 20px */
   font-weight: 400;
   letter-spacing: -0.03em;
   margin: 0;
@@ -101,7 +101,7 @@ const Title = styled.h1`
 const AuthorName = styled.span`
   color: #456772;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -129,21 +129,21 @@ const PostMeta = styled.div`
     }
 
     .PostTime span {
-        font-size: 0.657rem;
+        font-size: 0.75rem;
     }
     .PostTime img {
         vertical-align: sub;
         margin-right: 6px;
     }
     .PostTime span {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 400;
         color: #456772;
     }
     .PostCat a {
         color: #6D9147;
         text-transform: uppercase;
-        font-size: 0.657rem;
+        font-size: 0.75rem;
         font-weight: 700;
     }
     .PostCat a:hover {

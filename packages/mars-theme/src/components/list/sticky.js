@@ -68,7 +68,7 @@ const StickyItem = ({ state, item }) => {
 export default connect(StickyItem);
 
 const Title = styled.h1`
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   font-weight: 400;
   letter-spacing: -0.03em;
   margin: 0;
@@ -85,7 +85,7 @@ const Title = styled.h1`
 
 const AuthorName = styled.span`
     color: #456772;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 
   b {
       position: relative;
@@ -99,22 +99,12 @@ const StyledLink = styled(Link)`
   padding: 15px 0;
 `;
 
-const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-`;
-
-const Excerpt = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
-`;
-
 const PostCat = styled.div`
     padding-top: 12px;
 
     a {
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 700;
         color: #6D9147;
         line-height: 15.62px;
@@ -161,7 +151,7 @@ const StickyPostMeta = styled.div`
         vertical-align: sub;
     }
     .PostTime span {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 500;
         color: #456772;
         padding-left: 5px;

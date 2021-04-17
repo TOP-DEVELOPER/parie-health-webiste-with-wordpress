@@ -14,7 +14,7 @@ const Header = ({ state }) => {
         <HeaderTop>
             <PrairieLogo>
                 <StyledLink link="/">
-                  <img src={LogoDark} alt="Prairie Health" />
+                  <img src={LogoDark} alt="Prairie Health" style={{ width: '188px', height: '32px'}} />
                 </StyledLink>
             </PrairieLogo>
 
@@ -88,7 +88,7 @@ const JoinBtn = styled.div`
         background-color: #6D9147;
         color: #fff;
         border-radius: 4px;
-        font-size: 0.9rem;
+        font-size: 0.875rem;
         font-style: normal;
         font-weight: 500;
         line-height: 18px;
@@ -142,15 +142,19 @@ const PrairieLogo = styled.div`
     img {
         vertical-align: middle;
     }
-    @media (max-width: 900px) {
-        img {
-            height: 37px;
-        }
-    }
     @media (max-width: 375px) {
         img {
-            width: 150px;
-            height: 37px;
+            max-width: 150px;
+        }
+    }
+    @media (max-width: 319px) {
+        img {
+            max-width: 100px;
+        }
+    }
+    @media (max-width: 240px) {
+        img {
+            max-width: 80px;
         }
     }
 `;

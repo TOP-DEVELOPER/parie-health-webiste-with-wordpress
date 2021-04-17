@@ -207,7 +207,7 @@ const Post = ({ state, actions, libraries }) => {
       {/* EMail Subscription */}
       <MailSubscription>
         <div className="mailMessage">
-            <h4>Like what you see? Subscribe for the latest from Prairie.</h4>
+            <h4>Subscribe for the latest from Prairie.</h4>
         </div>
         <div className="mailForm">
             <div id="mc_embed_signup">
@@ -313,7 +313,7 @@ link={`/category/${ post.jetpack_related_posts[count].context.replace('In &quot;
                                                 <div className="PostAuthor">
                                                     {author && (
                                                       <StyledLink link={author.link}>
-                                                        <AuthorName>
+                                                        <AuthorName id="relAuthor">
                                                           <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
                                                         </AuthorName>
                                                       </StyledLink>
@@ -382,6 +382,12 @@ const CarouselButton = styled.div`
     .BackBtn {
         left: 0;
     }
+    .BackBtn:hover svg circle {
+        fill: #183F4F;
+    }
+    .NextBtn:hover svg circle {
+        fill: #4E7B1E;
+    }
     .NextBtn {
         right: 0;
     }
@@ -408,7 +414,7 @@ const Container = styled.div`
   //    width: 90vw;
   // }
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
       padding: 24px 24px 48px;
   }
 `;
@@ -419,7 +425,7 @@ const RelatedPostContainer = styled.div`
     max-width: 100vw;
 
     h1 {
-        font-size: 1.429rem;
+        font-size: 1.25rem;
         font-weight: 400;
         letter-spacing: -0.03em;
         line-height: 26px;
@@ -437,14 +443,13 @@ const RelatedPostContainer = styled.div`
             width: 600%!important;
         }
     }
-
-    .carousel {
-        //max-width: 100vw;
-    }
     .carousel ul li {
         margin: 0 30px;
     }
 
+    #relAuthor {
+        font-size: 0.75rem;
+    }
 
 `;
 
@@ -476,7 +481,7 @@ const PostCat = styled.div`
 
     a {
         text-transform: uppercase;
-        font-size: 1.1rem;
+        font-size: 1.125rem;
         font-weight: 700;
         color: #6D9147;
         line-height: 23.44px;
@@ -541,7 +546,7 @@ const MailSubscription = styled.div`
     }
 
     .mailMessage h4 {
-        font-size: 1.286rem;
+        font-size: 1.125rem;
         line-height: 26.04px;
         font-weight: 400;
         color: #183F4F;
@@ -557,7 +562,7 @@ const MailSubscription = styled.div`
     }
 
     #mce-EMAIL {
-        font-size: 1.286rem;
+        font-size: 1.125rem;
         border: 0;
         border-radius: 8px;
         letter-spacing: -0.03em;
@@ -589,7 +594,7 @@ const MailSubscription = styled.div`
     #mc-embedded-subscribe {
         background: #183F4F;
         color: #fff;
-        font-size: 1.286rem;
+        font-size: 1.125rem;
         font-weight: 400;
         border: 0;
         border-radius: 8px;
@@ -632,8 +637,8 @@ const Content = styled.div`
   font-family: 'DM Sans', sans-serif;
   color: #101010;
   word-break: break-word;
-  line-height: 2.2865rem;
-  font-size: 1.5rem;
+  line-height: 2rem;
+  font-size: 1.313rem;
   font-weight: 400;
   letter-spacing: -0.03em;
   margin-bottom: 48px;
@@ -649,8 +654,8 @@ const Content = styled.div`
   }
 
   p {
-    line-height: 2.286rem;
-    font-size: 1.5rem;
+    line-height: 2rem;
+    font-size: 1.313rem;
     font-weight: 400;
     letter-spacing: -0.03em;
     color: #101010;
@@ -686,8 +691,8 @@ const Content = styled.div`
 
   ol li,
   ul li {
-      line-height: 2.286rem;
-      font-size: 1.5rem;
+      line-height: 2rem;
+      font-size: 1.313rem;
       font-weight: 400;
       letter-spacing: -0.03em;
       color: #101010;
@@ -838,10 +843,6 @@ const OtherMeta = styled.div`
         flex-direction: column;
         align-items: normal;
     }
-
-    .PostTime {
-        /* width: 30%; */
-    }
     .PostTime img {
         vertical-align: sub;
     }
@@ -854,7 +855,7 @@ const OtherMeta = styled.div`
     }
 
     .PostAuthor p {
-        font-size: 0.9rem;
+        font-size: 0.875rem;
         font-weight: 700;
         line-height: 18.23px;
         margin-bottom: 8px;
@@ -937,8 +938,6 @@ const RelatedPosts = styled.div`
         }
     }
 
-
-
     .postPagination a {
         margin-right: 16px;
     }
@@ -963,7 +962,6 @@ const FeaturedImage = styled.div`
     position: relative;
 
     img {
-        // height: 200px;
         width: 100%;
         border-radius: 8px;
     }
@@ -976,7 +974,7 @@ const FeaturedImage = styled.div`
     .PostCat a {
         color: #6D9147;
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 700;
         border-radius: 8px;
         background: #fff;
@@ -996,7 +994,7 @@ const FeaturedImage = styled.div`
         padding: 8px;
         border-radius: 8px;
         left: 8px;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 700;
         line-height: 15.62px;
         text-transform: uppercase;
@@ -1031,7 +1029,7 @@ const PostMeta = styled.div`
         vertical-align: sub;
     }
     .PostTime span {
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 500;
         color: #456772;
         padding-left: 5px;

@@ -226,7 +226,9 @@ const MailSubscription = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    max-width: 1280px;
     width: 100%;
+    margin: auto;
     padding: 12px 0;
 
     @media (max-width: 1199px) {
@@ -314,6 +316,7 @@ const MailSubscription = styled.div`
     }
     #mc-embedded-subscribe:hover {
         background-color: #061D26;
+        transition: all .5s linear;
     }
 
     @media (max-width: 650px) {

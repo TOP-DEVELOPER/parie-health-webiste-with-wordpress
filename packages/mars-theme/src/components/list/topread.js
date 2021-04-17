@@ -88,6 +88,7 @@ const Title = styled.h1`
   box-sizing: border-box;
   line-height: 26.04px;
   color: #183F4F;
+  transition: all .5s linear;
 
   &:hover {
       color: #2A440E;
@@ -145,6 +146,7 @@ const PostMeta = styled.div`
         text-transform: uppercase;
         font-size: 0.75rem;
         font-weight: 700;
+        transition: all .5s linear;
     }
     .PostCat a:hover {
         color: #2A440E;

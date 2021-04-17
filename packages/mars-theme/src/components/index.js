@@ -81,7 +81,7 @@ const globalStyles = css`
   a {
     color: #6D9147;
     text-decoration: none;
-    transition: all .5s ease-out;
+    transition: all .5s linear;
   }
   a:hover {
       color: #2A440E;

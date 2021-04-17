@@ -57,6 +57,7 @@ const NavItem = styled.li`
     text-transform: uppercase;
     color: #183F4F;
     font-size: 0.75rem;
+    transition: all .5s linear;
     /* Use for semantic approach to style the current link */
     &[aria-current="page"] {
       color: #6D9147;

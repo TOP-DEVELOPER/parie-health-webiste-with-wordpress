@@ -96,6 +96,7 @@ const JoinBtn = styled.div`
         display: inline-block;
         height: 32px;
         text-align: center;
+        transition: all .5s linear;
 
         @media (max-width: 830px) {
             font-size: small;

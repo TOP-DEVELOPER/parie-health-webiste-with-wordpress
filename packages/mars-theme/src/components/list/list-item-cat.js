@@ -88,7 +88,7 @@ const Title = styled.h1`
   line-height: 26px;
   min-height: 76px;
   max-height: 76px;
-  /* min-width: 304px; */
+  transition: all .5s linear;
 
   color: #183F4F;
 
@@ -173,9 +173,11 @@ const FeaturedImage = styled.div`
         margin: 0 0px 8px 8px;
         display: inline-block;
         text-align: center;
+        transition: all .5s linear;
     }
     .PostCat a:hover {
         color: #2A440E;
+
     }
     .FeaturedPost {
         position: relative;

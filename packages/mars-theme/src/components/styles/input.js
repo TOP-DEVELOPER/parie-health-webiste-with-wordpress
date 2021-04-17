@@ -6,7 +6,7 @@ const Input = styled.input`
   border: 0;
   box-shadow: none;
   display: block;
-  color: #7C989B;
+  color: #183F4F;
   font-size: 1.125rem;
   font-weight: 400;
   letter-spacing: -0.015em;

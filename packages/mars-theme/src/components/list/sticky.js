@@ -77,6 +77,7 @@ const Title = styled.h1`
   padding-bottom: 16px;
   box-sizing: border-box;
   color: #183F4F;
+  transition: all .5s linear;
 
   &:hover {
       color: #2A440E;
@@ -108,6 +109,7 @@ const PostCat = styled.div`
         font-weight: 700;
         color: #6D9147;
         line-height: 15.62px;
+        transition: all .5s linear;
         &:hover {
             color: #2A440E;
         }

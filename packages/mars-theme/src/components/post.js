@@ -378,6 +378,7 @@ const CarouselButton = styled.div`
         background: transparent;
         border: 0;
         outline: 0;
+        transition: all .5s linear;
     }
     .BackBtn {
         left: 0;
@@ -485,6 +486,7 @@ const PostCat = styled.div`
         font-weight: 700;
         color: #6D9147;
         line-height: 23.44px;
+        transition: all .5s linear;
         &:hover {
             color: #2A440E;
         }
@@ -836,7 +838,7 @@ const OtherMeta = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 48px;
 
     @media (max-width: 375px) {
@@ -859,6 +861,7 @@ const OtherMeta = styled.div`
         font-weight: 700;
         line-height: 18.23px;
         margin-bottom: 8px;
+        margin-top: 0;
         color: #183F4F;
     }
 
@@ -982,6 +985,7 @@ const FeaturedImage = styled.div`
         margin: 0 0 8px 8px;
         display: inline-block;
         text-align: center;
+        transition: all .5s linear;
     }
     .PostCat a:hover {
         color: #2A440E;

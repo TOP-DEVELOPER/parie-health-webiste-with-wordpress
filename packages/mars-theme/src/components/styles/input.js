@@ -14,6 +14,7 @@ const Input = styled.input`
   width: 205px;
   text-align: left;
   outline: 0;
+  -webkit-appearance: none;
   &::-webkit-search-decoration,
   &::-webkit-search-cancel-button,
   &::-webkit-search-results-button,

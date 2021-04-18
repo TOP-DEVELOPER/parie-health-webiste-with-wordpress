@@ -1,6 +1,5 @@
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item-cat";
-//import Pagination from "./pagination";
 import FeaturedIcon from '../../../img/star.svg';
 
 
@@ -8,7 +7,8 @@ const ListCat = ({ state, link }) => {
   // Get the data of the current list.
   const data = state.source.get(link);
 
-  return (
+
+return (
     <Container>
       {/* If the list is a taxonomy, we render a title. */}
       {data.isTaxonomy && (
@@ -40,12 +40,6 @@ const ListCat = ({ state, link }) => {
           })}
 
       </CategoryArticles>
-
-      {/* Mail Subscription */}
-
-      {/* All Articles */}
-      {/* <Pagination /> */}
-
 
     </Container>
   );

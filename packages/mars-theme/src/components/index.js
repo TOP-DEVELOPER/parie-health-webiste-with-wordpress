@@ -30,6 +30,7 @@ const Theme = ({ state }) => {
       <Head>
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
+        <link rel="canonical" href={state.router.link} />
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's.

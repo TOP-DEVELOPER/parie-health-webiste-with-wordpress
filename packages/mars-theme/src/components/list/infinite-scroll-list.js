@@ -1,45 +1,91 @@
-import { connect, styled, decode } from "frontity";
+import { Global, connect, css, styled, decode } from "frontity";
 
-import { useArchiveInfiniteScroll } from "@frontity/hooks";
+//import { useArchiveInfiniteScroll } from "@frontity/hooks";
 
-import React from "react";
+import React, {Component} from "react";
 
-import AllItems from "./alllist";
-import Loading from "../loading";
+import InfiniteListNormal from "./infinite-scroll-listNormal";
+import InfiniteListReverse from "./infinite-scroll-listReverse";
+//import AllItemsReverse from "./alllistreverse";
+//import AllItems from "./alllist";
+//import Loading from "../loading";
 
-const InfiniteList = ({  }) => {
+const options = [
+    {
+        label: "newest to oldest",
+        value: "newest",
+    },
+    {
+        label: "oldest to newest",
+        value: "oldest",
+    },
+];
 
-    const {
-        pages,
-        isFetching,
-        isError,
-        isLimit,
-        fetchNext
-    } = useArchiveInfiniteScroll({ limit: 0 });
+let orderState = 0;
+
+class InfiniteList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            orderDefault: "newest",
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+
+
+    }
+
+    handleChange = (event) => {
+        //event.preventDefault();
+        this.setState({ orderDefault: event.target.value });
+
+        if(event.target.value == "oldest") {
+            orderState = 1;
+        } else {
+            orderState = 0;
+        }
+
+    }
+
+render(){
 
   return (
     <div>
 
-        {/* This code if we use  useArchiveInfiniteScroll */}
+        <Global styles={sortStyles} />
+        <div className="SortContainer">
+            <div className="SortLabel">
+                <h3>All articles, sorted by</h3>
+            </div>
+            <div className="SortSelect">
+                <select value={this.state.fruit} onChange={this.handleChange}>
+                  {options.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+            </div>
+        </div>
 
-        {pages.map(({ Wrapper, key, link, isLast }) => (
-            <Wrapper key={key}>
-              <AllItems link={link}/>
-            </Wrapper>
-          ))}
-          <ButtonContainer>
-            {isFetching && <Loading />}
-            {isLimit && <Button onClick={fetchNext}>Load Next Page</Button>}
-            {isError && (
-              <Button onClick={fetchNext}>Something failed - Retry</Button>
-            )}
-          </ButtonContainer>
+
+
+        { orderState == 1 ?
+            <div>
+                <InfiniteListReverse />
+            </div>
+        :
+            <div>
+                <InfiniteListNormal />
+            </div>
+        }
+
 
     </div>
   );
+}
 };
 
-export default connect(InfiniteList);
+export default InfiniteList;
 
 const ButtonContainer = styled.div`
   width: 100%;
@@ -54,4 +100,22 @@ const Button = styled.button`
   padding: 12px;
   font-weight: bold;
   border: none;
+`;
+
+const sortStyles = css`
+    .SortContainer {
+        justify-content: center;
+    }
+    .SortLabel {
+        margin-right: 16px;
+    }
+
+    @media (max-width: 950px) {
+        .SortContainer {
+            flex-direction: column;
+        }
+        .SortLabel h3 {
+            margin-bottom: 0;
+        }
+    }
 `;

@@ -14,7 +14,7 @@ const ListCat = ({ state, link}) => {
             const item = state.source[type][id];
             // Render one Item component for each one.
             return <Item key={item.id} item={item} />;
-          })}
+          }).slice().reverse()}
       </CategoryArticles>
 
   );

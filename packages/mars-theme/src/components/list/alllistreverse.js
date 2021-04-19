@@ -9,6 +9,8 @@ const ListCat = ({ state, link }) => {
 
 
 
+
+
 return (
     <Container>
       {/* If the list is a taxonomy, we render a title. */}
@@ -36,7 +38,7 @@ return (
           const item = state.source[type][id];
           // Render one Item component for each one.
           return <Item key={item.id} item={item} />;
-        })}
+        }).slice().reverse()}
         </CategoryArticles>
 
 
@@ -55,10 +57,6 @@ const Container = styled.section`
   padding: 23px 60px 0;
   list-style: none;
   overflow-anchor: none;
-
-  @media (max-width: 950px) {
-      padding: 32px 60px 0;
-  }
 
     @media (max-width: 768px) {
         padding: 32px 0 64px;
@@ -125,7 +123,7 @@ const CategoryArticles = styled.div`
     @media (max-width: 700px) {
         grid-template-columns: repeat(1, minmax(0, auto));
         grid-column-gap: 24px;
-        padding: 0 24px 71px;
+        padding: 32px 24px 71px;
     }
     /* @media (min-width: 320px) and (max-width: 480px) {
         grid-template-columns: repeat(1, auto);

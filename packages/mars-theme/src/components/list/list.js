@@ -204,7 +204,7 @@ const Container1 = styled.section`
   max-width: 1440px;
   width: 100%;
   margin: auto;
-  padding: 0 60px 64px;
+  padding: 0 60px 24px;
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -212,10 +212,10 @@ const Container1 = styled.section`
 
   @media (max-width: 950px) {
       flex-direction: column;
-      padding: 0 64px 64px;
+      padding: 0 64px 24px;
   }
   @media (max-width: 768px) {
-      padding: 0 24px 64px;
+      padding: 0 24px 24px;
   }
 `;
 

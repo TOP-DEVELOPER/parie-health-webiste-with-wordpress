@@ -1,90 +1,89 @@
-import { connect, styled, decode } from "frontity";
+import { Global, css, connect, styled, decode } from "frontity";
 
-import { useArchiveInfiniteScroll } from "@frontity/hooks";
+//import { useArchiveInfiniteScroll } from "@frontity/hooks";
 
-import React from "react";
+import React, {Component} from "react";
 
-import AllTax from "./list-cat";
-import Loading from "../loading";
+//import AllTax from "./list-cat";
+//import Loading from "../loading";
 
-const InfiniteList = ({ state, link }) => {
+import InfiniteListTaxNormal from "./list-tax-infinite-normal";
+import InfiniteListTaxReverse from "./list-tax-infinite-reverse";
 
-    // Important
-    const data = state.source.get(state.router.link);
+const options = [
+    {
+        label: "newest to oldest",
+        value: "newest",
+    },
+    {
+        label: "oldest to newest",
+        value: "oldest",
+    },
+];
 
-    const {
-        pages,
-        isFetching,
-        isError,
-        isLimit,
-        fetchNext
-    } = useArchiveInfiniteScroll({ limit: 0 });
+let orderState = 0;
 
-    // data.total → total pages that match the current path/url
-    // data.searchQuery → query done to get search results
-    const { total, searchQuery } = data;
-    const isEmpty = data.total === 0;
+
+class TaxInfiniteList extends Component {
+
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            orderDefault: "newest",
+        };
+        this.handleChange = this.handleChange.bind(this);
+
+    }
+
+    handleChange = (event) => {
+        //event.preventDefault();
+        this.setState({ orderDefault: event.target.value });
+
+        if(event.target.value == "oldest") {
+            orderState = 1;
+        } else {
+            orderState = 0;
+        }
+    }
+
+
+    render() {
 
   return (
-    <Container>
+    <div>
 
-        {/* If the list is a taxonomy, we render a title. */}
-        {data.isTaxonomy && (
-          <Header>
-            {decode(state.source[data.taxonomy][data.id].name)}
-          </Header>
-        )}
+        <Global styles={sortTaxStyles} />
+        <div className="SortContainer">
+            <div className="SortLabel">
+                <h3>Sorted by</h3>
+            </div>
+            <div className="SortSelect">
+                <select value={this.state.fruit} onChange={this.handleChange}>
+                  {options.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+            </div>
+        </div>
 
-        {/* If the list is for a specific author, we render a title. */}
-        {data.isAuthor && (
-          <div className="AuthorHeading">
-          <Header>
-            {decode(state.source.author[data.id].name)}
-          </Header>
-          <AuthorDescription>
-              <div><img src= {decode(state.source.author[data.id].avatar_urls[96])}/></div>
-              <div><p>{decode(state.source.author[data.id].description)}</p></div>
-          </AuthorDescription>
-          </div>
-        )}
+        { orderState == 1 ?
+            <div>
+                <InfiniteListTaxReverse />
+            </div>
+        :
+            <div>
+                <InfiniteListTaxNormal />
+            </div>
+        }
 
 
-        {data.isSearch && (
-            <IntroText size="thin">
-              {isEmpty ? (
-                  <div className="no-results">
-                      <Text>
-                          We could not find any results for your search. You can try again or instead search by the categories listed above.
-                      </Text>
-                  </div>
-              ) : (
-                <Text>
-                  We found {total} blog {total === 1 ? "post" : "posts"} including <b><em>{data.searchQuery}</em></b>
-                </Text>
-              )}
-            </IntroText>
-        )}
-
-        {/* This code if we use  useArchiveInfiniteScroll */}
-
-        {pages.map(({ Wrapper, key, link, isLast }) => (
-            <Wrapper key={key}>
-              <AllTax link={link}/>
-            </Wrapper>
-          ))}
-          <ButtonContainer>
-            {isFetching && <Loading />}
-            {isLimit && <Button onClick={fetchNext}>Load Next Page</Button>}
-            {isError && (
-              <Button onClick={fetchNext}>Something failed - Retry</Button>
-            )}
-          </ButtonContainer>
-
-    </Container>
+    </div>
   );
+}
 };
 
-export default connect(InfiniteList);
+export default TaxInfiniteList;
 
 const ButtonContainer = styled.div`
   width: 100%;
@@ -147,7 +146,7 @@ const Container = styled.section`
   list-style: none;
 
     @media (max-width: 768px) {
-        padding: 32px 24px 64px;
+        padding: 0 24px 64px;
     }
     .AuthorHeading h3{
         text-transform: capitalize;
@@ -183,5 +182,40 @@ const AuthorDescription = styled.div`
         width: 64px;
         height: 64px;
         border-radius: 50%;
+    }
+`;
+
+const sortTaxStyles = css`
+    @media (max-width: 768px) {
+        .SortContainer {
+            padding: 0 24px;
+        }
+        .SortLabel {
+            margin-right: 12px;
+        }
+    }
+    @media (max-width: 367px) {
+        .SortLabel h3 {
+            font-size: 1.15rem;
+        }
+        select {
+            font: 400 1.15rem 'DM Sans';
+        }
+    }
+    @media (max-width: 360px) {
+        .SortLabel h3 {
+            font-size: 1rem;
+        }
+        select {
+            font: 400 1rem 'DM Sans';
+        }
+    }
+    @media (max-width: 336px) {
+        .SortContainer {
+            flex-direction: column;
+        }
+        .SortLabel h3 {
+            margin-bottom: 0;
+        }
     }
 `;

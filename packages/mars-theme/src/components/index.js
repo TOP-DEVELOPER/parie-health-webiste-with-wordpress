@@ -10,6 +10,7 @@ import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
 import FontFaces from "./styles/font-faces";
+import Arrow from '../../img/arrow.svg';
 
 import { useRef } from "react";
 
@@ -22,6 +23,7 @@ const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
+  console.log(data);
 
   return (
     <>
@@ -45,7 +47,7 @@ const Theme = ({ state }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Main>
+      <Main id={ `_totalResults${data.total}` }>
         <Switch>
           <Loading when={data.isFetching} />
           <ListHome when={data.isHome} />
@@ -69,6 +71,8 @@ const globalStyles = css`
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
     }
+
+
 
   body {
     margin: 0;
@@ -100,6 +104,79 @@ const globalStyles = css`
       margin-left: -50vw;
       left: 50%;
   }
+
+  .SortContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 60px;
+  }
+
+    div#_totalResults0 .SortContainer {
+        display: none;
+    }
+
+  .SortLabel {
+      margin-right: 24px;
+  }
+  .SortLabel h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 26px;
+      color: #183F4F;
+  }
+  select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      outline: 0;
+      box-shadow: none;
+      border: 0 !important;
+      background: transparent;
+      background-image: none;
+  }
+    select::-ms-expand {
+        display: none;
+    }
+    .SortSelect {
+      position: relative;
+      display: flex;
+      height: 2.5em;
+      line-height: 3;
+      overflow: hidden;
+      width: 188px;
+      max-width: 188px;
+      border-bottom: 1px solid #183F4F;
+    }
+    select {
+      flex: 1;
+      padding: 0 0.5em;
+      color: #183F4F;
+      cursor: pointer;
+      line-height: 26px;
+      font: 400 1.25rem 'DM Sans';
+    }
+    .SortSelect::after {
+      content: "";
+      background: url(${Arrow});
+      background-position: 0 50%;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0;
+      cursor: pointer;
+      pointer-events: none;
+      -webkit-transition: .25s all ease;
+      -o-transition: .25s all ease;
+      transition: .25s all ease;
+      width: 14px;
+      height: 40px;
+    }
+    .SortSelect:hover::after {
+        color: #f39c12;
+    }
 `;
 
 const HeadContainer = styled.div`
@@ -119,13 +196,10 @@ const HeadContainer = styled.div`
       padding-left: 24px;
       padding-right: 24px;
   }
-  /* @media (max-width: 375px) {
-      padding-left: 28px;
-      padding-right: 28px;
-  } */
 `;
 
 const Main = styled.div`
   display: flex;
   justify-content: center;
+}
 `;

@@ -104,11 +104,11 @@ const Button = styled.button`
 
 const IntroText = styled.div`
   width: 100%;
-  margin-top: 2rem;
   font-weight: initial;
   @media (min-width: 700px) {
     font-size: 2rem;
     margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
   }
   .no-results {
       max-width: 950px;

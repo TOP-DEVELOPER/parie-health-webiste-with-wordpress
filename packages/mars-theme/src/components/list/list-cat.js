@@ -26,6 +26,7 @@ const CategoryArticles = styled.div`
     display: grid;
     grid-row-gap: 44px;
     padding: 0;
+    margin-bottom: 48px;
     justify-content: center;
 
     @media (min-width: 951px) {

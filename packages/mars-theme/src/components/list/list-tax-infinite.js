@@ -144,6 +144,7 @@ const Container = styled.section`
   margin: auto;
   padding: 0 60px 64px;
   list-style: none;
+  position: relative;
 
     @media (max-width: 768px) {
         padding: 0 24px 64px;
@@ -186,6 +187,13 @@ const AuthorDescription = styled.div`
 `;
 
 const sortTaxStyles = css`
+
+    .SortContainer {
+        position: absolute;
+        margin-top: 76px;
+        z-index: 1;
+    }
+
     @media (max-width: 768px) {
         .SortContainer {
             padding: 0 24px;
@@ -213,6 +221,7 @@ const sortTaxStyles = css`
     @media (max-width: 336px) {
         .SortContainer {
             flex-direction: column;
+            width: 100%;
         }
         .SortLabel h3 {
             margin-bottom: 0;

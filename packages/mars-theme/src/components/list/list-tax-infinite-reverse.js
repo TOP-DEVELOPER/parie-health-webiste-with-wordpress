@@ -146,7 +146,7 @@ const Container = styled.section`
   list-style: none;
 
     @media (max-width: 768px) {
-        padding: 32px 24px 64px;
+        padding: 0 24px 64px;
     }
     .AuthorHeading h3{
         text-transform: capitalize;
@@ -160,6 +160,12 @@ const Header = styled.h3`
     text-transform: uppercase;
     line-height: 42px;
     color: #183F4F;
+
+    margin-bottom: 90px;
+
+    @media (max-width: 336px) {
+        margin-bottom: 120px;
+    }
 `;
 
 const AuthorDescription = styled.div`

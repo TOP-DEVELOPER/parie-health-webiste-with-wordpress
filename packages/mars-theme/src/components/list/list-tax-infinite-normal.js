@@ -162,6 +162,12 @@ const Header = styled.h3`
     text-transform: uppercase;
     line-height: 42px;
     color: #183F4F;
+
+    margin-bottom: 90px;
+
+    @media (max-width: 336px) {
+        margin-bottom: 120px;
+    }
 `;
 
 const AuthorDescription = styled.div`

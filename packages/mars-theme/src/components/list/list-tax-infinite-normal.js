@@ -177,6 +177,16 @@ const AuthorDescription = styled.div`
     align-items: center;
     padding-bottom: 48px;
 
+    margin-top: -76px;
+    margin-bottom: 35px;
+
+    @media (max-width: 400px) {
+        flex-direction: column;
+    }
+    @media (max-width: 336px) {
+        margin-bottom: 60px;
+    }
+
     div {
         padding-right: 24px;
     }

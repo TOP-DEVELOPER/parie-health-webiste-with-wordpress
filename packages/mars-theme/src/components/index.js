@@ -22,8 +22,12 @@ import { useRef } from "react";
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-
   console.log(data);
+
+  const authorname = data.route.replace('/','');
+  const authorname1 = authorname.replace('/','');
+  const authorname2 = authorname1.replace('/','');
+  console.log(authorname2);
 
   return (
     <>
@@ -47,7 +51,7 @@ const Theme = ({ state }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Main id={ `_totalResults${data.total}` }>
+      <Main id={ `_totalResults${data.total}` } className={ `_pageName${data.isAuthor}`+` ${authorname2}` }>
         <Switch>
           <Loading when={data.isFetching} />
           <ListHome when={data.isHome} />
@@ -176,6 +180,99 @@ const globalStyles = css`
     }
     .SortSelect:hover::after {
         color: #f39c12;
+    }
+
+    ._pageNametrue .SortContainer {
+        margin-top: 150px;
+        padding: 0 90px;
+    }
+    ._pageNametrue .css-1nf5taa-Container {
+        padding: 0 90px 64px;
+
+        @media (max-width: 950px) {
+            padding: 0 60px 64px;
+        }
+        @media (max-width: 768px) {
+            padding: 0 24px 64px;
+        }
+    }
+
+    ._pageNametrue.authormegan-fox .SortContainer {
+        margin-top: 195px;
+    }
+
+    @media (max-width: 1198px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 170px;
+        }
+    }
+    @media (max-width: 950px) {
+        ._pageNametrue .SortContainer {
+            padding: 0 60px;
+        }
+    }
+    @media (max-width: 843px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 190px;
+        }
+    }
+    @media (max-width: 768px) {
+        ._pageNametrue .SortContainer {
+            padding: 0 24px 64px;
+        }
+    }
+    @media (max-width: 636px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 215px;
+            padding: 0 24px 64px;
+        }
+    }
+    @media (max-width: 545px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 240px;
+        }
+    }
+    @media (max-width: 491px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 260px;
+        }
+    }
+    @media (max-width: 450px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 280px;
+        }
+    }
+    @media (max-width: 422px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 300px;
+        }
+    }
+    @media (max-width: 400px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 320px;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 340px;
+        }
+    }
+    @media (max-width: 354px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 360px;
+        }
+    }
+    @media (max-width: 337px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 380px;
+        }
+    }
+
+    @media (max-width: 325px) {
+        ._pageNametrue .SortContainer {
+            margin-top: 400px;
+        }
     }
 `;
 

@@ -23,7 +23,7 @@ const Header = ({ state }) => {
                     <SearchForm />
                 </SearchBar>
                 <JoinBtn>
-                    <a href="https://www.prairiehealth.co/register" target="_blank">Visit Prairie Health</a>
+                    <a href="https://www.prairiehealth.co/" target="_blank">Visit Prairie Health</a>
                 </JoinBtn>
                 <JoinBtnMobile>
                     <a href="https://www.prairiehealth.co/register" target="_blank"><img src={JoinMobile} alt="Join Prairie" style={{ width: '32px', height: '32px'}}/></a>

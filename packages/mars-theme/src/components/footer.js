@@ -36,7 +36,7 @@ export default connect(Footer);
 const FooterContainer = styled.div`
   background-color: #2f2f2f;
   padding: 50px 0;
-  /* margin-top: 107px; */
+  margin-top: 48px;
 `;
 
 const Container = styled.div`

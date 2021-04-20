@@ -409,15 +409,7 @@ const Container = styled.div`
   max-width: 790px;
   width: 100%;
   margin: auto;
-  padding: 24px 0 48px;
-
-  // @media (max-width: 950px) {
-  //    width: 90vw;
-  // }
-
-  @media (max-width: 800px) {
-      padding: 24px 24px 48px;
-  }
+  padding: 24px 24px 48px;
 `;
 
 const RelatedPostContainer = styled.div`
@@ -464,6 +456,11 @@ const Title = styled.h1`
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: -0.03em;
+
+  @media (max-width: 375px) {
+      font-size: 1.5rem;
+      line-height: 31px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -487,6 +484,10 @@ const PostCat = styled.div`
         color: #6D9147;
         line-height: 23.44px;
         transition: all .5s linear;
+
+        @media (max-width: 375px) {
+            font-size: 0.875rem;
+        }
         &:hover {
             color: #2A440E;
         }
@@ -828,6 +829,8 @@ const Excerpt = styled.div`
 
   @media (max-width: 375px) {
       margin-bottom: 16px;
+      font-size: 1.125rem;
+      line-height: 23px;
   }
 `;
 
@@ -841,7 +844,7 @@ const OtherMeta = styled.div`
     align-items: flex-start;
     margin-bottom: 48px;
 
-    @media (max-width: 375px) {
+    @media (max-width: 552px) {
         flex-direction: column;
         align-items: normal;
     }
@@ -850,7 +853,7 @@ const OtherMeta = styled.div`
     }
     .PostTime span {
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 400;
         color: #456772;
         padding-left: 5px;
         line-height: 20.83px;
@@ -865,16 +868,23 @@ const OtherMeta = styled.div`
         color: #183F4F;
     }
 
-    @media (max-width: 375px) {
-        .PostAuthor {
-            margin-bottom: 16px;
-        }
-    }
+    // @media (max-width: 552px) {
+    //     .PostAuthor {
+    //         margin-bottom: 16px;
+    //     }
+    // }
 
     .authorMeta,
     .mediallyReview {
         float: left;
         min-width: 200px;
+    }
+
+    @media (max-width: 552px) {
+        .authorMeta,
+        .mediallyReview {
+            margin-bottom: 16px;
+        }
     }
 
 `;

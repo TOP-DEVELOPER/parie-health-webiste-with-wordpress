@@ -217,7 +217,7 @@ const PostMeta = styled.div`
     }
     .PostTime span {
         font-size: 0.75rem;
-        font-weight: 500;
+        font-weight: 400;
         color: #456772;
         padding-left: 5px;
     }

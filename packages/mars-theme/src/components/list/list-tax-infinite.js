@@ -4,6 +4,8 @@ import { Global, css, connect, styled, decode } from "frontity";
 
 import React, {Component} from "react";
 
+//import $ from 'jquery';
+
 //import AllTax from "./list-cat";
 //import Loading from "../loading";
 
@@ -23,7 +25,6 @@ const options = [
 
 let orderState = 0;
 
-
 class TaxInfiniteList extends Component {
 
 
@@ -37,15 +38,27 @@ class TaxInfiniteList extends Component {
     }
 
     handleChange = (event) => {
-        //event.preventDefault();
+        event.preventDefault();
         this.setState({ orderDefault: event.target.value });
 
+        console.log('ffff');
         if(event.target.value == "oldest") {
             orderState = 1;
         } else {
             orderState = 0;
         }
     }
+
+    // componentDidMount(){
+    //     $( ".SortContainer" ).insertAfter( $(".AuthorHeading") );
+    //     $( ".SortContainer" ).insertAfter( $(".CategoryHeading") );
+    // }
+    //
+    //
+    // componentDidUpdate() {
+    //     $( ".SortContainer" ).insertAfter( $(".AuthorHeading") );
+    //     $( ".SortContainer" ).insertAfter( $(".CategoryHeading") );
+    // }
 
 
     render() {
@@ -59,7 +72,7 @@ class TaxInfiniteList extends Component {
                 <h3>Sorted by</h3>
             </div>
             <div className="SortSelect">
-                <select value={this.state.fruit} onChange={this.handleChange}>
+                <select value={this.state.orderDefault} onChange={this.handleChange}>
                   {options.map((option) => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                   ))}
@@ -142,7 +155,7 @@ const Container = styled.section`
   max-width: 1440px;
   width: 100%;
   margin: auto;
-  padding: 0 60px 64px;
+  padding: 0 90px 64px;
   list-style: none;
   position: relative;
 
@@ -189,9 +202,8 @@ const AuthorDescription = styled.div`
 const sortTaxStyles = css`
 
     .SortContainer {
-        position: absolute;
-        margin-top: 76px;
-        z-index: 1;
+        padding: 0 90px;
+        margin-top: 12px;
     }
 
     @media (max-width: 768px) {

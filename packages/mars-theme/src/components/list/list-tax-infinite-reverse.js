@@ -30,9 +30,11 @@ const InfiniteListTaxReverse = ({ state, link }) => {
 
         {/* If the list is a taxonomy, we render a title. */}
         {data.isTaxonomy && (
-          <Header>
-            {decode(state.source[data.taxonomy][data.id].name)}
-          </Header>
+            <div className="CategoryHeading">
+              <Header>
+                {decode(state.source[data.taxonomy][data.id].name)}
+              </Header>
+          </div>
         )}
 
         {/* If the list is for a specific author, we render a title. */}
@@ -142,7 +144,7 @@ const Container = styled.section`
   max-width: 1440px;
   width: 100%;
   margin: auto;
-  padding: 0 60px 64px;
+  padding: 0 90px 64px;
   list-style: none;
 
     @media (max-width: 768px) {
@@ -150,6 +152,10 @@ const Container = styled.section`
     }
     .AuthorHeading h3{
         text-transform: capitalize;
+        margin-bottom: 12px;
+        @media (max-width: 336px) {
+            margin: 1em 0;
+        }
     }
 `;
 
@@ -160,11 +166,10 @@ const Header = styled.h3`
     text-transform: uppercase;
     line-height: 42px;
     color: #183F4F;
-
-    margin-bottom: 90px;
+    margin: 0px 0 26px;
 
     @media (max-width: 336px) {
-        margin-bottom: 120px;
+        margin: 1em 0;
     }
 `;
 
@@ -173,21 +178,19 @@ const AuthorDescription = styled.div`
     flex-direction: row;
     justify-content: stretch;
     align-items: center;
-    padding-bottom: 48px;
-
-    margin-top: -76px;
-    margin-bottom: 35px;
+    padding-bottom: 32px;
 
     @media (max-width: 400px) {
         flex-direction: column;
     }
 
-    @media (max-width: 336px) {
-        margin-bottom: 60px;
-    }
-
     div {
         padding-right: 24px;
+
+        @media (max-width: 336px) {
+            padding-bottom: 24px;
+            padding-right: 0;
+        }
     }
 
     p{
@@ -195,6 +198,7 @@ const AuthorDescription = styled.div`
         font-weight: 400;
         color: #456772;
         line-height: 21px;
+        margin: 0;
     }
     img {
         width: 64px;

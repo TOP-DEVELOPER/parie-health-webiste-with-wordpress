@@ -59,7 +59,7 @@ render(){
                 <h3>All articles, sorted by</h3>
             </div>
             <div className="SortSelect">
-                <select value={this.state.fruit} onChange={this.handleChange}>
+                <select value={this.state.orderDefault} onChange={this.handleChange}>
                   {options.map((option) => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                   ))}

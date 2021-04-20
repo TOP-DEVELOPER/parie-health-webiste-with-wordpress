@@ -63,7 +63,7 @@ const settings = {
           "url": "https://www.prairiehealth.co/blog",
           //"api": "https://www.prairiehealth.co/blog/wp-json",
           "params": {
-            "per_page": 6,
+            "per_page": 45,
             "type": ["post"],
           },
         },

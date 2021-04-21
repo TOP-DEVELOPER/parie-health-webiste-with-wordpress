@@ -5,54 +5,54 @@ import { Global, connect, css, styled, decode } from "frontity";
 import React, {Component} from "react";
 
 import InfiniteListNormal from "./infinite-scroll-listNormal";
-import InfiniteListReverse from "./infinite-scroll-listReverse";
+//import InfiniteListReverse from "./infinite-scroll-listReverse";
 //import AllItemsReverse from "./alllistreverse";
 //import AllItems from "./alllist";
 //import Loading from "../loading";
 
-const options = [
-    {
-        label: "newest to oldest",
-        value: "newest",
-    },
-    {
-        label: "oldest to newest",
-        value: "oldest",
-    },
-];
+// const options = [
+//     {
+//         label: "newest to oldest",
+//         value: "newest",
+//     },
+//     {
+//         label: "oldest to newest",
+//         value: "oldest",
+//     },
+// ];
 
-let orderState = 0;
+//let orderState = 0;
 
 class InfiniteList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            orderDefault: "newest",
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-
-
-    }
-
-    handleChange = (event) => {
-        //event.preventDefault();
-        this.setState({ orderDefault: event.target.value });
-
-        if(event.target.value == "oldest") {
-            orderState = 1;
-        } else {
-            orderState = 0;
-        }
-
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         orderDefault: "newest",
+    //     };
+    //
+    //     this.handleChange = this.handleChange.bind(this);
+    //
+    //
+    // }
+    //
+    // handleChange = (event) => {
+    //     //event.preventDefault();
+    //     this.setState({ orderDefault: event.target.value });
+    //
+    //     if(event.target.value == "oldest") {
+    //         orderState = 1;
+    //     } else {
+    //         orderState = 0;
+    //     }
+    //
+    // }
 
 render(){
 
   return (
     <div>
-
+        {/*
         <Global styles={sortStyles} />
         <div className="SortContainer">
             <div className="SortLabel">
@@ -69,6 +69,7 @@ render(){
 
 
 
+
         { orderState == 1 ?
             <div>
                 <InfiniteListReverse />
@@ -79,8 +80,15 @@ render(){
             </div>
         }
 
+        */}
+
+
+
+        <InfiniteListNormal />
+
 
     </div>
+
   );
 }
 };

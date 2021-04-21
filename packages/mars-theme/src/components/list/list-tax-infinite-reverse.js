@@ -26,6 +26,7 @@ const InfiniteListTaxReverse = ({ state, link }) => {
     const isEmpty = data.total === 0;
 
   return (
+
     <Container>
 
         {/* If the list is a taxonomy, we render a title. */}
@@ -66,13 +67,14 @@ const InfiniteListTaxReverse = ({ state, link }) => {
             </IntroText>
         )}
 
+
         {/* This code if we use  useArchiveInfiniteScroll */}
 
         {pages.map(({ Wrapper, key, link, isLast }) => (
             <Wrapper key={key}>
               <AllTaxReverse link={link}/>
             </Wrapper>
-          ))}
+          )).slice().reverse()}
           <ButtonContainer>
             {isFetching && <Loading />}
             {isLimit && <Button onClick={fetchNext}>Load Next Page</Button>}
@@ -80,8 +82,8 @@ const InfiniteListTaxReverse = ({ state, link }) => {
               <Button onClick={fetchNext}>Something failed - Retry</Button>
             )}
           </ButtonContainer>
+    </Container>      
 
-    </Container>
   );
 };
 
@@ -103,13 +105,17 @@ const Button = styled.button`
 `;
 
 const IntroText = styled.div`
-  width: 100%;
-  margin-top: 2rem;
-  font-weight: initial;
-  @media (min-width: 700px) {
+
+    width: 100%;
+    font-weight: initial;
+    margin-top: 0.5rem;
+    margin-bottom: 2.25rem;
     font-size: 2rem;
-    margin-top: 2.5rem;
-  }
+
+    @media (max-width: 450px) {
+        font-size: 1.5rem;
+    }
+
   .no-results {
       max-width: 950px;
       margin-left: auto;
@@ -166,7 +172,7 @@ const Header = styled.h3`
     text-transform: uppercase;
     line-height: 42px;
     color: #183F4F;
-    margin: 0px 0 26px;
+    margin: 8px 0 36px;
 
     @media (max-width: 336px) {
         margin: 1em 0;
@@ -178,7 +184,7 @@ const AuthorDescription = styled.div`
     flex-direction: row;
     justify-content: stretch;
     align-items: center;
-    padding-bottom: 32px;
+    margin-bottom: 36px;
 
     @media (max-width: 400px) {
         flex-direction: column;

@@ -68,6 +68,8 @@ const InfiniteListTaxNormal = ({ state, link }) => {
         )}
 
 
+
+
         {/* This code if we use  useArchiveInfiniteScroll */}
 
         {pages.map(({ Wrapper, key, link, isLast }) => (
@@ -82,8 +84,8 @@ const InfiniteListTaxNormal = ({ state, link }) => {
               <Button onClick={fetchNext}>Something failed - Retry</Button>
             )}
           </ButtonContainer>
-
     </Container>
+
   );
 };
 
@@ -107,10 +109,11 @@ const Button = styled.button`
 const IntroText = styled.div`
   width: 100%;
   font-weight: initial;
-  @media (min-width: 700px) {
-    font-size: 2rem;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2.25rem;
+  font-size: 2rem;
+  @media (max-width: 450px) {
+      font-size: 1.5rem;
   }
   .no-results {
       max-width: 950px;
@@ -169,7 +172,7 @@ const Header = styled.h3`
     text-transform: uppercase;
     line-height: 42px;
     color: #183F4F;
-    margin: 0px 0 26px;
+    margin: 8px 0 36px;
 
     @media (max-width: 336px) {
         margin: 1em 0;
@@ -182,7 +185,7 @@ const AuthorDescription = styled.div`
     flex-direction: row;
     justify-content: stretch;
     align-items: center;
-    padding-bottom: 32px;
+    margin-bottom: 36px;
 
     @media (max-width: 400px) {
         flex-direction: column;

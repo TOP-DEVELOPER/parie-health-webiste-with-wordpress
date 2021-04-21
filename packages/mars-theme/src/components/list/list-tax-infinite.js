@@ -98,112 +98,112 @@ class TaxInfiniteList extends Component {
 
 export default TaxInfiniteList;
 
-const ButtonContainer = styled.div`
-  width: 100%;
-  text-align: center;
-  margin-bottom: 40px;
-`;
-
-const Button = styled.button`
-  position: relative;
-  background: #1f38c5;
-  color: white;
-  padding: 12px;
-  font-weight: bold;
-  border: none;
-`;
-
-const IntroText = styled.div`
-  width: 100%;
-  margin-top: 2rem;
-  font-weight: initial;
-  @media (min-width: 700px) {
-    font-size: 2rem;
-    margin-top: 2.5rem;
-  }
-  .no-results {
-      max-width: 950px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      height: 40vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
-`;
-
-const Text = styled.p`
-  margin: 0 0 1em 0;
-  color: #183f4f;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  b::before {
-      content: open-quote;
-      padding: 0;
-  }
-  b::after {
-      content: close-quote;
-      padding: 0 0 0 5px;
-  }
-
-`;
-
-const Container = styled.section`
-  max-width: 1440px;
-  width: 100%;
-  margin: auto;
-  padding: 0 90px 64px;
-  list-style: none;
-  position: relative;
-
-    @media (max-width: 768px) {
-        padding: 0 24px 64px;
-    }
-    .AuthorHeading h3{
-        text-transform: capitalize;
-    }
-`;
-
-
-const Header = styled.h3`
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 42px;
-    color: #183F4F;
-`;
-
-const AuthorDescription = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    align-items: center;
-
-    div {
-        padding-right: 24px;
-    }
-
-    p{
-        font-size: 0.875rem;
-        font-weight: 400;
-        color: #456772;
-        line-height: 21px;
-    }
-    img {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-    }
-`;
+// const ButtonContainer = styled.div`
+//   width: 100%;
+//   text-align: center;
+//   margin-bottom: 40px;
+// `;
+//
+// const Button = styled.button`
+//   position: relative;
+//   background: #1f38c5;
+//   color: white;
+//   padding: 12px;
+//   font-weight: bold;
+//   border: none;
+// `;
+//
+// const IntroText = styled.div`
+//   width: 100%;
+//   margin-top: 2rem;
+//   font-weight: initial;
+//   @media (min-width: 700px) {
+//     font-size: 2rem;
+//     margin-top: 2.5rem;
+//   }
+//   .no-results {
+//       max-width: 950px;
+//       margin-left: auto;
+//       margin-right: auto;
+//       text-align: center;
+//       height: 40vh;
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: center;
+//       align-items: center;
+//   }
+// `;
+//
+// const Text = styled.p`
+//   margin: 0 0 1em 0;
+//   color: #183f4f;
+//   &:last-child {
+//     margin-bottom: 0;
+//   }
+//   b::before {
+//       content: open-quote;
+//       padding: 0;
+//   }
+//   b::after {
+//       content: close-quote;
+//       padding: 0 0 0 5px;
+//   }
+//
+// `;
+//
+// const Container = styled.section`
+//   max-width: 1440px;
+//   width: 100%;
+//   margin: auto;
+//   padding: 0 90px 64px;
+//   list-style: none;
+//   position: relative;
+//
+//     @media (max-width: 768px) {
+//         padding: 0 24px 64px;
+//     }
+//     .AuthorHeading h3{
+//         text-transform: capitalize;
+//     }
+// `;
+//
+//
+// const Header = styled.h3`
+//     font-size: 2rem;
+//     font-weight: 700;
+//     text-transform: uppercase;
+//     line-height: 42px;
+//     color: #183F4F;
+// `;
+//
+// const AuthorDescription = styled.div`
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: stretch;
+//     align-items: center;
+//
+//     div {
+//         padding-right: 24px;
+//     }
+//
+//     p{
+//         font-size: 0.875rem;
+//         font-weight: 400;
+//         color: #456772;
+//         line-height: 21px;
+//     }
+//     img {
+//         width: 64px;
+//         height: 64px;
+//         border-radius: 50%;
+//     }
+// `;
 
 const sortTaxStyles = css`
 
     .SortContainer {
         padding: 0 90px;
-        margin-top: 12px;
+        margin-top: 32px;
     }
 
     @media (max-width: 768px) {

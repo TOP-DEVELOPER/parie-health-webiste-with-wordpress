@@ -3,9 +3,10 @@ import Item from "./list-item-cat";
 //import FeaturedIcon from '../../../img/star.svg';
 
 
-const ListCat = ({ state, link}) => {
+const ListCat = ({ state, link }) => {
   // Get the data of the current list. VERY IMPORTANT
   const data = state.source.get(link);
+
 
   return (
 

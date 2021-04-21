@@ -745,10 +745,16 @@ const Content = styled.div`
   }
 
   blockquote {
+    font-family: 'DM Sans', sans-serif;
     margin: 16px 0;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #DAEFED;
     border-left: 4px solid rgba(12, 17, 43);
-    padding: 4px 16px;
+    padding: 16px;
+
+    p {
+        margin: 0;
+        padding-bottom: 20px!important;
+    }
   }
 
   a {

@@ -12,6 +12,9 @@ const Button = styled.button`
   text-decoration: none;
   text-transform: uppercase;
   height: 32px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 `;
 
 export default Button;

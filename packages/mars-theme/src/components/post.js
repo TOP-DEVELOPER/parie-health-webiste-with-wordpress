@@ -406,7 +406,7 @@ const DateWrapper = styled.p`
 `;
 
 const Container = styled.div`
-  max-width: 790px;
+  max-width: 838px;
   width: 100%;
   margin: auto;
   padding: 24px 24px 48px;
@@ -704,12 +704,6 @@ const Content = styled.div`
           line-height: 1.5rem;
           font-size: 1rem;
       }
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
   }
 
   figure {

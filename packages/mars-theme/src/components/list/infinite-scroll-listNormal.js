@@ -7,7 +7,7 @@ import React from "react";
 import AllItems from "./alllist";
 import Loading from "../loading";
 
-const InfiniteListNormal = ({ xx }) => {
+const InfiniteListNormal = ({  }) => {
 
     const {
         pages,
@@ -16,8 +16,6 @@ const InfiniteListNormal = ({ xx }) => {
         isLimit,
         fetchNext
     } = useArchiveInfiniteScroll({ limit: 0 });
-
-    console.log(xx);
 
   return (
     <div>

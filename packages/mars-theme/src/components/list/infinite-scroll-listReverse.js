@@ -7,7 +7,7 @@ import React from "react";
 import AllItemsReverse from "./alllistreverse";
 import Loading from "../loading";
 
-const InfiniteListReverse = ({ xx }) => {
+const InfiniteListReverse = ({ }) => {
 
     const {
         pages,
@@ -16,8 +16,6 @@ const InfiniteListReverse = ({ xx }) => {
         isLimit,
         fetchNext
     } = useArchiveInfiniteScroll({ limit: 0 });
-
-    console.log(xx);
 
   return (
     <div>
@@ -31,7 +29,7 @@ const InfiniteListReverse = ({ xx }) => {
         ))}
           <ButtonContainer>
             {isFetching && <Loading />}
-            {isLimit && <Button onClick={fetchNext}>Load Next Page</Button>}
+            {isLimi&& <Button onClick={fetchNext}>Load Next Page</Button>}
             {isError && (
               <Button onClick={fetchNext}>Something failed - Retry</Button>
             )}

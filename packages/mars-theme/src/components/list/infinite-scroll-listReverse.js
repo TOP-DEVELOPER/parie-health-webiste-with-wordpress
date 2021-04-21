@@ -29,7 +29,7 @@ const InfiniteListReverse = ({ }) => {
         ))}
           <ButtonContainer>
             {isFetching && <Loading />}
-            {isLimi&& <Button onClick={fetchNext}>Load Next Page</Button>}
+            {isLimit && <Button onClick={fetchNext}>Load Next Page</Button>}
             {isError && (
               <Button onClick={fetchNext}>Something failed - Retry</Button>
             )}

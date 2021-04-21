@@ -729,6 +729,10 @@ const Content = styled.div`
     }
   }
 
+    figure.aligncenter {
+      text-align: center;
+    }
+
   iframe {
     display: block;
     margin: auto;

@@ -725,6 +725,7 @@ const Content = styled.div`
       font-size: 0.7em;
       display: block!important;
       text-align: center;
+      color: #101010;
     }
   }
 

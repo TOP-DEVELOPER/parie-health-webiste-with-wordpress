@@ -732,6 +732,12 @@ const Content = styled.div`
     figure.aligncenter {
       text-align: center;
     }
+    figure.alignleft {
+      text-align: left;
+    }
+    figure.alignright {
+      text-align: right;
+    }
 
   iframe {
     display: block;

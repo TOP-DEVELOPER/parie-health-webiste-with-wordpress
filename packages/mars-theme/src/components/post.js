@@ -581,6 +581,7 @@ const MailSubscription = styled.div`
         font-weight: 400;
         height: 48px;
 
+
         &::placeholder {
             color: #7C989B;
             opacity: 1;
@@ -610,6 +611,10 @@ const MailSubscription = styled.div`
         margin-left: 24px;
         cursor: pointer;
         height: 48px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        opacity: 1
     }
     #mc-embedded-subscribe:hover {
         background-color: #061D26;

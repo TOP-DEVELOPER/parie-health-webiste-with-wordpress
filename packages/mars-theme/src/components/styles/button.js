@@ -15,6 +15,7 @@ const Button = styled.button`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  opacity: 1
 `;
 
 export default Button;

@@ -832,7 +832,7 @@ const Content = styled.div`
 
 const Excerpt = styled.div`
   line-height: 31.25px;
-  font-size: 1.5rem;
+  font-size: 1.313rem;
   font-weight: 400;
   letter-spacing: -0.03em;
   color: #183F4F;

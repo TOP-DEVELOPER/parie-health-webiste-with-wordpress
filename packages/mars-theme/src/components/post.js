@@ -309,10 +309,10 @@ link={`/category/${ post.jetpack_related_posts[count].context.replace('In &quot;
                                           <Link link={post.jetpack_related_posts[count].url.replace('blog/', '')}>
                                             <Title dangerouslySetInnerHTML={{ __html: post.jetpack_related_posts[count].title }} />
                                           </Link>
-                                            {/*
+
                                             <div className="otherMeta">
                                                 <div className="PostAuthor">
-
+                                                    {/*
                                                     {author && (
                                                       <StyledLink link={author.link}>
                                                         <AuthorName id="relAuthor">
@@ -320,13 +320,13 @@ link={`/category/${ post.jetpack_related_posts[count].context.replace('In &quot;
                                                         </AuthorName>
                                                       </StyledLink>
                                                     )}
-
+                                                    */}
                                                 </div>
                                                 <div className="PostTime">
                                                     <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
                                                 </div>
                                             </div>
-                                            */}
+
                                       </PostMeta>
                                   </article>
                               </Slide>

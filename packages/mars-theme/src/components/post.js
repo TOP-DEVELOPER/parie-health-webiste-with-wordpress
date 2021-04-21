@@ -663,6 +663,7 @@ const Content = styled.div`
 
   * {
     max-width: 100%;
+    padding-bottom: 0!important;
   }
 
   p {
@@ -722,6 +723,8 @@ const Content = styled.div`
 
     figcaption {
       font-size: 0.7em;
+      display: block!important;
+      text-align: center;
     }
   }
 
@@ -743,6 +746,11 @@ const Content = styled.div`
   }
   a:hover {
     color: #2A440E;
+  }
+
+  img {
+      position: relative!important;
+      height: auto!important;
   }
 
   /* Input fields styles */

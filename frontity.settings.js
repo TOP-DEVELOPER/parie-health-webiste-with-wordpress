@@ -61,7 +61,6 @@ const settings = {
       "state": {
         "source": {
           "url": "https://www.prairiehealth.co/blog",
-          //"api": "https://www.prairiehealth.co/blog/wp-json",
           "params": {
             "per_page": 6,
             "type": ["post"],
@@ -70,7 +69,8 @@ const settings = {
       },
     },
     "@frontity/tiny-router",
-    "@frontity/html2react"
+    "@frontity/html2react",
+    "frontity-gutenberg-styles"
   ]
 };
 

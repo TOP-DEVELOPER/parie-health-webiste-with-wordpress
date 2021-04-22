@@ -681,7 +681,8 @@ const Content = styled.div`
       font-size: 0.7em;
       display: block!important;
       text-align: center;
-      color: rgb(41, 41, 41);
+      color: rgb(117, 117, 117);
+      line-height: 1.5rem;
     }
   }
 

@@ -710,7 +710,6 @@ const Content = styled.div`
 
     p {
         margin: 0;
-        padding-bottom: 20px!important;
     }
   }
 

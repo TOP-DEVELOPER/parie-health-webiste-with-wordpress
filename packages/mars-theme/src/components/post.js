@@ -17,9 +17,6 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import reactCarouselStyles from "pure-react-carousel/dist/react-carousel.es.css";
 
 
-//import Pagination from "./list/pagination";
-
-
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -29,11 +26,6 @@ const Post = ({ state, actions, libraries }) => {
 
   // Get the data of the author.
   const author = state.source.author[post.author];
-
-  // Get the data of the medical reviewer
-
-  //const medicallReviwer = state.source[post.medicalreview];
-
 
   // Get a human readable date.
   const date = new Date(post.date);
@@ -51,16 +43,6 @@ const Post = ({ state, actions, libraries }) => {
 
   let urlZeroRaw = '';
   let urlZero = '';
-  let urlOneRaw = '';
-  let urlOne = '';
-  let urlTwoRaw = '';
-  let urlTwo = '';
-  let urlThreeRaw = '';
-  let urlThree = '';
-  let urlFourRaw = '';
-  let urlFour = '';
-  let urlFiveRaw = '';
-  let urlFive = '';
 
   let count = 0;
 
@@ -72,49 +54,7 @@ const Post = ({ state, actions, libraries }) => {
     } catch(error) {
         console.log(error.name + ":" + error.message);
     }
-{/*
-    try {
-      urlOneRaw = post.jetpack_related_posts[1].url;
-      urlOne = urlOneRaw.replace('blog/', '');
 
-      urlValue = 1;
-    } catch(error) {
-      console.log(error.name + ":" + error.message);
-    }
-
-    try {
-      urlTwoRaw = post.jetpack_related_posts[2].url;
-      urlTwo = urlTwoRaw.replace('blog/', '');
-
-      urlValue = 1;
-    } catch(error) {
-      console.log(error.name + ":" + error.message);
-    }
-    try {
-      urlThreeRaw = post.jetpack_related_posts[3].url;
-      urlThree = urlThreeRaw.replace('blog/', '');
-
-      urlValue = 1;
-    } catch(error) {
-      console.log(error.name + ":" + error.message);
-    }
-    try {
-      urlFourRaw = post.jetpack_related_posts[4].url;
-      urlFour = urlFourRaw.replace('blog/', '');
-
-      urlValue = 1;
-    } catch(error) {
-      console.log(error.name + ":" + error.message);
-    }
-    try {
-      urlFiveRaw = post.jetpack_related_posts[5].url;
-      urlFive = urlFiveRaw.replace('blog/', '');
-
-      urlValue = 1;
-    } catch(error) {
-      console.log(error.name + ":" + error.message);
-    }
-*/}
 
 
   /**
@@ -895,12 +835,6 @@ const OtherMeta = styled.div`
         margin-top: 0;
         color: #183F4F;
     }
-
-    // @media (max-width: 552px) {
-    //     .PostAuthor {
-    //         margin-bottom: 16px;
-    //     }
-    // }
 
     .authorMeta,
     .mediallyReview {

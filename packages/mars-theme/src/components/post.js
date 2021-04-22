@@ -730,6 +730,7 @@ const Content = styled.div`
       font-family: 'DM Sans', sans-serif;
       text-decoration: none;
       padding: 0.367em 1.333em;
+      color: #fff!important;
   }
   .wp-block-button__link:hover {
       background-color: #278c79;

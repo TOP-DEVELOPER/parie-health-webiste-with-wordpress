@@ -39,6 +39,64 @@ const FontFace = ({ state }) => {
           font-display: "swap";
           src: url(${font[2]}) format("woff2");
         }
+
+        @font-face {
+            font-family: 'georgiabold_italic';
+            src: url('../../../fonts/georgia_bold_italic_font-webfont.woff2') format('woff2'),
+                 url('../../../fonts/georgia_bold_italic_font-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+
+
+
+        @font-face {
+            font-family: 'georgiabold_italic';
+            src: url('../../../fonts/georgia_bold_italic-webfont.woff2') format('woff2'),
+                 url('../../../fonts/georgia_bold_italic-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+
+
+
+        @font-face {
+            font-family: 'georgiabold';
+            src: url('../../../fonts/georgia_bold-webfont.woff2') format('woff2'),
+                 url('../../../fonts/georgia_bold-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+
+
+
+        @font-face {
+            font-family: 'georgiaitalic';
+            src: url('../../../fonts/georgia_italic-webfont.woff2') format('woff2'),
+                 url('../../../fonts/georgia_italic-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+
+
+
+        @font-face {
+            font-family: 'georgiaregular';
+            src: url('../../../fonts/georgia_regular_font-webfont.woff2') format('woff2'),
+                 url('../../../fonts/georgia_regular_font-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
       `}
     />
   );

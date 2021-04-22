@@ -586,14 +586,17 @@ const MailSubscription = styled.div`
 `;
 
 const Content = styled.div`
-  font-family: 'DM Sans', sans-serif;
-  color: #101010;
+
+    text-rendering: optimizeLegibility;
+  font-family: 'georgiaregular';
+  color: rgb(41, 41, 41);
   word-break: break-word;
   line-height: 2rem;
   font-size: 1.313rem;
   font-weight: 400;
   letter-spacing: -0.03em;
   margin-bottom: 48px;
+  padding-bottom: 48px;
   border-bottom: 1px solid #E3E3E3;
 
   @media (max-width: 375px) {
@@ -601,17 +604,22 @@ const Content = styled.div`
       font-size: 1rem;
   }
 
-  * {
-    max-width: 100%;
+  // * {
+  //   max-width: 100%;
+  //   padding-bottom: 0!important;
+  // }
+
+  figure span {
     padding-bottom: 0!important;
-  }
+}
 
   p {
+    font-family: 'georgiaregular';
     line-height: 2rem;
     font-size: 1.313rem;
     font-weight: 400;
     letter-spacing: -0.03em;
-    color: #101010;
+    color: rgb(41, 41, 41);
 
     @media (max-width: 375px) {
         line-height: 1.5rem;
@@ -637,18 +645,25 @@ const Content = styled.div`
 
   h2,h3,h4,h5,h6 {
       letter-spacing: -0.03em;
-      color: #101010;
+      color: rgb(41, 41, 41);
       line-height: 41.66px;
       font-weight: 500;
+  }
+  strong {
+      font-family: 'georgiabold';
+  }
+  em {
+      font-family: 'georgiaitalic';
   }
 
   ol li,
   ul li {
       line-height: 2rem;
+      font-family: 'georgiaregular';
       font-size: 1.313rem;
       font-weight: 400;
       letter-spacing: -0.03em;
-      color: #101010;
+      color: rgb(41, 41, 41);
 
       @media (max-width: 375px) {
           line-height: 1.5rem;
@@ -662,10 +677,11 @@ const Content = styled.div`
     width: 100% !important;
 
     figcaption {
+      font-family: 'georgiaregular';
       font-size: 0.7em;
       display: block!important;
       text-align: center;
-      color: #101010;
+      color: rgb(41, 41, 41);
     }
   }
 
@@ -710,6 +726,15 @@ const Content = styled.div`
       height: auto!important;
   }
 
+  .wp-block-button__link {
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      padding: 0.367em 1.333em;
+  }
+  .wp-block-button__link:hover {
+      background-color: #278c79;
+      color: #fff;
+  }
   /* Input fields styles */
 
   input[type="text"],

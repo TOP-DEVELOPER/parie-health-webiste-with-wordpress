@@ -80,6 +80,7 @@ const globalStyles = css`
     background: #FDFCFD;
     counter-reset: my-sec-counter;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
   }
   a {
     color: #6D9147;

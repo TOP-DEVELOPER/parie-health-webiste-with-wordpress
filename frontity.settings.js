@@ -5,7 +5,19 @@ const settings = {
       "url": "https://www.prairiehealth.co",
       "title": "Prairie Health | Blog",
       "description": "Prairie Health Blog"
-    }
+    },
+    "social": {
+        "facebook": "https://www.facebook.com/carebyprairie",
+        "instagram": "https://www.instagram.com/prairie_health",
+        "linkedin": "http://www.linkedin.com/company/31281223/",
+    },
+    "joinbutton" : {
+        "joinbuttonlabel": "Visit Prairie Health",
+        "joinbuttonurl": "https://www.prairiehealth.co/",
+    },
+    "others": {
+        "relatedpost": "Related Posts",
+    },
   },
   "packages": [
     {
@@ -60,9 +72,9 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://www.prairiehealth.co/blog",
+          "url": "https://www.thefrontlash.com",
           "params": {
-            "per_page": 6,
+            "per_page": 12,
             "type": ["post"],
           },
         },

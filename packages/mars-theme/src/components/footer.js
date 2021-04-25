@@ -18,9 +18,9 @@ const Footer = ({ state }) => {
                 </FooterLogo>
                 <Social>
                     <ul>
-                        <li><a href="https://www.facebook.com/carebyprairie" target="_blank"><img src={Facebook} alt="Facebook Prairie" style={{ width: '24px', height: '24px'}}/></a></li>
-                        <li><a href="https://www.instagram.com/prairie_health" target="_blank"><img src={Instagram} alt="Instagram Prairie" style={{ width: '24px', height: '24px'}}/></a></li>
-                        <li><a href="http://www.linkedin.com/company/31281223/" target="_blank"><img src={Linkedin} alt="Linkedin Prairie" style={{ width: '24px', height: '24px'}}/></a></li>
+                        <li><a href={state.social.facebook} target="_blank"><img src={Facebook} alt="Facebook Prairie" style={{ width: '24px', height: '24px'}}/></a></li>
+                        <li><a href={state.social.instagram} target="_blank"><img src={Instagram} alt="Instagram Prairie" style={{ width: '24px', height: '24px'}}/></a></li>
+                        <li><a href={state.social.linkedin} target="_blank"><img src={Linkedin} alt="Linkedin Prairie" style={{ width: '24px', height: '24px'}}/></a></li>
                     </ul>
                 </Social>
             </FooterSubContainer>

@@ -12,6 +12,7 @@ import InfiniteList from "./infinite-scroll-list";
 const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
+  console.log(data);
 
   function func(a, b) {
       return 0.5 - Math.random();

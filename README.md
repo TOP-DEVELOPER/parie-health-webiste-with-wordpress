@@ -4,6 +4,6 @@ Headless CMS with WordPress.
 React (Frontity Framework)
 
 
-# Live URL:
+# Staging URL:
 
 https://prairie-health-blog.vercel.app/

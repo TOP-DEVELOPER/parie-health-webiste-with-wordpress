@@ -22,6 +22,7 @@
     "@frontity/mars-theme": "./packages/mars-theme",
     "@frontity/tiny-router": "^1.4.1",
     "@frontity/wp-source": "^1.11.2",
+    "@frontity/yoast": "^2.1.1",
     "frontity": "^1.14.3",
     "frontity-gutenberg-styles": "^9.7.0",
     "pure-react-carousel": "^1.27.6",

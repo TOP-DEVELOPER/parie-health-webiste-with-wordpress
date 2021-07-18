@@ -90,7 +90,7 @@ const Item = ({ state, item }) => {
 // Connect the Item to gain access to `state` as a prop
 export default connect(Item);
 
-const Title = styled.h1`
+const Title = styled.h3`
   font-size: 1rem; /* 16px */
   font-weight: 400;
   letter-spacing: -0.03em;

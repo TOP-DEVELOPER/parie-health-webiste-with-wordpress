@@ -77,7 +77,7 @@ export default connect(Item);
 
 
 
-const Title = styled.h1`
+const Title = styled.h3`
   font-size: 1.25rem; /* 20px */
   font-weight: 400;
   letter-spacing: -0.03em;

@@ -166,7 +166,7 @@ const Container = styled.section`
 `;
 
 
-const Header = styled.h3`
+const Header = styled.h1`
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;

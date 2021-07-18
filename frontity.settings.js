@@ -2,7 +2,7 @@ const settings = {
   "name": "prairie-health-blog",
   "state": {
     "frontity": {
-      "url": "https://www.prairiehealth.co",
+      "url": "https://blog.prairiehealth.co",
       "title": "Prairie Health | Blog",
       "description": "Prairie Health Blog"
     },

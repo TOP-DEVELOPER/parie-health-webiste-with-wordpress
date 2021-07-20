@@ -1,13 +1,20 @@
-import { connect, styled, decode } from "frontity";
+import { loadable, connect, styled, decode } from "frontity";
 
 import React from "react";
 
-import Item from "./list-item";
-import StickyItem from "./sticky";
-import TopRead from "./topread";
+//import Item from "./list-item";
+//import StickyItem from "./sticky";
+//import TopRead from "./topread";
 import FeaturedIcon from '../../../img/star.svg';
 import EmailIcon from '../../../img/email.svg';
-import InfiniteList from "./infinite-scroll-list";
+//import InfiniteList from "./infinite-scroll-list";
+
+// Thanks to loadable we prevent component from loading until it's needed.
+const Item = loadable(() => import('./list-item'));
+const StickyItem = loadable(() => import('./sticky'));
+const TopRead = loadable(() => import('./topread'));
+const InfiniteList = loadable(() => import('./infinite-scroll-list'));
+
 
 const List = ({ state }) => {
   // Get the data of the current list.

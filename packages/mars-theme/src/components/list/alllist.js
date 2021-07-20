@@ -1,9 +1,9 @@
 import { loadable,  connect, styled, decode } from "frontity";
-//import Item from "./list-item-cat";
+import Item from "./list-item-cat";
 import FeaturedIcon from '../../../img/star.svg';
 
 // Thanks to loadable we prevent component from loading until it's needed.
-const Item = loadable(() => import('./list-item-cat'));
+//const Item = loadable(() => import('./list-item-cat'));
 
 
 const ListCat = ({ state, link }) => {

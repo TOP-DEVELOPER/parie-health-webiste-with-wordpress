@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { connect, styled, Head, Global } from "frontity";
+import { loadable, connect, styled, Head, Global } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
@@ -10,7 +10,10 @@ import FeaturedIcon from '../../img/star.svg';
 import Previous from "../../img/previous.svg";
 import Next from "../../img/next.svg";
 
-import Item from "./list/list-item-cat";
+//import Item from "./list/list-item-cat";
+
+// Thanks to loadable we prevent component from loading until it's needed.
+const Item = loadable(() => import('./list/list-item-cat'));
 
 
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';

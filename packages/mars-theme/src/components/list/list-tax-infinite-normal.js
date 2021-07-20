@@ -1,10 +1,14 @@
-import { connect, styled, decode } from "frontity";
+import { loadable, connect, styled, decode } from "frontity";
 
 import { useArchiveInfiniteScroll } from "@frontity/hooks";
 
 import React from "react";
 
-import AllTax from "./list-cat";
+//import AllTax from "./list-cat";
+
+// Thanks to loadable we prevent component from loading until it's needed.
+const AllTax = loadable(() => import('./list-cat'));
+
 import Loading from "../loading";
 
 

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { loadable, connect, styled, Head, Global } from "frontity";
 import Link from "./link";
-import List from "./list";
+//import List from "./list";
+import List from "./list/index.js";
 import FeaturedMedia from "./featured-media";
 import EmailIcon from "../../img/email.svg";
 import ReadingTime from "../../img/reading-time.svg";

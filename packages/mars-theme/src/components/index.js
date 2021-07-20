@@ -1,16 +1,25 @@
-import { Global, css, connect, styled, Head } from "frontity";
+import { loadable, Global, css, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
-import Header from "./header";
-import Footer from "./footer";
-import ListHome from "./list/list";
-//import ListCat from "./list/list-cat";
-import ListCat from "./list/list-tax-infinite";
-import Post from "./post";
+//import Header from "./header";
+//import Footer from "./footer";
+//import ListHome from "./list/list";
+//import ListCat from "./list/list-tax-infinite";
+//import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
-import PageError from "./page-error";
+//import PageError from "./page-error";
 import FontFaces from "./styles/font-faces";
 import Arrow from '../../img/arrow.svg';
+
+// Thanks to loadable we prevent component from loading until it's needed.
+const Header = loadable(() => import('./header'));
+const Footer = loadable(() => import('./footer'));
+const ListHome = loadable(() => import('./list/list'));
+const ListCat = loadable(() => import('./list/list-tax-infinite'));
+const Post = loadable(() => import('./post'));
+const PageError = loadable(() => import('./page-error'));
+
+
 
 import { useRef } from "react";
 

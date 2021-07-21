@@ -1,10 +1,15 @@
-import { Global, connect, css, styled, decode } from "frontity";
+import { loadable, Global, connect, css, styled, decode } from "frontity";
 
 //import { useArchiveInfiniteScroll } from "@frontity/hooks";
 
 import React, {Component} from "react";
 
-import InfiniteListNormal from "./infinite-scroll-listNormal";
+//import InfiniteListNormal from "./infinite-scroll-listNormal";
+
+// Thanks to loadable we prevent component from loading until it's needed.
+const InfiniteListNormal = loadable(() => import('./infinite-scroll-listNormal'));
+
+
 //import InfiniteListReverse from "./infinite-scroll-listReverse";
 //import AllItemsReverse from "./alllistreverse";
 //import AllItems from "./alllist";

@@ -47,8 +47,8 @@ const Post = ({ state, actions, libraries }) => {
   let urlZeroRaw = '';
   let urlZero = '';
 
-  let reviewerURLRaw = '';
-  let reviewerURL = '';
+  //let reviewerURLRaw = '';
+  //let reviewerURL = '';
 
   let count = 0;
 
@@ -63,13 +63,13 @@ const Post = ({ state, actions, libraries }) => {
         console.log(error.name + ":" + error.message);
     }
 
-    try {
-        reviewerURLRaw = post.authors[1].reviewer_link;
-        reviewerURL = reviewerURLRaw.replace('www.prairiehealth.co/blog', 'blog.prairiehealth.co');
-
-    } catch(error) {
-        console.log(error.name + ":" + error.message);
-    }
+    // try {
+    //     reviewerURLRaw = post.authors[1].reviewer_link;
+    //     reviewerURL = reviewerURLRaw.replace('www.prairiehealth.co/blog', 'http://localhost:3001');
+    //
+    // } catch(error) {
+    //     console.log(error.name + ":" + error.message);
+    // }
 
     isReview = post.medicalreview;
 
@@ -128,9 +128,9 @@ const Post = ({ state, actions, libraries }) => {
                     {isReview == "yes" ?
                     <div className="mediallyReview">
                         <p>Medically Reviewed By</p>
-                        <a href={reviewerURL}><AuthorName>
+                        <AuthorName>
                           <img src={post.authors[1].reviewer_image} alt={post.authors[1].display_name} className="authorAvatar"/> <b>{post.authors[1].display_name}</b>
-                        </AuthorName></a>
+                        </AuthorName>
                     </div>
                     : null }
                 </div>

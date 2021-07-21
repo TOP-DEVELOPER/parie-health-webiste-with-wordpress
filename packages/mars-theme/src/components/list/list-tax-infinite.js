@@ -1,4 +1,4 @@
-import { Global, css, connect, styled, decode } from "frontity";
+import { loadable, Global, css, connect, styled, decode } from "frontity";
 
 //import { useArchiveInfiniteScroll } from "@frontity/hooks";
 
@@ -9,8 +9,13 @@ import React, {Component} from "react";
 //import AllTax from "./list-cat";
 //import Loading from "../loading";
 
-import InfiniteListTaxNormal from "./list-tax-infinite-normal";
-import InfiniteListTaxReverse from "./list-tax-infinite-reverse";
+//import InfiniteListTaxNormal from "./list-tax-infinite-normal";
+//import InfiniteListTaxReverse from "./list-tax-infinite-reverse";
+
+// Thanks to loadable we prevent component from loading until it's needed.
+const InfiniteListTaxNormal = loadable(() => import('./list-tax-infinite-normal'));
+const InfiniteListTaxReverse = loadable(() => import('./list-tax-infinite-reverse'));
+
 
 const options = [
     {

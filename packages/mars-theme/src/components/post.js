@@ -47,7 +47,12 @@ const Post = ({ state, actions, libraries }) => {
   let urlZeroRaw = '';
   let urlZero = '';
 
+  let reviewerURLRaw = '';
+  let reviewerURL = '';
+
   let count = 0;
+
+  let isReview = "no";
 
     try {
       urlZeroRaw = post.jetpack_related_posts[0].url;
@@ -58,6 +63,15 @@ const Post = ({ state, actions, libraries }) => {
         console.log(error.name + ":" + error.message);
     }
 
+    try {
+        reviewerURLRaw = post.authors[1].reviewer_link;
+        reviewerURL = reviewerURLRaw.replace('www.prairiehealth.co/blog', 'blog.prairiehealth.co');
+
+    } catch(error) {
+        console.log(error.name + ":" + error.message);
+    }
+
+    isReview = post.medicalreview;
 
 
   /**
@@ -111,14 +125,14 @@ const Post = ({ state, actions, libraries }) => {
                           </StyledLink>
                         )}
                     </div>
-                    {post.medicalreview && post.image_of_medically_reviewer && (
+                    {isReview == "yes" ?
                     <div className="mediallyReview">
                         <p>Medically Reviewed By</p>
-                        <AuthorName>
-                          <img src={post.image_of_medically_reviewer} alt={post.medicalreview} className="authorAvatar"/> <b>{post.medicalreview}</b>
-                        </AuthorName>
+                        <a href={reviewerURL}><AuthorName>
+                          <img src={post.authors[1].reviewer_image} alt={post.authors[1].display_name} className="authorAvatar"/> <b>{post.authors[1].display_name}</b>
+                        </AuthorName></a>
                     </div>
-                    )}
+                    : null }
                 </div>
                 <div className="PostTime">
                     <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>

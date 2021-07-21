@@ -22,7 +22,8 @@ const List = ({ state }) => {
   console.log(data);
 
   function func(a, b) {
-      return 0.5 - Math.random();
+      //return 0.5 - Math.random();
+      return [Math.floor(Math.random()*3)];
   }
 
 
@@ -53,7 +54,7 @@ const List = ({ state }) => {
                 const item = state.source[type][id];
                 // Render one Item component for each one.
                 return <TopRead key={item.id} item={item} />;
-            }).sort(func)}
+            })}
           </TopArticles>
     </Container>
 

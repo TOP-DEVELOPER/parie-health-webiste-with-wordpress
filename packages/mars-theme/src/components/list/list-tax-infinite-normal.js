@@ -254,6 +254,11 @@ const AuthorDescription = styled.div`
         color: #456772;
         line-height: 21px;
         margin: 0;
+        max-width: 70%;
+
+        @media (max-width: 400px) {
+            max-width: 100%;
+        }
     }
     img {
         width: 64px;

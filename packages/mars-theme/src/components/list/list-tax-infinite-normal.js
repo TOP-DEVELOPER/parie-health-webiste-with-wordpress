@@ -30,7 +30,7 @@ const InfiniteListTaxNormal = ({ state, link }) => {
     const { total, searchQuery } = data;
     const isEmpty = data.total === 0;
 
-
+    let revimg ='';
     let fb ='';
     let twt ='';
     let lnk ='';
@@ -38,12 +38,12 @@ const InfiniteListTaxNormal = ({ state, link }) => {
     let hgrade ='';
 
     try {
+        revimg = state.source.author[data.id].prairieuser.reviewer_image;
         fb = state.source.author[data.id].prairieuser.facebook_prairie;
         twt = state.source.author[data.id].prairieuser.twitter_prairie;
         lnk = state.source.author[data.id].prairieuser.linkedin_prairie;
         weburl = state.source.author[data.id].prairieuser.website_prairie;
         hgrade = state.source.author[data.id].prairieuser.healthgrade_prairie;
-        console.log(fb);
     }catch(error) {
         console.log(error.name + ":" + error.message);
     }
@@ -68,7 +68,13 @@ const InfiniteListTaxNormal = ({ state, link }) => {
             {decode(state.source.author[data.id].name)}
           </Header>
           <AuthorDescription>
-              <div><img src= {decode(state.source.author[data.id].avatar_urls[96])}/></div>
+              <div>
+                { revimg ?
+                      <img src= {decode(state.source.author[data.id].prairieuser.reviewer_image)}/>
+                    :
+                    <img src= {decode(state.source.author[data.id].avatar_urls[96])}/>
+                }
+              </div>
               <div><p>{decode(state.source.author[data.id].description)}</p></div>
           </AuthorDescription>
 

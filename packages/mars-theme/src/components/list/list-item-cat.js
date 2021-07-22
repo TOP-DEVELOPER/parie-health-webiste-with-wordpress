@@ -29,7 +29,7 @@ const Item = ({ state, item }) => {
   // isReview = item.medicalreview;
   //
   // try {
-  //     xx = item.authors;
+  //     xx = item.authors[1].display_name;
   //     console.log(xx);
   //
   // }catch(error) {
@@ -37,6 +37,14 @@ const Item = ({ state, item }) => {
   // }
 
   //console.log(isReview);
+  let revimg ='';
+
+  try {
+      revimg = state.source.author[author.id].prairieuser.reviewer_image;
+      console.log(revimg);
+  }catch(error) {
+      console.log(error.name + ":" + error.message);
+  }
 
   return (
     <article className={item.sticky.toString()}>
@@ -67,16 +75,19 @@ const Item = ({ state, item }) => {
           </Link>
 
             <div className="otherMeta">
-                <div className="PostAuthor">
-                    {author && (
-                      <StyledLink link={author.link}>
-                        <AuthorName>
-                          <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
-                        </AuthorName>
-                      </StyledLink>
-                    )}
-
-                </div>
+                    <div className="PostAuthor">
+                        {author && (
+                          <StyledLink link={author.link}>
+                            <AuthorName>
+                                { revimg ?
+                                    <div><img src={revimg} className="authorAvatar"/><b>{author.name}</b></div>
+                                :
+                                    <div><img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b></div>
+                                }
+                            </AuthorName>
+                          </StyledLink>
+                        )}
+                    </div>
                 <div className="PostTime">
                     <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>
                 </div>

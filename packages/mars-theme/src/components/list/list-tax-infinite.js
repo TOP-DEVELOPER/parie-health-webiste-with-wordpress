@@ -216,6 +216,7 @@ const sortTaxStyles = css`
         .SortContainer {
             padding: 0 24px;
             justify-content: center;
+            margin-bottom: 20px;
         }
         .SortLabel {
             margin-right: 12px;

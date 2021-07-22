@@ -236,6 +236,7 @@ const AuthorDescription = styled.div`
 
     @media (max-width: 400px) {
         flex-direction: column;
+        align-items: flex-start;
     }
 
 
@@ -272,6 +273,11 @@ const AuthorSocial = styled.div`
         flex-direction: column;
         justify-content: center;
         margin-left: 0;
+    }
+    @media (max-width: 400px) {
+        align-items: flex-start;
+        flex-direction: revert;
+        justify-content: flex-start;
     }
 
     a {

@@ -25,6 +25,24 @@ const InfiniteListTaxReverse = ({ state, link }) => {
     const { total, searchQuery } = data;
     const isEmpty = data.total === 0;
 
+    let revimg ='';
+    let fb ='';
+    let twt ='';
+    let lnk ='';
+    let weburl ='';
+    let hgrade ='';
+
+    try {
+        revimg = state.source.author[data.id].prairieuser.reviewer_image;
+        fb = state.source.author[data.id].prairieuser.facebook_prairie;
+        twt = state.source.author[data.id].prairieuser.twitter_prairie;
+        lnk = state.source.author[data.id].prairieuser.linkedin_prairie;
+        weburl = state.source.author[data.id].prairieuser.website_prairie;
+        hgrade = state.source.author[data.id].prairieuser.healthgrade_prairie;
+    }catch(error) {
+        console.log(error.name + ":" + error.message);
+    }
+
   return (
 
     <Container>
@@ -45,9 +63,32 @@ const InfiniteListTaxReverse = ({ state, link }) => {
             {decode(state.source.author[data.id].name)}
           </Header>
           <AuthorDescription>
-              <div><img src= {decode(state.source.author[data.id].avatar_urls[96])}/></div>
+              <div>
+                { revimg ?
+                      <img src= {decode(state.source.author[data.id].prairieuser.reviewer_image)}/>
+                    :
+                    <img src= {decode(state.source.author[data.id].avatar_urls[96])}/>
+                }
+              </div>
               <div><p>{decode(state.source.author[data.id].description)}</p></div>
           </AuthorDescription>
+          <AuthorSocial>
+                {fb ?
+                  <a href={decode(state.source.author[data.id].prairieuser.facebook_prairie)} target="_blank">Facebook</a>
+                : null }
+                {twt ?
+                  <a href={decode(state.source.author[data.id].prairieuser.twitter_prairie)} target="_blank">Twitter</a>
+                : null }
+                {lnk ?
+                    <a href={decode(state.source.author[data.id].prairieuser.linkedin_prairie)} target="_blank">LinkedIn</a>
+                : null }
+                {weburl ?
+                    <a href={decode(state.source.author[data.id].prairieuser.website_prairie)} target="_blank">Website</a>
+                : null }
+                {hgrade ?
+                    <a href={decode(state.source.author[data.id].prairieuser.healthgrade_prairie)} target="_blank">HealthGrade</a>
+                : null }
+          </AuthorSocial>
           </div>
         )}
 
@@ -82,7 +123,7 @@ const InfiniteListTaxReverse = ({ state, link }) => {
               <Button onClick={fetchNext}>Something failed - Retry</Button>
             )}
           </ButtonContainer>
-    </Container>      
+    </Container>
 
   );
 };
@@ -166,7 +207,7 @@ const Container = styled.section`
 `;
 
 
-const Header = styled.h3`
+const Header = styled.h1`
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -185,9 +226,12 @@ const AuthorDescription = styled.div`
     justify-content: stretch;
     align-items: center;
     margin-bottom: 36px;
+    margin-bottom: 10px;
 
     @media (max-width: 400px) {
         flex-direction: column;
+        align-items: flex-start;
+
     }
 
     div {
@@ -205,10 +249,39 @@ const AuthorDescription = styled.div`
         color: #456772;
         line-height: 21px;
         margin: 0;
+        max-width: 70%;
+
+        @media (max-width: 400px) {
+            max-width: 100%;
+        }
     }
     img {
         width: 64px;
         height: 64px;
         border-radius: 50%;
+    }
+`;
+
+const AuthorSocial = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    margin-left: 90px;
+    margin-bottom: 36px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+    }
+    @media (max-width: 400px) {
+        align-items: flex-start;
+        flex-direction: revert;
+        justify-content: flex-start;
+    }
+
+    a {
+        padding-right: 20px;
     }
 `;

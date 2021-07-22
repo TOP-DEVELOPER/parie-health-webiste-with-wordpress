@@ -47,8 +47,8 @@ const Post = ({ state, actions, libraries }) => {
   let urlZeroRaw = '';
   let urlZero = '';
 
-  //let reviewerURLRaw = '';
-  //let reviewerURL = '';
+  let reviewerURLRaw = '';
+  let reviewerURL = '';
 
   let count = 0;
 
@@ -63,13 +63,16 @@ const Post = ({ state, actions, libraries }) => {
         console.log(error.name + ":" + error.message);
     }
 
-    // try {
-    //     reviewerURLRaw = post.authors[1].reviewer_link;
-    //     reviewerURL = reviewerURLRaw.replace('www.prairiehealth.co/blog', 'http://localhost:3001');
-    //
-    // } catch(error) {
-    //     console.log(error.name + ":" + error.message);
-    // }
+    // Medical Reviewer
+
+    try {
+        reviewerURLRaw = post.authors[1].reviewer_link;
+        reviewerURL = reviewerURLRaw.replace('/blog', '');
+        console.log(reviewerURL);
+
+    } catch(error) {
+        console.log(error.name + ":" + error.message);
+    }
 
     isReview = post.medicalreview;
 
@@ -115,24 +118,42 @@ const Post = ({ state, actions, libraries }) => {
 
             <OtherMeta>
                 <div className="PostAuthor">
-                    <div className="authorMeta">
-                        <p>Author</p>
-                        {author && (
-                          <StyledLink link={author.link}>
-                            <AuthorName>
-                              <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
-                            </AuthorName>
-                          </StyledLink>
-                        )}
-                    </div>
+
                     {isReview == "yes" ?
-                    <div className="mediallyReview">
-                        <p>Medically Reviewed By</p>
-                        <AuthorName>
-                          <img src={post.authors[1].reviewer_image} alt={post.authors[1].display_name} className="authorAvatar"/> <b>{post.authors[1].display_name}</b>
-                        </AuthorName>
-                    </div>
-                    : null }
+                        <div>
+                            <div className="authorMeta">
+                                <p>Author</p>
+                                {author && (
+                                  <StyledLink link={reviewerURL}>
+                                    <AuthorName>
+                                      {/* <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b> */}
+                                      <img src={post.authors[1].reviewer_image} alt={post.authors[1].display_name} className="authorAvatar"/> <b>{post.authors[1].display_name}</b>
+                                    </AuthorName>
+                                  </StyledLink>
+                                )}
+                            </div>
+
+                            <div className="mediallyReview">
+                                <p>Medically Reviewed By</p>
+                                <StyledLink link={author.link}>
+                                    <AuthorName>
+                                      <img src={post.authors[0].reviewer_image} alt={post.authors[0].display_name} className="authorAvatar"/> <b>{post.authors[0].display_name}</b>
+                                    </AuthorName>
+                                </StyledLink>
+                            </div>
+                        </div>
+                    :
+                        <div className="authorMeta">
+                            <p>Author</p>
+                            {author && (
+                              <StyledLink link={author.link}>
+                                <AuthorName>
+                                  <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
+                                </AuthorName>
+                              </StyledLink>
+                            )}
+                        </div>
+                }
                 </div>
                 <div className="PostTime">
                     <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>

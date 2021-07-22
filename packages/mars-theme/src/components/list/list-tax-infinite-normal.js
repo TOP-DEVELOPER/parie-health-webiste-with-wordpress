@@ -30,6 +30,25 @@ const InfiniteListTaxNormal = ({ state, link }) => {
     const { total, searchQuery } = data;
     const isEmpty = data.total === 0;
 
+
+    let fb ='';
+    let twt ='';
+    let lnk ='';
+    let weburl ='';
+    let hgrade ='';
+
+    try {
+        fb = state.source.author[data.id].prairieuser.facebook_prairie;
+        twt = state.source.author[data.id].prairieuser.twitter_prairie;
+        lnk = state.source.author[data.id].prairieuser.linkedin_prairie;
+        weburl = state.source.author[data.id].prairieuser.website_prairie;
+        hgrade = state.source.author[data.id].prairieuser.healthgrade_prairie;
+        console.log(fb);
+    }catch(error) {
+        console.log(error.name + ":" + error.message);
+    }
+
+
   return (
     <Container>
 
@@ -52,6 +71,24 @@ const InfiniteListTaxNormal = ({ state, link }) => {
               <div><img src= {decode(state.source.author[data.id].avatar_urls[96])}/></div>
               <div><p>{decode(state.source.author[data.id].description)}</p></div>
           </AuthorDescription>
+
+          <AuthorSocial>
+                {fb ?
+                  <a href={decode(state.source.author[data.id].prairieuser.facebook_prairie)} target="_blank">Facebook</a>
+                : null }
+                {twt ?
+                  <a href={decode(state.source.author[data.id].prairieuser.twitter_prairie)} target="_blank">Twitter</a>
+                : null }
+                {lnk ?
+                    <a href={decode(state.source.author[data.id].prairieuser.linkedin_prairie)} target="_blank">LinkedIn</a>
+                : null }
+                {weburl ?
+                    <a href={decode(state.source.author[data.id].prairieuser.website_prairie)} target="_blank">Website</a>
+                : null }
+                {hgrade ?
+                    <a href={decode(state.source.author[data.id].prairieuser.healthgrade_prairie)} target="_blank">HealthGrade</a>
+                : null }
+          </AuthorSocial>
           </div>
         )}
 
@@ -189,7 +226,7 @@ const AuthorDescription = styled.div`
     flex-direction: row;
     justify-content: stretch;
     align-items: center;
-    margin-bottom: 36px;
+    margin-bottom: 10px;
 
     @media (max-width: 400px) {
         flex-direction: column;
@@ -215,5 +252,23 @@ const AuthorDescription = styled.div`
         width: 64px;
         height: 64px;
         border-radius: 50%;
+    }
+`;
+const AuthorSocial = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    margin-left: 90px;
+    margin-bottom: 36px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    a {
+        padding-right: 20px;
     }
 `;

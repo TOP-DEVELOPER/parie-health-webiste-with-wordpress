@@ -23,6 +23,21 @@ const Item = ({ state, item }) => {
   const stats = readingTime(item.content.rendered);
 
 
+  // let isReview = "";
+  // let xx = '';
+  //
+  // isReview = item.medicalreview;
+  //
+  // try {
+  //     xx = item.authors;
+  //     console.log(xx);
+  //
+  // }catch(error) {
+  //     console.log(error.name + ":" + error.message);
+  // }
+
+  //console.log(isReview);
+
   return (
     <article className={item.sticky.toString()}>
         {/*
@@ -60,6 +75,7 @@ const Item = ({ state, item }) => {
                         </AuthorName>
                       </StyledLink>
                     )}
+
                 </div>
                 <div className="PostTime">
                     <img src={ReadingTime} alt="Prairie" style={{ width: '16px', height: '16px'}}/> <span>{stats.text}</span>

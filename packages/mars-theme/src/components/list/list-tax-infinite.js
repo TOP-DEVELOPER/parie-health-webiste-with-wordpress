@@ -209,7 +209,7 @@ const sortTaxStyles = css`
     .SortContainer {
         padding: 0 90px;
         margin-top: 32px;
-        justify-content: end;
+        justify-content: flex-end;
     }
 
     @media (max-width: 768px) {

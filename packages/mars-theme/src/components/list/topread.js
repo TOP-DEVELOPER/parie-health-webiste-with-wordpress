@@ -14,6 +14,33 @@ const TopRead = ({ state, item }) => {
 
   let i = 0;
 
+  let isReview = "no";
+  //let authorOne = '';
+  let authorTwo = '';
+  let reviewerURLRaw = '';
+  let reviewerURL = '';
+
+  isReview = item.medicalreview;
+
+  try {
+      //authorOne = item.authors[0].display_name;
+      authorTwo = item.authors[1].display_name;
+      //console.log(authorOne);
+      //console.log(authorTwo);
+
+  }catch(error) {
+      console.log(error.name + ":" + error.message);
+  }
+
+  try {
+      reviewerURLRaw = item.authors[1].reviewer_link;
+      reviewerURL = reviewerURLRaw.replace('/blog', '');
+      //console.log(reviewerURL);
+
+  } catch(error) {
+      console.log(error.name + ":" + error.message);
+  }
+
   return (
     <TopReads>
         <div className="ReadNumber"></div>
@@ -27,11 +54,17 @@ const TopRead = ({ state, item }) => {
                     <div className="PostAuthor">
                     {/* If the post has an author, we render a clickable author text. */}
                     {author && (
-                      <StyledLink link={author.link}>
-                        <AuthorName>
-                          {author.name}
-                        </AuthorName>
-                      </StyledLink>
+                        <div>
+                            { isReview == "yes" ?
+                                <StyledLink link={reviewerURL}>
+                                    <AuthorName>{authorTwo}</AuthorName>
+                                </StyledLink>
+                            :
+                                <StyledLink link={author.link}>
+                                    <AuthorName>{author.name}</AuthorName>
+                                </StyledLink>
+                            }
+                        </div>
                     )}
                     </div>
                     <div className="PostCat">

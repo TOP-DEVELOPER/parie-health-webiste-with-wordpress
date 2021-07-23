@@ -23,27 +23,45 @@ const Item = ({ state, item }) => {
   const stats = readingTime(item.content.rendered);
 
 
-  // let isReview = "";
-  // let xx = '';
-  //
-  // isReview = item.medicalreview;
-  //
-  // try {
-  //     xx = item.authors[1].display_name;
-  //     console.log(xx);
-  //
-  // }catch(error) {
-  //     console.log(error.name + ":" + error.message);
-  // }
+  //let isReview = "";
+  let isReview = "no";
+  //let authorOne = '';
+  let authorTwo = '';
+  //let revimgOne ='';
+  let revimgTwo ='';
+  let reviewerURLRaw = '';
+  let reviewerURL = '';
 
-  //console.log(isReview);
-  let revimg ='';
+  isReview = item.medicalreview;
 
   try {
-      revimg = state.source.author[author.id].prairieuser.reviewer_image;
-      console.log(revimg);
+      //authorOne = item.authors[0].display_name;
+      authorTwo = item.authors[1].display_name;
+      //console.log(authorOne);
+      //console.log(authorTwo);
+
   }catch(error) {
-      console.log(error.name + ":" + error.message);
+      //console.log(error.name + ":" + error.message);
+  }
+
+  try {
+      reviewerURLRaw = item.authors[1].reviewer_link;
+      reviewerURL = reviewerURLRaw.replace('/blog', '');
+      //console.log(reviewerURL);
+
+  } catch(error) {
+      //console.log(error.name + ":" + error.message);
+  }
+
+  //console.log(isReview);
+
+  //console.log(author);
+
+  try {
+      //revimgOne = item.authors[0].reviewer_image;
+      revimgTwo = item.authors[1].reviewer_image;
+  }catch(error) {
+      //console.log(error.name + ":" + error.message);
   }
 
   return (
@@ -77,15 +95,23 @@ const Item = ({ state, item }) => {
             <div className="otherMeta">
                 <div className="PostAuthor">
                     {author && (
-                      <StyledLink link={author.link}>
                         <AuthorName>
-                            { revimg ?
-                                <div><img src={revimg} className="authorAvatar"/><b>{author.name}</b></div>
+                            { isReview == "yes" ?
+                                <div className="multiAuthor">
+                                    <StyledLink link={reviewerURL}>
+                                        <img src={revimgTwo} className="authorAvatar"/><b>{authorTwo}</b>
+                                    </StyledLink>
+                                    {/* <StyledLink link={author.link}>
+                                        <img src={revimgOne} className="authorAvatar"/><b>{author.name}</b>
+                                    </StyledLink> */}
+                                </div>
                             :
-                                <div><img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b></div>
+                                <StyledLink link={author.link}>
+                                    <div><img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b></div>
+                                </StyledLink>
+
                             }
                         </AuthorName>
-                      </StyledLink>
                     )}
                 </div>
                 <div className="PostTime">

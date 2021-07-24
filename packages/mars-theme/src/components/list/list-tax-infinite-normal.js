@@ -202,9 +202,8 @@ const Container = styled.section`
     @media (max-width: 768px) {
         padding: 0 24px 64px;
     }
-    .AuthorHeading h3{
+    .AuthorHeading h1{
         text-transform: capitalize;
-        margin-bottom: 12px;
 
         @media (max-width: 336px) {
             margin: 1em 0;
@@ -256,7 +255,7 @@ const AuthorDescription = styled.div`
         margin: 0;
         max-width: 70%;
 
-        @media (max-width: 400px) {
+        @media (max-width: 700px) {
             max-width: 100%;
         }
     }
@@ -274,14 +273,10 @@ const AuthorSocial = styled.div`
     margin-left: 90px;
     margin-bottom: 36px;
 
-    @media (max-width: 600px) {
-        flex-direction: column;
-        justify-content: center;
-        margin-left: 0;
-    }
     @media (max-width: 400px) {
+        margin-left: 0;
         align-items: flex-start;
-        flex-direction: revert;
+        flex-direction: row;
         justify-content: flex-start;
     }
 

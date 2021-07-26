@@ -49,6 +49,8 @@ const Post = ({ state, actions, libraries }) => {
 
   let reviewerURLRaw = '';
   let reviewerURL = '';
+  let reviewerURLRaw0 = '';
+  let reviewerURL0 = '';
 
   let count = 0;
 
@@ -60,7 +62,7 @@ const Post = ({ state, actions, libraries }) => {
 
       urlValue = 1;
     } catch(error) {
-        console.log(error.name + ":" + error.message);
+        //console.log(error.name + ":" + error.message);
     }
 
     // Medical Reviewer
@@ -68,14 +70,16 @@ const Post = ({ state, actions, libraries }) => {
     try {
         reviewerURLRaw = post.authors[1].reviewer_link;
         reviewerURL = reviewerURLRaw.replace('/blog', '');
-        console.log(reviewerURL);
+
+        reviewerURLRaw0 = post.authors[0].reviewer_link;
+        reviewerURL0 = reviewerURLRaw0.replace('/blog', '');
+        //console.log(reviewerURL);
 
     } catch(error) {
-        console.log(error.name + ":" + error.message);
+        //console.log(error.name + ":" + error.message);
     }
 
     isReview = post.medicalreview;
-
 
 
   /**
@@ -136,7 +140,7 @@ const Post = ({ state, actions, libraries }) => {
 
                             <div className="mediallyReview">
                                 <p>Medically Reviewed By</p>
-                                <StyledLink link={author.link}>
+                                <StyledLink link={reviewerURL0}>
                                     <AuthorName>
                                       <img src={post.authors[0].reviewer_image} alt={post.authors[0].display_name} className="authorAvatar"/> <b>{post.authors[0].display_name}</b>
                                     </AuthorName>

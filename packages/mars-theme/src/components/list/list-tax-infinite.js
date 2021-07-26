@@ -46,7 +46,7 @@ class TaxInfiniteList extends Component {
         event.preventDefault();
         this.setState({ orderDefault: event.target.value });
 
-        console.log('oldest');
+        //console.log('oldest');
         if(event.target.value == "oldest") {
             orderState = 1;
         } else {

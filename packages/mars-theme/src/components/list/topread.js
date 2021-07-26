@@ -29,7 +29,7 @@ const TopRead = ({ state, item }) => {
       //console.log(authorTwo);
 
   }catch(error) {
-      console.log(error.name + ":" + error.message);
+      //console.log(error.name + ":" + error.message);
   }
 
   try {
@@ -38,7 +38,7 @@ const TopRead = ({ state, item }) => {
       //console.log(reviewerURL);
 
   } catch(error) {
-      console.log(error.name + ":" + error.message);
+      //console.log(error.name + ":" + error.message);
   }
 
   return (

@@ -47,7 +47,7 @@ const InfiniteListTaxNormal = ({ state, link }) => {
         weburl = state.source.author[data.id].prairieuser.website_prairie;
         hgrade = state.source.author[data.id].prairieuser.healthgrade_prairie;
     }catch(error) {
-        console.log(error.name + ":" + error.message);
+        //console.log(error.name + ":" + error.message);
     }
 
 

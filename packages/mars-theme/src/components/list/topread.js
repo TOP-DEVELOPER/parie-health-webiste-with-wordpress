@@ -25,8 +25,6 @@ const TopRead = ({ state, item }) => {
   try {
       //authorOne = item.authors[0].display_name;
       authorTwo = item.authors[1].display_name;
-      //console.log(authorOne);
-      //console.log(authorTwo);
 
   }catch(error) {
       //console.log(error.name + ":" + error.message);
@@ -35,7 +33,6 @@ const TopRead = ({ state, item }) => {
   try {
       reviewerURLRaw = item.authors[1].reviewer_link;
       reviewerURL = reviewerURLRaw.replace('/blog', '');
-      //console.log(reviewerURL);
 
   } catch(error) {
       //console.log(error.name + ":" + error.message);

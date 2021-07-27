@@ -853,6 +853,9 @@ const Content = styled.div`
       margin-right: 24px;
     }
   }
+  .hidden {
+      display: none;
+  }
 `;
 
 const Excerpt = styled.div`

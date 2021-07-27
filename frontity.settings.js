@@ -46,12 +46,8 @@ const settings = {
               "/category/medication/"
             ],
             [
-              "COVID",
-              "/category/covid/"
-            ],
-            [
-              "Lifestyle",
-              "/category/lifestyle/"
+              "About Prairie",
+              "/category/about-prairie/"
             ],
             [
               "Genetic Testing",

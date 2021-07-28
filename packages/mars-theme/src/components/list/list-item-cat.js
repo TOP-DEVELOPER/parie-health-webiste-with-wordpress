@@ -99,7 +99,7 @@ const Item = ({ state, item }) => {
                             { isReview == "yes" ?
                                 <div className="multiAuthor">
                                     <StyledLink link={reviewerURL}>
-                                        <img src={revimgTwo} className="authorAvatar"/><b>{authorTwo}</b>
+                                        <img src={revimgTwo} className="authorAvatar" alt={authorTwo} /><b>{authorTwo}</b>
                                     </StyledLink>
                                     {/* <StyledLink link={author.link}>
                                         <img src={revimgOne} className="authorAvatar"/><b>{author.name}</b>

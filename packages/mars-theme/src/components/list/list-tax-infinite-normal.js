@@ -72,9 +72,9 @@ const InfiniteListTaxNormal = ({ state, link }) => {
           <AuthorDescription>
               <div>
                 { revimg ?
-                      <img src= {decode(state.source.author[data.id].prairieuser.reviewer_image)}/>
+                      <img src= {decode(state.source.author[data.id].prairieuser.reviewer_image)} alt={decode(state.source.author[data.id].name)}/>
                     :
-                    <img src= {decode(state.source.author[data.id].avatar_urls[96])}/>
+                    <img src= {decode(state.source.author[data.id].avatar_urls[96])} alt={decode(state.source.author[data.id].name)}/>
                 }
               </div>
               <div><p>{decode(state.source.author[data.id].description)}</p></div>

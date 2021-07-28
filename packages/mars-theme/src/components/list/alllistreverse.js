@@ -29,7 +29,7 @@ return (
           {decode(state.source.author[data.id].name)}
         </Header>
         <AuthorDescription>
-            <div><img src= {decode(state.source.author[data.id].avatar_urls[96])}/></div>
+            <div><img src= {decode(state.source.author[data.id].avatar_urls[96])} alt={decode(state.source.author[data.id].name)}/></div>
             <div><p>{decode(state.source.author[data.id].description)}</p></div>
         </AuthorDescription>
         </div>

@@ -1,6 +1,6 @@
 import { connect, styled } from "frontity";
 import Link from "../link";
-import FeaturedMedia from "../featured-media";
+import FeaturedMediaMedium from "../featured-media-medium";
 import ReadingTime from '../../../img/reading-time.svg';
 
 
@@ -21,7 +21,7 @@ const StickyItem = ({ state, item }) => {
          * list of featured posts, we render the media.
          */}
         {state.theme.featured.showOnList && (
-          <Link link={item.link}><FeaturedMedia id={item.featured_media} /></Link>
+          <Link link={item.link}><FeaturedMediaMedium id={item.featured_media} /></Link>
         )}
         <PostCat>
             {item.categories.map( category => {

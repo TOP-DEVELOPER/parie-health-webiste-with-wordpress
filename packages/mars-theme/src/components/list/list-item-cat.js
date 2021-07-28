@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
-import FeaturedMedia from "../featured-media";
+import FeaturedMediaMedium from "../featured-media-medium";
 import ReadingTime from '../../../img/reading-time.svg';
 import FeaturedIcon from '../../../img/star.svg';
 
@@ -72,7 +72,7 @@ const Item = ({ state, item }) => {
          */}
          <FeaturedImage>
             {state.theme.featured.showOnList && (
-              <Link link={item.link}><FeaturedMedia id={item.featured_media} /></Link>
+              <Link link={item.link}><FeaturedMediaMedium id={item.featured_media} /></Link>
             )}
             <div className="PostCat">
                 {item.categories.map( category => {

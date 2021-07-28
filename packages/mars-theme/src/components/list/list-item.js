@@ -1,6 +1,6 @@
 import { connect, styled } from "frontity";
 import Link from "../link";
-import FeaturedMedia from "../featured-media";
+import FeaturedMediaNewArticles from "../featured-media-new-articles";
 import ReadingTime from '../../../img/reading-time.svg';
 
 
@@ -21,7 +21,6 @@ const Item = ({ state, item }) => {
   const readingTime = require('reading-time');
   const stats = readingTime(item.content.rendered);
 
-
   return (
 
     <article className={item.sticky.toString()}>
@@ -31,7 +30,7 @@ const Item = ({ state, item }) => {
          */}
          <FeaturedImage>
             {state.theme.featured.showOnList && (
-              <Link link={item.link}><FeaturedMedia id={item.featured_media} /></Link>
+              <Link link={item.link}><FeaturedMediaNewArticles id={item.featured_media} /></Link>
             )}
         </FeaturedImage>
         <PostMeta>

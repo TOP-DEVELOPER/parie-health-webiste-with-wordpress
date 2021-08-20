@@ -107,7 +107,8 @@ const Item = ({ state, item }) => {
                                 </div>
                             :
                                 <StyledLink link={author.link}>
-                                    <div><img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b></div>
+                                    <div>{/*<img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/>*/}
+                                        <img src={author.prairieuser.reviewer_image} alt={author.name} className="authorAvatar"/> <b>{author.name}</b></div>
                                 </StyledLink>
 
                             }

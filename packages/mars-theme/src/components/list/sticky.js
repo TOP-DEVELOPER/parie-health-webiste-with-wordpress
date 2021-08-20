@@ -42,7 +42,9 @@ const StickyItem = ({ state, item }) => {
                 {author && (
                   <StyledLink link={author.link}>
                     <AuthorName>
-                      <img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/> <b>{author.name}</b>
+                      {/*<img src={author.avatar_urls[48]} alt={author.name} className="authorAvatar"/>*/}
+                      <img src={author.prairieuser.reviewer_image} alt={author.name} className="authorAvatar"/>
+                      <b>{author.name}</b>
                     </AuthorName>
                   </StyledLink>
                 )}

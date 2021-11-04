@@ -65,6 +65,14 @@ const settings = {
       }
     },
     {
+      "name": "@frontity/google-tag-manager-analytics",
+      "state": {
+        "googleTagManagerAnalytics": {
+          "containerId": "GTM-WW5WH7N"
+        },
+      },
+    },
+    {
       "name": "@frontity/wp-source",
       "state": {
         "source": {

@@ -76,7 +76,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://www.prairiehealth.co/blog",
+          "url": "https://meeting.shopbylocals.com",
           "params": {
             "per_page": 12,
             "type": ["post"],
